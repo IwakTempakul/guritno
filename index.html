@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Duel Meriam English: Koin, Toko, AI, dan Angin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meriam Tempur v6: Combo, Koin, Toko, AI, dan Angin</title>
 <style>
 :root{
   --page:#dfe6ff; --ink:#0f1633; --cream:#f4f6ff;
@@ -23,18 +23,20 @@ button{cursor:pointer}
 @media (orientation:portrait){#rot{display:block}}
 
 #stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center center;
-  background:#5bb8ff;overflow:hidden}
-#cv{position:absolute;left:0;top:0;width:1600px;height:900px;display:block}
+  background:#5bb8ff;overflow:visible}
+#cv{position:absolute;left:0;top:0;width:1600px;height:900px;display:block;pointer-events:none}
 #fx{position:absolute;inset:0;pointer-events:none;z-index:40;overflow:hidden}
 
 /* ---------- KOIN ---------- */
-.coin{display:inline-block;position:relative;flex:none;width:32px;height:32px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#fff6bf,#ffc93c 55%,#d18a00);border:3px solid #a86400;
-  box-shadow:inset 0 0 0 3px rgba(255,255,255,.28);vertical-align:middle}
-.coin::after{content:"★";position:absolute;inset:0;display:grid;place-items:center;color:#a86400;font-size:16px;line-height:1}
-.coin.sm{width:22px;height:22px;border-width:2px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.28)}
-.coin.sm::after{font-size:11px}
-.coinfx{position:absolute;width:34px;height:34px}
+/* koin emas: sisi depan, inti, dan sisi belakang bertumpuk di ruang 3D agar tebalnya terlihat saat berputar */
+:root{--ball-n:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-b:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23ff6a3d%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-i:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%235ce1ff%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cg fill=%27%23eafaff%27 fill-opacity=%27.9%27%3E%3Cpath d=%27M 22 -30 l 2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z%27/%3E%3Cpath d=%27M 30 -10 l 1.2 3.5 3.5 1.2 -3.5 1.2 -1.2 3.5 -1.2 -3.5 -3.5 -1.2 3.5 -1.2z%27/%3E%3C/g%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-t:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 29) scale(.46)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(29 69) scale(.46)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(71 69) scale(.46)%27/%3E%3C/svg%3E");--coinimg:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%0A%3ClinearGradient id=%27rim%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff4b0%27/%3E%3Cstop offset=%27.35%27 stop-color=%27%23f2b82a%27/%3E%3Cstop offset=%27.7%27 stop-color=%27%23b87408%27/%3E%3Cstop offset=%271%27 stop-color=%27%236e3f00%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27gv%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%238a5200%27/%3E%3Cstop offset=%271%27 stop-color=%27%23ffe58a%27/%3E%3C/linearGradient%3E%0A%3CradialGradient id=%27face%27 cx=%27.38%27 cy=%27.32%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff1a0%27/%3E%3Cstop offset=%27.45%27 stop-color=%27%23f7c635%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c98608%27/%3E%3C/radialGradient%3E%0A%3CradialGradient id=%27vig%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%27.6%27 stop-color=%27%236e3e00%27 stop-opacity=%270%27/%3E%3Cstop offset=%271%27 stop-color=%27%236e3e00%27 stop-opacity=%27.45%27/%3E%3C/radialGradient%3E%0A%3ClinearGradient id=%27band%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%27.36%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%27.5%27 stop-color=%27%23fff%27 stop-opacity=%27.42%27/%3E%3Cstop offset=%27.64%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27st%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff7c8%27/%3E%3Cstop offset=%27.5%27 stop-color=%27%23f9cf45%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c5820a%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27gl%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.75%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/linearGradient%3E%0A%3CclipPath id=%27fc%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2738%27/%3E%3C/clipPath%3E%3CclipPath id=%27cc%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748.6%27/%3E%3C/clipPath%3E%0A%3Cfilter id=%27gr%27 x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%271.4%27 numOctaves=%272%27 seed=%274%27/%3E%3CfeColorMatrix values=%270 0 0 0 .42  0 0 0 0 .25  0 0 0 0 0  .9 0 0 0 -.32%27/%3E%3C/filter%3E%0A%3Cg id=%27G%27 fill=%27none%27 stroke-linejoin=%27miter%27 stroke-linecap=%27butt%27%3E%3Cpath d=%27M 63.8 40.2 A 17.5 17.5 0 1 0 64.8 60.3 L 64.8 51 L 50.5 51%27/%3E%3Cpath d=%27M 50.5 51 L 50.5 57.5%27 stroke-width=%270%27/%3E%3C/g%3E%3C/defs%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2749%27 fill=%27url(%23rim)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2746.6%27 fill=%27none%27 stroke=%27%236e4200%27 stroke-opacity=%27.55%27 stroke-width=%273.4%27 stroke-dasharray=%271.4 1.9%27/%3E%0A%3Cpath d=%27M 4.7 66.5 A 48.2 48.2 0 0 1 66.5 4.7%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.7%27 stroke-width=%271.3%27 stroke-linecap=%27round%27/%3E%0A%3Cpath d=%27M 95.3 33.5 A 48.2 48.2 0 0 1 33.5 95.3%27 fill=%27none%27 stroke=%27%233d2200%27 stroke-opacity=%27.55%27 stroke-width=%271.3%27 stroke-linecap=%27round%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2743.5%27 fill=%27url(%23gv)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23face)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23vig)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23band)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2735.5%27 fill=%27none%27 stroke=%27%23a86a06%27 stroke-opacity=%27.7%27 stroke-width=%271.6%27 stroke-dasharray=%271 3.1%27 stroke-linecap=%27round%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2731.2%27 fill=%27none%27 stroke=%27%23fff6c0%27 stroke-opacity=%27.5%27 stroke-width=%27.9%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%237a4600%27 stroke-opacity=%27.6%27 stroke-width=%278.6%27 transform=%27translate(1.4 1.7)%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%23fffbd0%27 stroke-opacity=%27.9%27 stroke-width=%278.6%27 transform=%27translate(-1.1 -1.3)%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%23b57508%27 stroke-width=%279.2%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27url(%23st)%27 stroke-width=%277.6%27/%3E%0A%3Cg clip-path=%27url(%23fc)%27%3E%3Cellipse cx=%2736%27 cy=%2725%27 rx=%2727%27 ry=%2713%27 transform=%27rotate(-32 36 25)%27 fill=%27url(%23gl)%27 fill-opacity=%27.5%27/%3E%3C/g%3E%0A%3Crect width=%27100%27 height=%27100%27 filter=%27url(%23gr)%27 clip-path=%27url(%23cc)%27 opacity=%27.55%27/%3E%3C/svg%3E")}
+.coin{display:inline-block;position:relative;flex:none;width:34px;height:34px;vertical-align:middle;
+  background:var(--coinimg) center/contain no-repeat;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
+.coin.sm{width:24px;height:24px;filter:none;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.coinfx{position:absolute;width:34px;height:34px;filter:none;transform-style:preserve-3d;backface-visibility:hidden;box-shadow:0 5px 9px rgba(0,0,0,.28);border-radius:50%}
+.coinfx::before,.coinfx::after{content:"";position:absolute;inset:0;border-radius:50%}
+.coinfx::before{background:linear-gradient(90deg,#7a4600,#e9b02c 50%,#7a4600);transform:translateZ(-1.6px)}
+.coinfx::after{background:var(--coinimg) center/contain no-repeat;transform:translateZ(-3.2px) rotateY(180deg);backface-visibility:hidden}
 .spark{position:absolute;width:12px;height:12px;background:#fff3a0;
   clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
 .pop{position:absolute;font-weight:900;font-size:26px;white-space:nowrap;text-shadow:0 2px 0 #0d1330,0 0 6px #0d1330}
@@ -76,10 +78,10 @@ button{cursor:pointer}
 .mag{display:flex;align-items:center;gap:5px;height:24px;padding-left:2px}
 .mag i{display:block;flex:none;width:18px;height:18px;border-radius:50%;border:3px solid rgba(255,255,255,.5)}
 .mag i.x{display:none}
-.mag i.n{background:#ffd166;border-color:#ffd166}
-.mag i.b{background:#ff6a3d;border-color:#ff6a3d}
-.mag i.t{background:#e05cff;border-color:#e05cff}
-.mag i.i{background:#5ce1ff;border-color:#5ce1ff}
+.mag i.n,.mag i.b,.mag i.t,.mag i.i{width:21px;height:21px;border:0;border-radius:0;background:var(--ball-n) center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+.mag i.b{background-image:var(--ball-b)}
+.mag i.t{background-image:var(--ball-t)}
+.mag i.i{background-image:var(--ball-i)}
 .mag .sts{margin-left:auto;font-size:17px;letter-spacing:2px;white-space:nowrap}
 .cl-btns{display:flex;gap:6px;flex:1;min-height:0}
 .hb{flex:none;width:60px;border:none;border-radius:12px;background:#e9edff;color:#0f1633;font-size:26px;
@@ -129,18 +131,20 @@ button{cursor:pointer}
 .ans button.ok{background:var(--green)}
 .ans button.bad{background:var(--bad)}
 
-.shop{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,1fr);gap:6px}
+.shop{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,1fr);gap:6px;will-change:transform;contain:layout paint;backface-visibility:hidden}
 .item{display:flex;align-items:center;gap:6px;border:none;border-radius:12px;background:var(--cream);color:var(--ink);
   padding:0 8px;text-align:left;min-width:0}
 .item .ic{flex:none;width:28px;height:28px;display:grid;place-items:center;font-size:21px}
 .item .ic.am{border-radius:50%;background:var(--c);font-size:15px}
+.ball{display:block;width:28px;height:28px;background:var(--ball-n) center/contain no-repeat}.ball.n,.ball.b,.ball.i{border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.45)}
+.ball.b{background-image:var(--ball-b)}.ball.t{background-image:var(--ball-t)}.ball.i{background-image:var(--ball-i)}
 .item .tx{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.08}
 .item .tx b{font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .tx small{font-size:12px;opacity:.72;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .pr{flex:none;display:flex;align-items:center;gap:4px;font-weight:900;font-size:19px}
 .item.poor .pr{color:#c62828}
 .item.off{opacity:.42}
-.item:active:not(.off){filter:brightness(.92)}
+.item:active:not(.off){background:#e4e9fb}
 .item.shake{animation:shake .32s}
 @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 
@@ -166,19 +170,21 @@ button{cursor:pointer}
 
 /* ---------- OVERLAY ---------- */
 .ov{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:30;
-  background:rgba(9,14,40,.8)}
+  background:none}
+.ov::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:calc(var(--ey,0)*-1px) calc(var(--ex,0)*-1px);background:rgba(9,14,40,.8)}
+.ov.peek::before{background:transparent}
 .ov.show{display:flex}
 .ov.peek{background:transparent}
 .ov.peek .card{display:none}
 #btnPeekBack{display:none;position:absolute;top:80px;left:50%;transform:translateX(-50%)}
 .ov.peek #btnPeekBack{display:block}
-.card{background:#151d47;border:3px solid rgba(255,255,255,.22);border-radius:28px;padding:26px 38px;
+.card{max-height:880px;overflow-y:auto;background:#151d47;border:3px solid rgba(255,255,255,.22);border-radius:28px;padding:22px 36px;
   box-shadow:0 14px 0 -4px rgba(0,0,0,.3)}
 .card h1{margin:0;font-size:48px;color:#ffd166;line-height:1.05}
 .card h2{margin:0 0 10px;font-size:27px}
 .menu{width:1300px}
 .menu .sub{margin:4px 0 12px;font-size:20px;opacity:.95}
-.menu-grid{display:grid;grid-template-columns:400px minmax(0,1fr);gap:36px}
+.menu-grid{display:grid;grid-template-columns:480px minmax(0,1fr);gap:32px}
 .how ol{margin:0;padding-left:26px;font-size:20px;line-height:1.32}
 .how li{margin-bottom:9px}
 .how .lvl{margin-top:14px;font-size:17px;opacity:.9;line-height:1.35}
@@ -205,9 +211,9 @@ button{cursor:pointer}
 .swatch[hidden]{display:none}
 .sw{position:relative;width:40px;height:40px;padding:0;border-radius:50%;border:3px solid rgba(255,255,255,.45);background:var(--c)}
 .sw[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 3px #0b112e,0 0 0 6px #fff}
-.sw[aria-pressed="true"]::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:var(--i);font-size:22px;font-weight:900}
+.sw[aria-pressed="true"]::after{content:"";position:absolute;inset:0;background:var(--i);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M5 12.500l4.500 4.500L19 7%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.600%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center/24px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M5 12.500l4.500 4.500L19 7%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.600%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center/24px no-repeat}
 .sw:disabled{opacity:.3;cursor:not-allowed}
-.sw:disabled::after{content:"✕";position:absolute;inset:0;display:grid;place-items:center;color:var(--i);font-size:18px;font-weight:900}
+.sw:disabled::after{content:"";position:absolute;inset:0;background:var(--i);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M6 6l12 12M18 6L6 18%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.400%27 stroke-linecap=%27round%27/%3E%3C/svg%3E") center/20px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M6 6l12 12M18 6L6 18%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.400%27 stroke-linecap=%27round%27/%3E%3C/svg%3E") center/20px no-repeat}
 .big{display:block;margin:16px auto 0;min-width:420px;height:64px;border:none;border-radius:20px;
   background:linear-gradient(#ffc245,#ff9f1a);color:#2a1a00;font-size:32px;font-weight:900;box-shadow:0 8px 0 #b56a00}
 .big:active{transform:translateY(5px);box-shadow:0 3px 0 #b56a00}
@@ -232,10 +238,64 @@ button{cursor:pointer}
 .pause{width:640px;text-align:center}
 .pause .btns{display:flex;flex-direction:column;gap:14px;margin-top:22px;align-items:center}
 .pause .solid{min-width:340px}
+.tbl th,.tbl td{padding:4px 12px}.tbl td,.tbl th{font-size:20px}
+.rvg{display:grid;grid-template-columns:1fr 1fr;gap:18px;text-align:left;margin-top:8px}
+.rv h3{margin:0 0 4px;font-size:18px}.rv p{margin:2px 0;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ptag{margin-left:6px;font-size:12px;font-weight:800;background:rgba(255,255,255,.16);border-radius:8px;padding:2px 6px;white-space:nowrap}
+.si{width:1.1em;height:1.1em;display:inline-block;vertical-align:-.2em;flex:none;overflow:visible}
+.ib .si{width:24px;height:24px;vertical-align:middle}
+.hb .si{width:30px;height:30px;vertical-align:middle}
+.item .ic .si{width:24px;height:24px;vertical-align:middle}.item .ic.am .si{width:19px;height:19px}
+.avatar .si{width:46px;height:46px}.aitag .si{width:24px;height:24px}
+.tab .si{width:22px;height:22px;vertical-align:-.3em}.ptag .si{width:14px;height:14px;vertical-align:-.25em;margin-right:2px}
+.mag .sts .si{width:19px;height:19px;margin-left:2px}.fb .si{width:22px;height:22px;margin-right:5px;vertical-align:middle}
+.ailog .si{width:20px;height:20px;margin-right:6px;vertical-align:-.3em}
+.rv h3 .si{width:24px;height:24px;margin-right:6px}.card h1 .si{width:46px;height:46px;vertical-align:-.15em;margin-right:6px}
+.tbl .si{width:22px;height:22px}.wnd .si{width:.8em;height:.8em}
 </style>
 </head>
 <body>
-<div id="rot">Untuk tampilan terbaik, gunakan layar landscape (papan tulis digital atau laptop).</div>
+<svg id="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
+<linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a8"/><stop offset=".5" stop-color="#f7c635"/><stop offset="1" stop-color="#c98608"/></linearGradient>
+<linearGradient id="gSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7fc"/><stop offset=".55" stop-color="#b4c0d4"/><stop offset="1" stop-color="#6f7f9a"/></linearGradient>
+<linearGradient id="gRed" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a8a"/><stop offset="1" stop-color="#d12f2f"/></linearGradient>
+<linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4ff"/><stop offset="1" stop-color="#2468d8"/></linearGradient>
+<linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ef0b0"/><stop offset="1" stop-color="#1f9d57"/></linearGradient>
+<linearGradient id="gFire" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd24a"/><stop offset=".5" stop-color="#ff8a2a"/><stop offset="1" stop-color="#e02f1f"/></linearGradient>
+</defs>
+<symbol id="i-pause" viewBox="0 0 32 32"><rect x="8" y="6" width="5.5" height="20" rx="2" fill="currentColor"/><rect x="18.5" y="6" width="5.5" height="20" rx="2" fill="currentColor"/></symbol>
+<symbol id="i-snd" viewBox="0 0 32 32"><path d="M4 12h5l7-6v20l-7-6H4z" fill="currentColor"/><path d="M20 11a7 7 0 0 1 0 10M23.5 7.5a12 12 0 0 1 0 17" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="i-mute" viewBox="0 0 32 32"><path d="M4 12h5l7-6v20l-7-6H4z" fill="currentColor"/><path d="M21 12l8 8M29 12l-8 8" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></symbol>
+<symbol id="i-full" viewBox="0 0 32 32"><path d="M5 12V5h7M20 5h7v7M27 20v7h-7M12 27H5v-7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-up" viewBox="0 0 32 32"><path d="M7 21l9-10 9 10" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-down" viewBox="0 0 32 32"><path d="M7 11l9 10 9-10" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-r" viewBox="0 0 32 32"><path d="M11 6l11 10-11 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-l" viewBox="0 0 32 32"><path d="M21 6L10 16l11 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-ok" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="url(#gGreen)"/><path d="M9.5 16.5l5 5 8.5-10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-no" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="url(#gRed)"/><path d="M10.5 10.5l11 11M21.5 10.5l-11 11" stroke="#fff" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="i-fire" viewBox="0 0 32 32"><path d="M16 2c1 7 9 10 9 18a9 9 0 0 1-18 0c0-5 3-7 4.500-11 2 2 2.500 4 3 5 1.500-3 1.500-7 1.500-12z" fill="url(#gFire)" stroke="#a8260f" stroke-width="1.2" stroke-linejoin="round"/><path d="M16 15c2.500 3 4.500 4.500 4.500 8a4.500 4.500 0 0 1-9 0c0-3 3.500-4.500 4.500-8z" fill="#ffe27a"/></symbol>
+<symbol id="i-boom" viewBox="0 0 32 32"><polygon points="16,2 19.500,10.500 28,6 23.500,14 30,18 22,20 24,29 16,23.500 8,29 10,20 2,18 8.500,14 4,6 12.500,10.500" fill="#fff3b0" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><polygon points="16,8 18,13.500 23,12 20.500,16.500 24,19.500 19,20 19.500,25 16,21.500 12.500,25 13,20 8,19.500 11.500,16.500 9,12 14,13.500" fill="#ff9a2a"/></symbol>
+<symbol id="i-target" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="#fff"/><circle cx="16" cy="16" r="8.500" fill="#d13a3a"/><circle cx="16" cy="16" r="5" fill="#fff"/><circle cx="16" cy="16" r="2.200" fill="#d13a3a"/></symbol>
+<symbol id="i-snow" viewBox="0 0 32 32"><g fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><g id="sa"><path d="M16 3.500v25M12 7l4 3.500L20 7M12 25l4-3.500 4 3.500"/></g><use href="#sa" transform="rotate(60 16 16)"/><use href="#sa" transform="rotate(120 16 16)"/></g></symbol>
+<symbol id="i-upg" viewBox="0 0 32 32"><path d="M16 3L28 16h-7.500v13h-9V16H4z" fill="url(#gGreen)" stroke="#12663a" stroke-width="1.600" stroke-linejoin="round"/><path d="M16 7l7 8h-4.500v11h-5V15H9z" fill="#fff" fill-opacity=".28"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 32 32"><g transform="rotate(-45 16 16)"><rect x="13.500" y="12" width="5" height="18" rx="2.500" fill="url(#gSteel)" stroke="#55627a" stroke-width="1.200"/><path fill-rule="evenodd" d="M16 1.500a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM12.800 1.500h6.400V9h-6.400z" fill="url(#gSteel)" stroke="#55627a" stroke-width="1.200" stroke-linejoin="round"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 2.500l11.500 4v8.500c0 7-5 12-11.500 14.500C9.500 27 4.500 22 4.500 15V6.500z" fill="url(#gBlue)" stroke="#173f94" stroke-width="1.600" stroke-linejoin="round"/><path d="M16 6l8 2.800v6.200c0 5-3.500 8.500-8 10.500z" fill="#fff" fill-opacity=".3"/><path d="M16 9.500l1.800 3.800 4.200.5-3.100 2.800.9 4.100-3.800-2.100-3.800 2.100.9-4.100-3.100-2.800 4.200-.5z" fill="#fff"/></symbol>
+<symbol id="i-radar" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13.500" fill="#0e3b2a" stroke="#5fe0a0" stroke-width="1.600"/><circle cx="16" cy="16" r="8.500" fill="none" stroke="#5fe0a0" stroke-opacity=".7" stroke-width="1.200"/><circle cx="16" cy="16" r="3.800" fill="none" stroke="#5fe0a0" stroke-opacity=".7" stroke-width="1.200"/><path d="M16 16L16 3.500A12.500 12.500 0 0 1 27.500 11z" fill="#5fe0a0" fill-opacity=".45"/><path d="M16 16L16 3.500" stroke="#c8ffe0" stroke-width="1.800" stroke-linecap="round"/><circle cx="22.500" cy="20" r="2.200" fill="#ff6b6b"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 32 32"><path d="M19 1.500L6 18.500h8l-2 12 14-18h-8.500z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.600" stroke-linejoin="round"/></symbol>
+<symbol id="i-plane" viewBox="0 0 32 32"><path d="M29 16L19.500 12.500 14 3h-3.500l3.200 9.500-7.200 1.200L4.300 9.500H2l1.300 6.500L2 22.500h2.300l2.200-4.200 7.200 1.200L10.500 29H14l5.500-9.500z" fill="url(#gSteel)" stroke="#55627a" stroke-width="1.300" stroke-linejoin="round"/><circle cx="23.500" cy="16" r="1.400" fill="#4a9be8"/></symbol>
+<symbol id="i-wind" viewBox="0 0 32 32"><path d="M3 11h15a4 4 0 1 0-4-4M3 17h22a4 4 0 1 1-4 4M3 23h11" fill="none" stroke="currentColor" stroke-width="2.800" stroke-linecap="round"/></symbol>
+<symbol id="i-bot" viewBox="0 0 32 32"><path d="M16 3v4" stroke="#6f7f9a" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="3.200" r="2" fill="#ff5a5a"/><rect x="3.500" y="13" width="3" height="7" rx="1.500" fill="#8794ad"/><rect x="25.500" y="13" width="3" height="7" rx="1.500" fill="#8794ad"/><rect x="6" y="7.500" width="20" height="18" rx="6" fill="url(#gSteel)" stroke="#55627a" stroke-width="1.400"/><rect x="9" y="11.500" width="14" height="8.500" rx="3.500" fill="#1a2547"/><circle cx="13" cy="15.700" r="2.200" fill="#5ce1ff"/><circle cx="19" cy="15.700" r="2.200" fill="#5ce1ff"/><path d="M12.500 23h7" stroke="#55627a" stroke-width="1.800" stroke-linecap="round"/></symbol>
+<symbol id="i-botcool" viewBox="0 0 32 32"><path d="M16 3v4" stroke="#6f7f9a" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="3.200" r="2" fill="#3ddc84"/><rect x="3.500" y="13" width="3" height="7" rx="1.500" fill="#8794ad"/><rect x="25.500" y="13" width="3" height="7" rx="1.500" fill="#8794ad"/><rect x="6" y="7.500" width="20" height="18" rx="6" fill="url(#gSteel)" stroke="#55627a" stroke-width="1.400"/><rect x="8" y="11.500" width="16" height="5.500" rx="2.500" fill="#10162e"/><path d="M10 12.500h4" stroke="#7a86b0" stroke-width="1.200" stroke-linecap="round"/><path d="M11 21c3 3 7 3 10 0" fill="none" stroke="#33405f" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-botdizzy" viewBox="0 0 32 32"><path d="M16 3v4" stroke="#6f7f9a" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="3.200" r="2" fill="#ffb020"/><rect x="3.500" y="13" width="3" height="7" rx="1.500" fill="#8794ad"/><rect x="25.500" y="13" width="3" height="7" rx="1.500" fill="#8794ad"/><rect x="6" y="7.500" width="20" height="18" rx="6" fill="url(#gSteel)" stroke="#55627a" stroke-width="1.400"/><rect x="9" y="11.500" width="14" height="8.500" rx="3.500" fill="#1a2547"/><path d="M11 13.500l4 4.500M15 13.500L11 18M17 13.500l4 4.500M21 13.500L17 18" stroke="#ff7a7a" stroke-width="1.700" stroke-linecap="round"/><path d="M11 23.500q1.300-1.800 2.600 0t2.600 0 2.600 0 2.600 0" fill="none" stroke="#55627a" stroke-width="1.600" stroke-linecap="round"/></symbol>
+<symbol id="i-weight" viewBox="0 0 32 32"><path d="M10.500 12a5.500 5.500 0 0 1 11 0" fill="none" stroke="#b8c4da" stroke-width="3.200" stroke-linecap="round"/><path d="M16 9c-7.500 0-11 5-11 10.500C5 25 9.500 29 16 29s11-4 11-9.500C27 14 23.500 9 16 9z" fill="#7a89a8" stroke="#2c3550" stroke-width="1.400"/><ellipse cx="12" cy="17" rx="3.500" ry="4.500" fill="#fff" fill-opacity=".25" transform="rotate(20 12 17)"/></symbol>
+<symbol id="i-ask" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13.500" fill="url(#gBlue)" stroke="#173f94" stroke-width="1.400"/><path d="M11.500 12.500a4.700 4.700 0 1 1 6.600 4.200c-1.400.8-2.100 1.700-2.100 3.200" fill="none" stroke="#fff" stroke-width="3.200" stroke-linecap="round"/><circle cx="16" cy="24" r="1.900" fill="#fff"/></symbol>
+<symbol id="i-cart" viewBox="0 0 32 32"><path d="M3 5h4.500l3.300 15.500h14.500" fill="none" stroke="currentColor" stroke-width="2.800" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.500 9h18.500l-2.400 9.500H11.200z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.300" stroke-linejoin="round"/><circle cx="12.500" cy="26" r="2.600" fill="currentColor"/><circle cx="23" cy="26" r="2.600" fill="currentColor"/></symbol>
+<symbol id="i-memo" viewBox="0 0 32 32"><rect x="5" y="3.500" width="19" height="25" rx="3" fill="#fff8e1" stroke="#b8a46a" stroke-width="1.400"/><path d="M9 10h11M9 15h11M9 20h7" stroke="#6b8bd6" stroke-width="2" stroke-linecap="round"/><path d="M21 27l1-5 8-9 4 4-9 8z" transform="translate(-4 -2) scale(.9)" fill="#ffd24a" stroke="#a8761a" stroke-width="1.300" stroke-linejoin="round"/></symbol>
+<symbol id="i-party" viewBox="0 0 32 32"><path d="M3 29L9 10l13 13z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.400" stroke-linejoin="round"/><path d="M6.500 20l5.500 5.500M8.500 14.500l9 9" stroke="#e24a4a" stroke-width="2.200" stroke-linecap="round"/><path d="M15 9c1-4 4-4 5-7M20 14c3-1 5-4 9-3M18 11c3-3 7-3 9-6" fill="none" stroke="#4aa8ff" stroke-width="1.800" stroke-linecap="round"/><circle cx="24" cy="4" r="1.600" fill="#ff6ea8"/><circle cx="28" cy="16" r="1.600" fill="#3ddc84"/><circle cx="13" cy="3.500" r="1.500" fill="#ffd24a"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 32 32"><path d="M9 4h14v8a7 7 0 0 1-14 0z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.500" stroke-linejoin="round"/><path d="M9 7H4.500c0 5 2 8 5.500 8.500M23 7h4.500c0 5-2 8-5.500 8.500" fill="none" stroke="#c98608" stroke-width="2.200" stroke-linecap="round"/><path d="M16 19v5M11 28h10l-1.500-4h-7z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.500" stroke-linejoin="round"/><path d="M12 6v6" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-heart" viewBox="0 0 32 32"><path d="M16 28.500C4.500 20 2.500 12.500 7.500 7.500c3.800-3.300 7.500-1 8.500 2 1-3 4.700-5.300 8.500-2 5 5 3 12.500-8.500 21z" fill="url(#gRed)" stroke="#9a1c1c" stroke-width="1.400" stroke-linejoin="round"/><path d="M9 10c1-1.500 3-2 4.500-1" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+<div id="rot" data-i="rot">Untuk tampilan terbaik, gunakan layar landscape (papan tulis digital atau laptop).</div>
 
 <div id="stage">
   <canvas id="cv" width="1600" height="900"></canvas>
@@ -244,97 +304,100 @@ button{cursor:pointer}
     <div class="pill" id="pill0" style="--tc:#ff5a4f"><span class="dot"></span><span class="pname" id="pn0"></span><span class="score" id="ps0"></span></div>
     <div class="center">
       <div class="timer" id="timer">10:00</div>
-      <button class="ib" id="btnPause" aria-label="Jeda permainan">⏸</button>
-      <button class="ib" id="btnSound" aria-label="Suara nyala atau mati">🔊</button>
-      <button class="ib" id="btnFull" aria-label="Layar penuh">⛶</button>
+      <button class="ib" id="btnPause" data-i-aria="ar.pause" aria-label="Jeda permainan"><svg class="si" aria-hidden="true"><use href="#i-pause"/></svg></button>
+      <button class="ib" id="btnSound" data-i-aria="ar.sound" aria-label="Suara nyala atau mati"><svg class="si" aria-hidden="true"><use href="#i-snd"/></svg></button>
+      <button class="ib" id="btnFull" data-i-aria="ar.full" aria-label="Layar penuh"><svg class="si" aria-hidden="true"><use href="#i-full"/></svg></button>
     </div>
     <div class="pill right" id="pill1" style="--tc:#3aa0ff"><span class="dot"></span><span class="pname" id="pn1"></span><span class="score" id="ps1"></span></div>
   </div>
 
   <div class="wind" id="windBox">Angin</div>
 
-  <section class="panel left" id="panel0" style="--tc:#ff5a4f" aria-label="Panel tim kiri"></section>
-  <section class="panel right" id="panel1" style="--tc:#3aa0ff" aria-label="Panel tim kanan"></section>
+  <section class="panel left" id="panel0" style="--tc:#ff5a4f" data-i-aria="ar.panelL" aria-label="Panel tim kiri"></section>
+  <section class="panel right" id="panel1" style="--tc:#3aa0ff" data-i-aria="ar.panelR" aria-label="Panel tim kanan"></section>
   <div id="fx"></div>
 
   <!-- MENU -->
   <div class="ov show" id="ovMenu">
-    <button class="solid" id="btnPeekBack" type="button">Kembali ke menu</button>
+    <button class="solid" id="btnPeekBack" type="button" data-i="back.menu">Kembali ke menu</button>
     <div class="card menu">
-      <h1>Duel Meriam English</h1>
-      <p class="sub">Jawab soal untuk dapat koin, belanja di toko, naikkan level meriam sampai Lv 10, lalu hancurkan meriam lawan.</p>
+      <h1 data-i="title">Meriam Tempur</h1>
+      <p class="sub" data-i="sub">Jawab soal untuk dapat koin, belanja di toko, naikkan level meriam sampai Lv 10, lalu hancurkan meriam lawan.</p>
       <div class="menu-grid">
         <div class="how">
-          <h2>Cara main</h2>
+          <h2 data-i="how.h">Cara main</h2>
           <ol>
-            <li>Jawaban benar di tab <b>Soal</b> menghasilkan <b>1 koin</b>.</li>
-            <li>Buka tab <b>Toko</b>: beli peluru, upgrade meriam, perbaiki, perisai, dan lainnya. Ketuk kotak meriam (bertanda TARGET) untuk memilih meriam yang dibeli.</li>
-            <li>Atur sudut dengan ▲ ▼. <b>Tahan TEMBAK</b> untuk mengisi tenaga, lepas untuk menembak. Bendera menunjukkan arah dan kecepatan angin.</li>
-            <li>Hancurkan kedua meriam lawan. Bila waktu habis, nyawa meriam terbanyak menang.</li>
+            <li data-i="how1">Jawaban benar di tab <b>Soal</b> menghasilkan <b>1 koin</b>. Tiga benar beruntun = <b>combo +1 koin</b>.</li>
+            <li data-i="how2">Buka tab <b>Toko</b>: beli peluru, upgrade meriam, perbaiki, perisai, radar bidik, bom udara, dan lainnya. Meriam 1 = <b>Berat</b> (damage besar, isi ulang lambat), meriam 2 = <b>Cepat</b>. Ketuk kotak meriam (bertanda TARGET) untuk memilih meriam yang dibeli.</li>
+            <li data-i="how3">Atur sudut dengan <svg class="si" aria-hidden="true"><use href="#i-up"/></svg> <svg class="si" aria-hidden="true"><use href="#i-down"/></svg>. <b>Tahan TEMBAK</b> untuk mengisi tenaga, lepas untuk menembak. Bendera menunjukkan arah dan kecepatan angin.</li>
+            <li data-i="how4">Hancurkan kedua meriam lawan. Bila waktu habis, nyawa meriam terbanyak menang.</li>
           </ol>
-          <p class="lvl">Meriam mulai dari Lv 1 (damage maks. 5) sampai Lv 10 (damage maks. 120). Mode AI: tim kanan dimainkan komputer dengan aturan yang sama.</p>
+          <p class="lvl" data-i="lvl">Meriam mulai dari Lv 1 (damage maks. 5) sampai Lv 10 (damage maks. 120). Peluru berapi mulai Lv 7. Meriam yang hancur dibangun ulang dari Lv 1. Mode AI: tim kanan dimainkan komputer dengan aturan yang sama.</p>
         </div>
         <div class="set">
           <div class="tfield">
-            <label for="inN0">Nama tim kiri</label>
+            <label for="inN0" data-i="lbl.n0">Nama tim kiri</label>
             <div class="trow">
-              <input type="text" id="inN0" maxlength="14" placeholder="Tim Kiri">
-              <button type="button" class="cbtn" id="cb0" data-t="0" aria-haspopup="true" aria-expanded="false" aria-controls="sw0"><i class="cdot"></i><span>Warna</span></button>
+              <input type="text" id="inN0" maxlength="14" data-i-ph="ph.n0" placeholder="Tim Kiri">
+              <button type="button" class="cbtn" id="cb0" data-t="0" aria-haspopup="true" aria-expanded="false" aria-controls="sw0"><i class="cdot"></i><span data-i="btn.color">Warna</span></button>
             </div>
-            <div class="swatch" id="sw0" role="group" aria-label="Pilih warna tim kiri" hidden></div>
+            <div class="swatch" id="sw0" role="group" data-i-aria="ar.pickL" aria-label="Pilih warna tim kiri" hidden></div>
           </div>
           <div class="tfield">
-            <label for="inN1">Nama tim kanan</label>
+            <label for="inN1" data-i="lbl.n1">Nama tim kanan</label>
             <div class="trow">
-              <input type="text" id="inN1" maxlength="14" placeholder="Tim Kanan">
-              <button type="button" class="cbtn" id="cb1" data-t="1" aria-haspopup="true" aria-expanded="false" aria-controls="sw1"><i class="cdot"></i><span>Warna</span></button>
+              <input type="text" id="inN1" maxlength="14" data-i-ph="ph.n1" placeholder="Tim Kanan">
+              <button type="button" class="cbtn" id="cb1" data-t="1" aria-haspopup="true" aria-expanded="false" aria-controls="sw1"><i class="cdot"></i><span data-i="btn.color">Warna</span></button>
             </div>
-            <div class="swatch r" id="sw1" role="group" aria-label="Pilih warna tim kanan" hidden></div>
+            <div class="swatch r" id="sw1" role="group" data-i-aria="ar.pickR" aria-label="Pilih warna tim kanan" hidden></div>
           </div>
-          <label>Mode bermain
-            <select id="inMode"><option value="pvp">Dua tim manusia</option>
-              <option value="ai-mudah">Lawan AI: Mudah</option><option value="ai-sedang">Lawan AI: Sedang</option><option value="ai-sulit">Lawan AI: Sulit</option></select></label>
-          <label>Waktu main
-            <select id="inDur"><option value="5">5 menit</option><option value="10">10 menit</option><option value="15">15 menit</option><option value="0">Tanpa batas</option></select></label>
-          <label>Arena
+          <label><span data-i="lbl.mode">Mode bermain</span>
+            <select id="inMode"><option value="pvp" data-i="opt.pvp">Dua tim manusia</option>
+              <option value="ai-mudah" data-i="opt.ai-mudah">Lawan AI: Mudah</option><option value="ai-sedang" data-i="opt.ai-sedang">Lawan AI: Sedang</option><option value="ai-sulit" data-i="opt.ai-sulit">Lawan AI: Sulit</option></select></label>
+          <label><span data-i="lbl.dur">Waktu main</span>
+            <select id="inDur"><option value="5" data-i="opt.d5">5 menit</option><option value="10" data-i="opt.d10">10 menit</option><option value="15" data-i="opt.d15">15 menit</option><option value="0" data-i="opt.d0">Tanpa batas</option></select></label>
+          <label><span data-i="lbl.arena">Arena</span>
             <select id="inArena">
-              <option value="padang">Padang Hijau</option><option value="gurun">Gurun Pasir</option>
-              <option value="salju">Pegunungan Salju</option><option value="pantai">Pantai Tropis</option>
-              <option value="lava">Gunung Api</option><option value="bulan">Bulan (gravitasi rendah)</option>
-              <option value="acak">Acak tiap main</option></select></label>
-          <label>Waktu hari
-            <select id="inTod"><option value="auto">Otomatis (sesuai arena)</option><option value="pagi">Pagi</option><option value="siang">Siang</option><option value="senja">Senja</option><option value="malam">Malam</option></select></label>
-          <label>Harga di toko
-            <select id="inPrice"><option value="murah">Murah</option><option value="normal">Normal</option><option value="mahal">Mahal</option></select></label>
-          <label>Garis bantu bidik
-            <select id="inAssist"><option value="short">Pendek</option><option value="long">Panjang (disarankan)</option><option value="off">Mati</option></select></label>
-          <label>Kategori soal
-            <select id="inCat"><option value="all">Semua kategori</option><option value="v">Kosakata</option><option value="g">Tata bahasa</option><option value="k">Dunia kerja</option></select></label>
-          <label>Sumber soal
-            <select id="inSrc"><option value="builtin" id="optBuiltin">Soal bawaan</option><option value="custom">Soal buatan saya</option></select></label>
-          <button class="sec edit" id="btnEdit" type="button">Tulis soal sendiri</button>
-          <button class="sec edit" id="btnPeek" type="button">Lihat arena</button>
-          <label>Kekuatan angin
-            <select id="inWind"><option value="mati">Mati</option><option value="lemah">Lemah</option><option value="normal">Normal</option><option value="kencang">Kencang</option></select></label>
-          <label class="chk"><input type="checkbox" id="inSound"> Suara efek</label>
+              <option value="padang" data-i="opt.padang">Padang Hijau</option><option value="gurun" data-i="opt.gurun">Gurun Pasir</option>
+              <option value="salju" data-i="opt.salju">Pegunungan Salju</option><option value="pantai" data-i="opt.pantai">Pantai Tropis</option>
+              <option value="lava" data-i="opt.lava">Gunung Api</option><option value="bulan" data-i="opt.bulan">Bulan (gravitasi rendah)</option>
+              <option value="reruntuhan" data-i="opt.reruntuhan">Reruntuhan (patung moai)</option><option value="hujan" data-i="opt.hujan">Hutan Hujan</option><option value="acak" data-i="opt.acak">Acak tiap main</option></select></label>
+          <label><span data-i="lbl.tod">Waktu hari</span>
+            <select id="inTod"><option value="auto" data-i="opt.auto">Otomatis (sesuai arena)</option><option value="pagi" data-i="opt.pagi">Pagi</option><option value="siang" data-i="opt.siang">Siang</option><option value="senja" data-i="opt.senja">Senja</option><option value="malam" data-i="opt.malam">Malam</option><option value="jalan" data-i="opt.jalan">Berjalan (1 hari = 15 menit)</option></select></label>
+          <label><span data-i="lbl.price">Harga di toko</span>
+            <select id="inPrice"><option value="murah" data-i="opt.murah">Murah</option><option value="normal" data-i="opt.normal">Normal</option><option value="mahal" data-i="opt.mahal">Mahal</option></select></label>
+          <label><span data-i="lbl.assist">Garis bantu bidik</span>
+            <select id="inAssist"><option value="short" data-i="opt.short">Pendek</option><option value="long" data-i="opt.long">Panjang (disarankan)</option><option value="off" data-i="opt.off">Mati</option></select></label>
+          <label><span data-i="lbl.cat">Kategori soal</span>
+            <select id="inCat"><option value="all" data-i="opt.all">Semua kategori</option><option value="v" data-i="opt.v">Kosakata</option><option value="g" data-i="opt.g">Tata bahasa</option><option value="k" data-i="opt.k">Dunia kerja</option><option value="e" data-i="opt.e">Ekspresi &amp; percakapan</option></select></label>
+          <label><span data-i="lbl.src">Sumber soal</span>
+            <select id="inSrc"><option value="builtin" id="optBuiltin">Soal bawaan</option><option value="custom" data-i="opt.custom">Soal buatan saya</option></select></label>
+          <button class="sec edit" id="btnEdit" type="button" data-i="btn.edit">Tulis soal sendiri</button>
+          <button class="sec edit" id="btnPeek" type="button" data-i="btn.peek">Lihat arena</button>
+          <label><span data-i="lbl.wind">Kekuatan angin</span>
+            <select id="inWind"><option value="mati" data-i="opt.mati">Mati</option><option value="lemah" data-i="opt.lemah">Lemah</option><option value="normal" data-i="opt.normal">Normal</option><option value="kencang" data-i="opt.kencang">Kencang</option></select></label>
+          <label><span data-i="lbl.qual">Kualitas grafis</span>
+            <select id="inQual"><option value="auto" data-i="opt.qauto">Otomatis (sesuai layar)</option><option value="tinggi" data-i="opt.tinggi">Tinggi (layar 4K)</option><option value="hemat" data-i="opt.hemat">Hemat (perangkat lambat)</option></select></label>
+          <label class="chk"><input type="checkbox" id="inSound"><span data-i="lbl.sound">Suara efek</span></label>
+          <label><span data-i="lbl.lang">Bahasa / Language</span><select id="inLang"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></label>
         </div>
       </div>
-      <button class="big" id="btnStart" type="button">MULAI DUEL</button>
+      <button class="big" id="btnStart" type="button" data-i="btn.start">MULAI DUEL</button>
     </div>
   </div>
 
   <!-- EDITOR SOAL -->
   <div class="ov" id="ovEdit">
     <div class="card editor">
-      <h2>Soal buatan sendiri</h2>
-      <p>Satu soal per baris, dipisah tanda <code>|</code> dengan urutan: pertanyaan, jawaban benar, lalu 1 sampai 3 jawaban salah. Baris berawalan <code>#</code> diabaikan. Minimal 4 soal.</p>
-      <textarea id="taSoal" spellcheck="false" aria-label="Daftar soal"></textarea>
+      <h2 data-i="edit.h">Soal buatan sendiri</h2>
+      <p data-i="edit.p">Satu soal per baris, dipisah tanda <code>|</code> dengan urutan: pertanyaan, jawaban benar, lalu 1 sampai 3 jawaban salah. Baris berawalan <code>#</code> diabaikan. Minimal 4 soal.</p>
+      <textarea id="taSoal" spellcheck="false" data-i-aria="ar.qlist" aria-label="Daftar soal"></textarea>
       <div class="row">
         <span class="cnt" id="soalCnt"></span>
-        <button class="sec" id="btnSample" type="button">Isi contoh</button>
-        <button class="sec" id="btnClear" type="button">Hapus semua</button>
-        <button class="sec" id="btnEditClose" type="button">Batal</button>
-        <button class="solid" id="btnEditSave" type="button">Simpan</button>
+        <button class="sec" id="btnSample" type="button" data-i="btn.sample">Isi contoh</button>
+        <button class="sec" id="btnClear" type="button" data-i="btn.clear">Hapus semua</button>
+        <button class="sec" id="btnEditClose" type="button" data-i="btn.cancel">Batal</button>
+        <button class="solid" id="btnEditSave" type="button" data-i="btn.save">Simpan</button>
       </div>
     </div>
   </div>
@@ -342,11 +405,11 @@ button{cursor:pointer}
   <!-- JEDA -->
   <div class="ov" id="ovPause">
     <div class="card pause">
-      <h1>Permainan dijeda</h1>
+      <h1 data-i="pause.h">Permainan dijeda</h1>
       <div class="btns">
-        <button class="solid" id="btnResume" type="button">Lanjutkan</button>
-        <button class="sec" id="btnRestart" type="button">Ulangi dari awal</button>
-        <button class="sec" id="btnToMenu" type="button">Kembali ke menu</button>
+        <button class="solid" id="btnResume" type="button" data-i="btn.resume">Lanjutkan</button>
+        <button class="sec" id="btnRestart" type="button" data-i="btn.restart">Ulangi dari awal</button>
+        <button class="sec" id="btnToMenu" type="button" data-i="back.menu">Kembali ke menu</button>
       </div>
     </div>
   </div>
@@ -456,7 +519,40 @@ var BANK=[
 ["k","“Can I take your order?” is usually said by a ...","waiter","driver","doctor","teacher"],
 ["k","“The printer is out of paper.” What is the problem?","There is no paper","The printer is new","The paper is red","The printer is cheap"],
 ["k","“Would you like some coffee?” A polite answer is ...","Yes, please.","Yes, I am.","It is a cup.","No, I don’t like."],
-["k","“Please double-check the data.” means ...","periksa kembali datanya","hapus datanya","kirim datanya","simpan datanya"]
+["k","“Please double-check the data.” means ...","periksa kembali datanya","hapus datanya","kirim datanya","simpan datanya"],
+["e","“Break a leg!” is said to wish someone ...","good luck","a broken leg","a fast recovery","a happy birthday"],
+["e","“It’s a piece of cake” means it is ...","very easy","very sweet","very expensive","very old"],
+["e","“Hit the books” means ...","study hard","hit someone","buy books","throw books"],
+["e","“Under the weather” means ...","feeling sick","standing outside","very cold","very rich"],
+["e","“Call it a day” means ...","stop working for today","call someone every day","make a phone call","start a new day"],
+["e","What does “give up” mean?","menyerah","memberi hadiah","bangun","menaikkan"],
+["e","What does “look for” mean?","mencari","melihat","menjaga","menunggu"],
+["e","What does “turn on” mean?","menyalakan","mematikan","membalik","memutar balik"],
+["e","What does “fill in” mean (a form)?","mengisi","menghapus","melipat","mengirim"],
+["e","What does “take care of” mean?","merawat","mengambil","menolak","mengabaikan"],
+["e","“Sorry, I didn’t catch that.” You say this when you ...","did not hear clearly","are very angry","want to leave","want to buy"],
+["e","“How have you been?” A natural reply is ...","I’ve been fine, thanks.","I am at 8 o’clock.","Yes, I have a pen.","It is blue."],
+["e","“Nice to meet you.” A natural reply is ...","Nice to meet you too.","See you later.","Never mind.","Not at all."],
+["e","“Would you like some tea?” A polite “yes” is ...","Yes, please.","Yes, I want.","Give me.","No, thanks, I do."],
+["k","In a CV, “work experience” means ...","pengalaman kerja","pendidikan","hobi","referensi"],
+["k","“I’m writing to apply for the position of technician.” This opens a ...","job application letter","birthday card","menu","warning sign"],
+["k","Which is a good closing for a formal email?","Yours sincerely,","See ya!","Bye bye,","Hey you,"],
+["k","“I’m calling to confirm my appointment.” The caller wants to ...","make sure the schedule is correct","cancel his job","buy a phone","complain about food"],
+["k","“Strengths and weaknesses” in an interview means ...","kelebihan dan kekurangan","gaji dan bonus","jam kerja dan libur","teman dan lawan"],
+["k","“Out of order” on a machine means ...","sedang rusak","sedang dipakai","sedang dijual","sedang dicuci"],
+["g","If I ___ rich, I would buy a big workshop.","were","am","will be","have been"],
+["g","She said that she ___ tired.","was","is","are","be"],
+["g","He is the man ___ fixed my car.","who","which","whose","where"],
+["g","The laptop ___ I bought is very fast.","which","who","whom","whose"],
+["g","I enjoy ___ English with my friends.","speaking","speak","to spoke","spoken"],
+["g","The engine ___ yet.","hasn’t started","didn’t started","not start","doesn’t started"],
+["g","Neither Budi ___ Ani was late.","nor","or","and","but"],
+["g","He drives ___ than me.","more carefully","more careful","carefuller","most careful"],
+["v","What does “apprentice” mean?","peserta magang","pemilik usaha","pelanggan","petugas keamanan"],
+["v","What does “equipment” mean?","perlengkapan","pekerjaan","pertemuan","perjalanan"],
+["v","The English word for “tukang las” is ...","welder","tailor","baker","driver"],
+["v","What does “overtime” mean?","lembur","libur","terlambat","pensiun"],
+["v","What does “supervisor” mean?","penyelia","pemasok","pelanggan","pendatang"]
 ];
 
 /* =====================================================================
@@ -486,20 +582,44 @@ var UPC=[3,5,7,10,13,17,22,28,35];                 /* harga naik dari Lv n ke n+
 var SH={n:{d:1,r:1},b:{d:1,r:1.6},t:{d:.6,r:1},i:{d:.5,r:1.2},a:{d:1,r:1}};  /* pengali damage dan radius */
 var MAGCOL={n:"#ffd166",b:"#ff6a3d",t:"#e05cff",i:"#5ce1ff"};
 var ITEM_IDS=["n","b","t","i","u","r","s","d","k","a"];
+/* ---------- LOKALISASI: Bahasa Indonesia / English ---------- */
+var LANG="id";
+var I18N={"id":{"doc.title":"Meriam Tempur v6: Combo, Koin, Toko, AI, dan Angin","rot":"Untuk tampilan terbaik, gunakan layar landscape (papan tulis digital atau laptop).","title":"Meriam Tempur","sub":"Jawab soal untuk dapat koin, belanja di toko, naikkan level meriam sampai Lv 10, lalu hancurkan meriam lawan.","how.h":"Cara main","how1":"Jawaban benar di tab <b>Soal</b> menghasilkan <b>1 koin</b>. Tiga benar beruntun = <b>combo +1 koin</b>.","how2":"Buka tab <b>Toko</b>: beli peluru, upgrade meriam, perbaiki, perisai, radar bidik, bom udara, dan lainnya. Meriam 1 = <b>Berat</b> (damage besar, isi ulang lambat), meriam 2 = <b>Cepat</b>. Ketuk kotak meriam (bertanda TARGET) untuk memilih meriam yang dibeli.","how3":"Atur sudut dengan {up} {down}. <b>Tahan TEMBAK</b> untuk mengisi tenaga, lepas untuk menembak. Bendera menunjukkan arah dan kecepatan angin.","how4":"Hancurkan kedua meriam lawan. Bila waktu habis, nyawa meriam terbanyak menang.","lvl":"Meriam mulai dari Lv 1 (damage maks. 5) sampai Lv 10 (damage maks. 120). Peluru berapi mulai Lv 7. Meriam yang hancur dibangun ulang dari Lv 1. Mode AI: tim kanan dimainkan komputer dengan aturan yang sama.","lbl.n0":"Nama tim kiri","lbl.n1":"Nama tim kanan","ph.n0":"Tim Kiri","ph.n1":"Tim Kanan","btn.color":"Warna","lbl.mode":"Mode bermain","opt.pvp":"Dua tim manusia","opt.ai-mudah":"Lawan AI: Mudah","opt.ai-sedang":"Lawan AI: Sedang","opt.ai-sulit":"Lawan AI: Sulit","lbl.dur":"Waktu main","opt.d5":"5 menit","opt.d10":"10 menit","opt.d15":"15 menit","opt.d0":"Tanpa batas","lbl.arena":"Arena","opt.padang":"Padang Hijau","opt.gurun":"Gurun Pasir","opt.salju":"Pegunungan Salju","opt.pantai":"Pantai Tropis","opt.lava":"Gunung Api","opt.bulan":"Bulan (gravitasi rendah)","opt.reruntuhan":"Reruntuhan (patung moai)","opt.hujan":"Hutan Hujan","opt.acak":"Acak tiap main","lbl.tod":"Waktu hari","opt.auto":"Otomatis (sesuai arena)","opt.pagi":"Pagi","opt.siang":"Siang","opt.senja":"Senja","opt.malam":"Malam","opt.jalan":"Berjalan (1 hari = 15 menit)","lbl.price":"Harga di toko","opt.murah":"Murah","opt.normal":"Normal","opt.mahal":"Mahal","lbl.assist":"Garis bantu bidik","opt.short":"Pendek","opt.long":"Panjang (disarankan)","opt.off":"Mati","lbl.cat":"Kategori soal","opt.all":"Semua kategori","opt.v":"Kosakata","opt.g":"Tata bahasa","opt.k":"Dunia kerja","opt.e":"Ekspresi &amp; percakapan","lbl.src":"Sumber soal","opt.builtin":"Soal bawaan ({0} soal)","opt.custom":"Soal buatan saya","btn.edit":"Tulis soal sendiri","btn.peek":"Lihat arena","lbl.wind":"Kekuatan angin","opt.mati":"Mati","opt.lemah":"Lemah","opt.kencang":"Kencang","lbl.qual":"Kualitas grafis","opt.qauto":"Otomatis (sesuai layar)","opt.tinggi":"Tinggi (layar 4K)","opt.hemat":"Hemat (perangkat lambat)","lbl.sound":"Suara efek","lbl.lang":"Bahasa / Language","btn.start":"MULAI DUEL","edit.h":"Soal buatan sendiri","edit.p":"Satu soal per baris, dipisah tanda <code>|</code> dengan urutan: pertanyaan, jawaban benar, lalu 1 sampai 3 jawaban salah. Baris berawalan <code>#</code> diabaikan. Minimal 4 soal.","btn.sample":"Isi contoh","btn.clear":"Hapus semua","btn.cancel":"Batal","btn.save":"Simpan","edit.count":"{0} soal valid","edit.min":" (minimal 4)","edit.sample":"# Contoh (hapus atau ganti dengan soal Anda)","edit.alert":"Soal buatan sendiri belum cukup (minimal 4 soal). Soal bawaan dipakai lebih dulu.","pause.h":"Permainan dijeda","btn.resume":"Lanjutkan","btn.restart":"Ulangi dari awal","back.menu":"Kembali ke menu","ar.pause":"Jeda permainan","ar.sound":"Suara nyala atau mati","ar.full":"Layar penuh","ar.panelL":"Panel tim kiri","ar.panelR":"Panel tim kanan","ar.pickL":"Pilih warna tim kiri","ar.pickR":"Pilih warna tim kanan","ar.qlist":"Daftar soal","col.#ff5a4f":"Merah","col.#ff8a3d":"Oranye","col.#ffb020":"Kuning tua","col.#ffe14d":"Kuning","col.#a3e635":"Hijau limau","col.#3ddc84":"Hijau","col.#14c8b0":"Tosca","col.#22d3ee":"Sian","col.#3aa0ff":"Biru","col.#5b7cff":"Biru nila","col.#8b6cff":"Ungu","col.#b862f0":"Ungu terang","col.#f05bd0":"Magenta","col.#ff6ea8":"Merah muda","col.#ff4d7a":"Mawar","col.#ff7a66":"Salmon","col.#ffa8a0":"Jambu pucat","col.#ffc999":"Persik","col.#ffe08a":"Kuning pastel","col.#d6f27a":"Limau pastel","col.#9ae6b4":"Mint","col.#8ee6e0":"Aqua","col.#9fd3ff":"Biru pastel","col.#c7b6ff":"Lavender","col.#e5e7eb":"Putih","col.#9ca3af":"Abu-abu","col.#d9a066":"Cokelat muda","col.#c8642f":"Terakota","col.#2e9e5b":"Hijau tua","col.#1f9fb5":"Teal","col.#4f6fe6":"Biru royal","col.#a855c7":"Ungu tua","col.used":" (dipakai tim lain)","ai.mudah":"Mudah","ai.sedang":"Sedang","ai.sulit":"Sulit","lv1":"Meriam Kecil","lv2":"Meriam Perunggu","lv3":"Meriam Besi","lv4":"Meriam Baja","lv5":"Meriam Berat","lv6":"Meriam Perak","lv7":"Meriam Api","lv8":"Meriam Petir","lv9":"Meriam Naga","lv10":"Meriam Legenda","wind.none":"Tanpa udara","wind.calm":"Angin tenang","tab.q":"Soal","tab.s":"Toko","tab.shopm":"Toko · M{0}","tag.target":"TARGET","tag.fast":"Cepat","tag.heavy":"Berat","ar.pickCannon":"Pilih meriam {0} sebagai target toko","ar.up":"Naikkan sudut meriam {0}","ar.down":"Turunkan sudut meriam {0}","ar.coin":"Koin","fire.btn":"TEMBAK","fire.hold":"tahan = kuat","fire.rel":"lepas = tembak","st.dead":"RUSAK","st.frozen":"BEKU","st.empty":"KOSONG","st.loading":"MENGISI","st.loadsub":"memuat peluru","say.load":"MENGISI...","say.ready":"SIAP!","say.combo":"COMBO x{0}","say.level":"LEVEL {0}! {1}","say.rebuilt":"DIBANGUN ULANG! Lv 1","say.hp":"+{0} nyawa","say.shield":"PERISAI!","say.radar":"RADAR AKTIF","say.turbo":"ISI ULANG KILAT","say.freeze":"BEKU!","say.dead":"HANCUR!","fb.ok":"Benar! +1 koin","fb.combo":"Combo x{0}! Bonus +1 koin","fb.wrong":"Jawaban benar: ","shop.nocoin":"Koin kurang!","shop.dead":"Meriam hancur","shop.full":"Magazin penuh","shop.n":"Peluru","shop.n.s":"Peluru biasa","shop.b":"Peluru Besar","shop.b.s":"Ledakan luas","shop.t":"Peluru Tiga","shop.t.s":"Tembak 3 arah","shop.i":"Peluru Es","shop.i.s":"Beku 4 dtk","shop.u.max":"Level maksimal","shop.u.why":"Sudah Lv 10","shop.u":"Upgrade Lv {0}","shop.u.s":"Dmg {0} · HP {1}","shop.r.re":"Bangun Ulang","shop.r.re.s":"Mulai Lv 1 · pulih 50%","shop.r":"Perbaiki","shop.r.s":"+50% nyawa","shop.r.why":"Nyawa sudah penuh","shop.s":"Perisai","shop.s.s":"Serap 60% dmg","shop.s.why":"Perisai sudah penuh","shop.s.title":" (juga kebal beku)","shop.d":"Radar Bidik","shop.d.s":"Garis 45 dtk","shop.k":"Reload Kilat","shop.k.s":"Cepat 30 dtk","shop.a":"Bom Udara","shop.a.cd":"Siap {0} dtk","shop.a.why":"Sedang isi ulang","shop.a.s":"6 bom ke lawan","shop.a.no":"Tidak ada target","ai.ready":"Siap bertanding!","ai.ok":"{ok} Jawaban benar (+1 koin)","ai.combo":"{fire} Combo x{0} (+1 koin)","ai.bad":"{no} Jawaban salah","ai.shot":"{boom} M{0} menembak M{1}","ai.b.n":"Peluru","ai.b.b":"Peluru Besar","ai.b.t":"Peluru Tiga","ai.b.i":"Peluru Es","ai.b.u":"Upgrade ke Lv {0}","ai.b.r1":"Bangun ulang","ai.b.r0":"Perbaiki","ai.b.s":"Perisai","ai.b.d":"Radar","ai.b.k":"Reload kilat","ai.b.a":"Bom Udara","ai.st.ok":"Jawaban benar! +1 koin","ai.st.bad":"Jawaban salah…","ai.st.work":"Mengerjakan soal…","res.time":"Waktu habis. Pemenang ditentukan dari total nyawa meriam.","res.both":"Kedua tim kehilangan semua meriam.","res.all":"Semua meriam lawan sudah hancur.","res.vsai":" Lawan: AI {0}.","res.wins":"{0} menang!","res.draw":"Seri!","res.destroyed":" (hancur)","res.and":" dan ","row.lv":"Level meriam","row.earned":"Koin terkumpul","row.spent":"Koin dibelanjakan","row.cw":"Jawaban benar / salah","row.acc":"Ketepatan jawaban","row.shots":"Tembakan / kena sasaran","row.dmg":"Total damage","row.combo":"Combo terbaik","row.hp":"Sisa nyawa meriam","rv.h":"Perlu dipelajari: ","rv.none":"Jawab pertanyaan.","rv.great":"Tidak ada soal salah. Hebat!","btn.again":"Main lagi","say.air":"Memanggil serangan udara"},"en":{"doc.title":"Battle Cannon v6: Combos, Coins, Shop, AI and Wind","rot":"For the best experience, use a landscape screen (smart board or laptop).","title":"Battle Cannon","sub":"Answer questions to earn coins, shop, upgrade your cannons up to Lv 10, then destroy the enemy cannons.","how.h":"How to play","how1":"A correct answer on the <b>Quiz</b> tab earns <b>1 coin</b>. Three correct in a row = <b>combo +1 coin</b>.","how2":"Open the <b>Shop</b> tab: buy shells, upgrade cannons, repair, shield, aim radar, air strike and more. Cannon 1 = <b>Heavy</b> (big damage, slow reload), cannon 2 = <b>Fast</b>. Tap a cannon box (marked TARGET) to choose which cannon you are buying for.","how3":"Set the angle with {up} {down}. <b>Hold FIRE</b> to charge power, release to shoot. The flag shows wind direction and speed.","how4":"Destroy both enemy cannons. If time runs out, the team with the most cannon HP wins.","lvl":"Cannons start at Lv 1 (max damage 5) and go up to Lv 10 (max damage 120). Shells are on fire from Lv 7. A destroyed cannon is rebuilt from Lv 1. AI mode: the right team is played by the computer under the same rules.","lbl.n0":"Left team name","lbl.n1":"Right team name","ph.n0":"Left Team","ph.n1":"Right Team","btn.color":"Color","lbl.mode":"Game mode","opt.pvp":"Two human teams","opt.ai-mudah":"Vs AI: Easy","opt.ai-sedang":"Vs AI: Medium","opt.ai-sulit":"Vs AI: Hard","lbl.dur":"Time limit","opt.d5":"5 minutes","opt.d10":"10 minutes","opt.d15":"15 minutes","opt.d0":"No limit","lbl.arena":"Arena","opt.padang":"Green Meadow","opt.gurun":"Sand Desert","opt.salju":"Snow Mountains","opt.pantai":"Tropical Beach","opt.lava":"Volcano","opt.bulan":"Moon (low gravity)","opt.reruntuhan":"Ruins (moai statues)","opt.hujan":"Rainforest","opt.acak":"Random each game","lbl.tod":"Time of day","opt.auto":"Automatic (by arena)","opt.pagi":"Morning","opt.siang":"Midday","opt.senja":"Sunset","opt.malam":"Night","opt.jalan":"Moving (1 day = 15 min)","lbl.price":"Shop prices","opt.murah":"Cheap","opt.normal":"Normal","opt.mahal":"Expensive","lbl.assist":"Aim guide line","opt.short":"Short","opt.long":"Long (recommended)","opt.off":"Off","lbl.cat":"Question category","opt.all":"All categories","opt.v":"Vocabulary","opt.g":"Grammar","opt.k":"Workplace","opt.e":"Expressions &amp; conversation","lbl.src":"Question source","opt.builtin":"Built-in questions ({0})","opt.custom":"My own questions","btn.edit":"Write my own questions","btn.peek":"View arena","lbl.wind":"Wind strength","opt.mati":"Off","opt.lemah":"Weak","opt.kencang":"Strong","lbl.qual":"Graphics quality","opt.qauto":"Automatic (screen based)","opt.tinggi":"High (4K screens)","opt.hemat":"Low (slow devices)","lbl.sound":"Sound effects","lbl.lang":"Bahasa / Language","btn.start":"START DUEL","edit.h":"My own questions","edit.p":"One question per line, separated by <code>|</code> in this order: question, correct answer, then 1 to 3 wrong answers. Lines starting with <code>#</code> are ignored. At least 4 questions.","btn.sample":"Fill sample","btn.clear":"Clear all","btn.cancel":"Cancel","btn.save":"Save","edit.count":"{0} valid questions","edit.min":" (minimum 4)","edit.sample":"# Example (delete or replace with your own questions)","edit.alert":"Your own questions are not enough yet (minimum 4). The built-in questions will be used first.","pause.h":"Game paused","btn.resume":"Resume","btn.restart":"Restart","back.menu":"Back to menu","ar.pause":"Pause game","ar.sound":"Sound on or off","ar.full":"Fullscreen","ar.panelL":"Left team panel","ar.panelR":"Right team panel","ar.pickL":"Choose left team color","ar.pickR":"Choose right team color","ar.qlist":"Question list","col.#ff5a4f":"Red","col.#ff8a3d":"Orange","col.#ffb020":"Amber","col.#ffe14d":"Yellow","col.#a3e635":"Lime","col.#3ddc84":"Green","col.#14c8b0":"Turquoise","col.#22d3ee":"Cyan","col.#3aa0ff":"Blue","col.#5b7cff":"Indigo","col.#8b6cff":"Purple","col.#b862f0":"Bright purple","col.#f05bd0":"Magenta","col.#ff6ea8":"Pink","col.#ff4d7a":"Rose","col.#ff7a66":"Salmon","col.#ffa8a0":"Light coral","col.#ffc999":"Peach","col.#ffe08a":"Pastel yellow","col.#d6f27a":"Pastel lime","col.#9ae6b4":"Mint","col.#8ee6e0":"Aqua","col.#9fd3ff":"Pastel blue","col.#c7b6ff":"Lavender","col.#e5e7eb":"White","col.#9ca3af":"Gray","col.#d9a066":"Tan","col.#c8642f":"Terracotta","col.#2e9e5b":"Dark green","col.#1f9fb5":"Teal","col.#4f6fe6":"Royal blue","col.#a855c7":"Deep purple","col.used":" (used by the other team)","ai.mudah":"Easy","ai.sedang":"Medium","ai.sulit":"Hard","lv1":"Small Cannon","lv2":"Bronze Cannon","lv3":"Iron Cannon","lv4":"Steel Cannon","lv5":"Heavy Cannon","lv6":"Silver Cannon","lv7":"Fire Cannon","lv8":"Thunder Cannon","lv9":"Dragon Cannon","lv10":"Legend Cannon","wind.none":"No air","wind.calm":"Calm wind","tab.q":"Quiz","tab.s":"Shop","tab.shopm":"Shop · C{0}","tag.target":"TARGET","tag.fast":"Fast","tag.heavy":"Heavy","ar.pickCannon":"Select cannon {0} as the shop target","ar.up":"Raise the angle of cannon {0}","ar.down":"Lower the angle of cannon {0}","ar.coin":"Coins","fire.btn":"FIRE","fire.hold":"hold = stronger","fire.rel":"release = fire","st.dead":"BROKEN","st.frozen":"FROZEN","st.empty":"EMPTY","st.loading":"LOADING","st.loadsub":"loading a shell","say.load":"LOADING...","say.ready":"READY!","say.combo":"COMBO x{0}","say.level":"LEVEL {0}! {1}","say.rebuilt":"REBUILT! Lv 1","say.hp":"+{0} HP","say.shield":"SHIELD!","say.radar":"RADAR ON","say.turbo":"QUICK RELOAD","say.freeze":"FROZEN!","say.dead":"DESTROYED!","fb.ok":"Correct! +1 coin","fb.combo":"Combo x{0}! Bonus +1 coin","fb.wrong":"Correct answer: ","shop.nocoin":"Not enough coins!","shop.dead":"Cannon destroyed","shop.full":"Magazine full","shop.n":"Shell","shop.n.s":"Normal shell","shop.b":"Big Shell","shop.b.s":"Wide blast","shop.t":"Triple Shell","shop.t.s":"Fires 3 ways","shop.i":"Ice Shell","shop.i.s":"Freezes 4 s","shop.u.max":"Max level","shop.u.why":"Already Lv 10","shop.u":"Upgrade Lv {0}","shop.u.s":"Dmg {0} · HP {1}","shop.r.re":"Rebuild","shop.r.re.s":"Starts at Lv 1 · 50% HP","shop.r":"Repair","shop.r.s":"+50% HP","shop.r.why":"HP already full","shop.s":"Shield","shop.s.s":"Absorbs 60% dmg","shop.s.why":"Shield already full","shop.s.title":" (also freeze-proof)","shop.d":"Aim Radar","shop.d.s":"Guide line 45 s","shop.k":"Quick Reload","shop.k.s":"Fast for 30 s","shop.a":"Air Strike","shop.a.cd":"Ready in {0} s","shop.a.why":"Recharging","shop.a.s":"6 bombs","shop.a.no":"No target","ai.ready":"Ready to battle!","ai.ok":"{ok} Correct answer (+1 coin)","ai.combo":"{fire} Combo x{0} (+1 coin)","ai.bad":"{no} Wrong answer","ai.shot":"{boom} C{0} fires at C{1}","ai.b.n":"Shell","ai.b.b":"Big Shell","ai.b.t":"Triple Shell","ai.b.i":"Ice Shell","ai.b.u":"Upgrade to Lv {0}","ai.b.r1":"Rebuild","ai.b.r0":"Repair","ai.b.s":"Shield","ai.b.d":"Radar","ai.b.k":"Quick reload","ai.b.a":"Air Strike","ai.st.ok":"Correct! +1 coin","ai.st.bad":"Wrong answer…","ai.st.work":"Working on the question…","res.time":"Time is up. The winner is decided by total cannon HP.","res.both":"Both teams lost all their cannons.","res.all":"All enemy cannons are destroyed.","res.vsai":" Opponent: AI {0}.","res.wins":"{0} wins!","res.draw":"Draw!","res.destroyed":" (destroyed)","res.and":" and ","row.lv":"Cannon level","row.earned":"Coins earned","row.spent":"Coins spent","row.cw":"Correct / wrong answers","row.acc":"Answer accuracy","row.shots":"Shots / hits","row.dmg":"Total damage","row.combo":"Best combo","row.hp":"Remaining cannon HP","rv.h":"To review: ","rv.none":"Answer some questions.","rv.great":"No wrong answers. Great job!","btn.again":"Play again","say.air":"Calling airstrike"}};
+function tt(k){
+  var d=I18N[LANG]&&I18N[LANG][k];if(d===undefined)d=I18N.id[k];if(d===undefined)return k;
+  for(var i=1;i<arguments.length;i++)d=d.split("{"+(i-1)+"}").join(arguments[i]);
+  return d;
+}
+function lvName(n){return tt("lv"+n);}
+function aiName(l){return tt("ai."+l);}
+function colName(h){return tt("col."+h);}
+var DEFNS=[["Tim Kiri","Left Team"],["Tim Kanan","Right Team"]];
+function defName(t){return DEFNS[t][LANG==="en"?1:0];}
+function isDef(v,t){return DEFNS[t].indexOf(v)>=0;}
+function applyLang(){
+  document.documentElement.lang=LANG;document.title=tt("doc.title");
+  [].forEach.call(document.querySelectorAll("[data-i]"),function(e){e.innerHTML=tok(tt(e.getAttribute("data-i")));});
+  [].forEach.call(document.querySelectorAll("[data-i-aria]"),function(e){e.setAttribute("aria-label",tt(e.getAttribute("data-i-aria")));});
+  [].forEach.call(document.querySelectorAll("[data-i-ph]"),function(e){e.setAttribute("placeholder",tt(e.getAttribute("data-i-ph")));});
+  [0,1].forEach(function(t){var inp=document.getElementById("inN"+t),v=inp.value.trim();if(!v||isDef(v,t))inp.value=defName(t);});
+  var ob=document.getElementById("optBuiltin");if(ob)ob.textContent=tt("opt.builtin",BANK.length);
+}
+function I(n){return '<svg class="si" aria-hidden="true"><use href="#i-'+n+'"/></svg>';}
+function tok(h){return h.replace(/\{(\w+)\}/g,function(m,n){return I(n);});}
 var ICON={
- n:'<span class="ic am" style="--c:#ffd166"></span>',
- b:'<span class="ic am" style="--c:#ff6a3d">💥</span>',
- t:'<span class="ic am" style="--c:#e05cff">🎯</span>',
- i:'<span class="ic am" style="--c:#5ce1ff">❄️</span>',
- u:'<span class="ic">⬆️</span>',r:'<span class="ic">🔧</span>',s:'<span class="ic">🛡️</span>',
- d:'<span class="ic">🔭</span>',k:'<span class="ic">⚡</span>',a:'<span class="ic">✈️</span>'
+ n:'<span class="ic"><i class="ball n"></i></span>',
+ b:'<span class="ic"><i class="ball b"></i></span>',
+ t:'<span class="ic"><i class="ball t"></i></span>',
+ i:'<span class="ic"><i class="ball i"></i></span>',
+ u:'<span class="ic">'+I("upg")+'</span>',r:'<span class="ic">'+I("wrench")+'</span>',s:'<span class="ic">'+I("shield")+'</span>',
+ d:'<span class="ic">'+I("radar")+'</span>',k:'<span class="ic">'+I("bolt")+'</span>',a:'<span class="ic">'+I("plane")+'</span>'
 };
 var PMULT={murah:.7,normal:1,mahal:1.4};
 
 /* =====================================================================
    KONSTANTA UMUM
    ===================================================================== */
-var W=1600,H=900,MINA=10,MAXA=80,GRAV=1000,V0=1180,CH=2.2;
+var W=1600,H=900,EX=0,EY=0,MINA=10,MAXA=80,GRAV=1000,V0=1180,CH=2.2;
 /* angin: wind = kecepatan (positif ke kanan), percepatan = wind x WK px/s^2 */
 var wind=0,windTarget=0,windT=8,fdir=1,WK=13,streaks=[];
 function vOf(pow){return V0*1.15*(.4+.6*pow);}        /* kecepatan peluru dari tenaga 0..1 */
@@ -516,20 +636,19 @@ function updateWind(dt){
   wind+=(windTarget-wind)*Math.min(1,dt*2.2);
   if(Math.abs(wind)>.4)fdir=wind<0?-1:1;
 }
-function initStreaks(){streaks=[];for(var i=0;i<26;i++)streaks.push({x:rnd(0,W),y:rnd(90,520),l:rnd(30,80),sp:rnd(.7,1.3)});}
-function windShort(){
-  if(AR.space)return "0";
+function initStreaks(){streaks=[];for(var i=0;i<26;i++)streaks.push({x:rnd(-EX,W+EX),y:rnd(90,520),l:rnd(30,80),sp:rnd(.7,1.3)});}
+function windInfo(){
   var a=Math.abs(wind);
-  if(a<.5)return "0";
-  var n=Math.min(4,Math.ceil(a/4));
-  return new Array(n+1).join(wind<0?"◀":"▶")+" "+Math.round(a);
+  if(AR.space||a<.5)return {n:0,dir:1,num:"0"};
+  return {n:Math.min(4,Math.ceil(a/4)),dir:wind<0?-1:1,num:String(Math.round(a))};
 }
 function windLabel(){
-  if(AR.space)return {t:"Tanpa udara",c:"#cfd6ff"};
+  if(AR.space)return {t:tt("wind.none"),c:"#cfd6ff"};
   var a=Math.abs(wind);
-  if(a<.5)return {t:"Angin tenang",c:"#cfd6ff"};
-  var n=Math.min(4,Math.ceil(a/4)),arr=new Array(n+1).join(wind<0?"◀":"▶");
-  return {t:"💨 "+arr+" "+Math.round(a),c:a<4?"#7ff0ad":a<8?"#ffd166":"#ff9a6a"};
+  if(a<.5)return {t:tt("wind.calm"),c:"#cfd6ff"};
+  var n=Math.min(4,Math.ceil(a/4)),arr="",k;
+  for(k=0;k<n;k++)arr+=I(wind<0?"l":"r");
+  return {t:'<span class="wnd">'+I("wind")+" "+arr+" "+Math.round(a)+'</span>',c:a<4?"#7ff0ad":a<8?"#ffd166":"#ff9a6a"};
 }
 var $=function(s){return document.querySelector(s);};
 var stage=$("#stage"),cv=$("#cv"),ctx=cv.getContext("2d");
@@ -569,23 +688,26 @@ function inkFor(hex){var L=lum(hex);return (L+.05)/(.008+.05)>=1.05/(L+.05)?"#0d
 /* =====================================================================
    PENGATURAN
    ===================================================================== */
-var DEF={n0:DEFN[0],n1:DEFN[1],c0:DEFC[0],c1:DEFC[1],mode:"pvp",dur:10,price:"normal",wind:"normal",arena:"padang",tod:"auto",
-         cat:"all",assist:"long",src:"builtin",sound:true};
+var DEF={n0:DEFN[0],n1:DEFN[1],c0:DEFC[0],c1:DEFC[1],mode:"pvp",dur:0,price:"normal",wind:"normal",arena:"padang",tod:"jalan",lang:"id",
+         cat:"all",assist:"off",src:"builtin",sound:true,v:3};
 var S=Object.assign({},DEF);
 try{
   var saved=JSON.parse(lsGet("duel-meriam-v2")||"{}");
   Object.assign(S,saved);
+  if((saved.v||0)<3){S.dur=DEF.dur;S.tod=DEF.tod;S.assist=DEF.assist;S.v=3;}
 }catch(e){}
 [0,1].forEach(function(t){if(!inPalette(S["c"+t]))S["c"+t]=DEFC[t];});
 if(S.c0===S.c1)S.c1=(S.c0===DEFC[1]?DEFC[0]:DEFC[1]);
+LANG=(S.lang==="en")?"en":"id";S.lang=LANG;
 function saveS(){lsSet("duel-meriam-v2",JSON.stringify(S));}
 var customText=lsGet("duel-meriam-soal")||"";
 
-var SAMPLE="# Contoh (hapus atau ganti dengan soal Anda)\n"+
+var SAMPLE_BODY=
 "What does “wrench” mean? | kunci pas | palu | obeng | tang\n"+
 "She ___ to the workshop every day. | goes | go | going | gone\n"+
 "The English word for “gergaji” is ... | saw | drill | hammer\n"+
 "“Please wear your helmet.” This is an ... | instruction | apology | invitation | greeting\n";
+function sampleText(){return tt("edit.sample")+"\n"+SAMPLE_BODY;}
 function parseCustom(text){
   var out=[];
   String(text).split(/\r?\n/).forEach(function(line){
@@ -612,8 +734,29 @@ var TOD={
  malam:{sky:["#060a26","#12194d","#2b3a7a"],moon:{x:1180,y:165,r:46},mul:[.42,.5,.74],stars:1,cloud:"rgba(90,105,175,.5)"}
 };
 var MUL=[1,1,1];
+var DAYLEN=900,dayT=0,dayAcc=0;   /* 900 dtk = 15 menit = 1 hari penuh */
+var CYK=["pagi","siang","senja","malam"],CYCL=[[255,242,232,.86],[255,255,255,.88],[255,176,150,.78],[90,105,175,.5]],CYSC=[[255,240,190],[255,244,190],[255,206,130],[255,206,130]];
+function lerpA(a,b,t){return a.map(function(v,i){return v+(b[i]-v)*t;});}
+function cycleTOD(ph){
+  ph=((ph%1)+1)%1;var f=ph*4,i=Math.floor(f)%4,j=(i+1)%4,t=f-Math.floor(f);t=t*t*(3-2*t);
+  var A=TOD[CYK[i]],B=TOD[CYK[j]];
+  var sky=[0,1,2].map(function(k){var c=lerpA(hx(A.sky[k]),hx(B.sky[k]),t);return "rgb("+Math.round(c[0])+","+Math.round(c[1])+","+Math.round(c[2])+")";});
+  var cl=lerpA(CYCL[i],CYCL[j],t),sc=lerpA(CYSC[i],CYSC[j],t).map(Math.round),st=A.stars+(B.stars-A.stars)*t;
+  var T={sky:sky,mul:lerpA(A.mul,B.mul,t),stars:st,sa:Math.min(1,st*2.5),cloud:"rgba("+Math.round(cl[0])+","+Math.round(cl[1])+","+Math.round(cl[2])+","+cl[3].toFixed(2)+")",cyc:true};
+  var u=(ph+.08)/.7;
+  if(u>0&&u<1)T.sun={x:100+u*1400,y:570-470*Math.sin(Math.PI*u),r:110+35*(1-Math.sin(Math.PI*u)),c:sc.join(","),a:Math.min(1,Math.sin(Math.PI*u)*5)};
+  var v=((((ph-.5)%1)+1)%1)/.55;
+  if(v<1)T.moon={x:150+v*1300,y:560-420*Math.sin(Math.PI*v),r:46,a:Math.min(1,Math.sin(Math.PI*v)*5)*Math.min(1,st*3)};
+  return T;
+}
+function dayName(ph){ph=((ph%1)+1)%1;return ph<.125||ph>=.875?"Pagi":ph<.375?"Siang":ph<.625?"Senja":"Malam";}
 function tn(h){var c=hx(h);return "rgb("+Math.round(c[0]*MUL[0])+","+Math.round(c[1]*MUL[1])+","+Math.round(c[2]*MUL[2])+")";}
-function poly(g,col,pts){g.fillStyle=col;g.beginPath();g.moveTo(0,640);pts.forEach(function(p){g.lineTo(p[0],p[1]);});g.lineTo(W,640);g.closePath();g.fill();}
+function poly(g,col,pts){
+  var L=pts.filter(function(p){return p[0]>0;}).map(function(p){return [-p[0],p[1]];}).reverse(),
+      R=pts.filter(function(p){return p[0]<W;}).map(function(p){return [2*W-p[0],p[1]];}).reverse(),
+      all=EX>2?L.concat(pts,R):pts;
+  g.fillStyle=col;g.beginPath();g.moveTo(all[0][0],640);all.forEach(function(p){g.lineTo(p[0],p[1]);});g.lineTo(all[all.length-1][0],640);g.closePath();g.fill();
+}
 function wave(g,col,base,amp,fr,ph){
   g.fillStyle=col;g.beginPath();g.moveTo(0,640);
   for(var x=0;x<=W;x+=8)g.lineTo(x,base+amp*Math.sin(x*fr+ph)+amp*.4*Math.sin(x*fr*2.3+ph*1.7));
@@ -646,6 +789,71 @@ function palm(g,x,s,lean){var y=gy(x);
   [-70,-38,-8,26,58].forEach(function(a){var r=a*Math.PI/180;g.beginPath();g.moveTo(tx,ty);
     g.quadraticCurveTo(tx+Math.sin(r)*36*s,ty-28*s+Math.abs(a)*.12*s,tx+Math.sin(r)*62*s,ty+8*s+Math.abs(a)*.32*s);g.stroke();});
   g.fillStyle=tn("#6b4423");g.beginPath();g.arc(tx-4*s,ty+4*s,5*s,0,7);g.arc(tx+5*s,ty+6*s,5*s,0,7);g.fill();}
+/* patung moai tampak depan: dahi menonjol, hidung panjang, bibir tipis, dagu persegi, sisi kanan berbayang */
+function moai(g,x,by,s,pk){
+  var C=tn("#8a857b"),D=tn("#615c54"),L=tn("#aaa598"),K=tn("#2b2824"),sh="rgba(40,34,28,.5)",i;
+  g.save();
+  /* ahu: alas batu bersusun */
+  g.fillStyle=D;g.fillRect(x-62*s,by-30*s,124*s,34*s);
+  g.fillStyle=C;for(i=0;i<5;i++){rrect(g,x-62*s+i*25*s+1,by-29*s,23*s,15*s,3*s);g.fill();rrect(g,x-50*s+i*25*s,by-14*s,23*s,15*s,3*s);g.fill();}
+  g.fillStyle=L;g.fillRect(x-62*s,by-32*s,124*s,4*s);
+  /* badan */
+  g.fillStyle=C;g.beginPath();g.moveTo(x-23*s,by-26*s);g.lineTo(x-21*s,by-84*s);g.lineTo(x+21*s,by-84*s);g.lineTo(x+23*s,by-26*s);g.closePath();g.fill();
+  g.fillStyle=sh;g.fillRect(x+3*s,by-84*s,19*s,58*s);
+  /* kepala */
+  g.fillStyle=C;g.beginPath();g.moveTo(x-25*s,by-172*s);g.quadraticCurveTo(x,by-182*s,x+25*s,by-172*s);
+  g.lineTo(x+24*s,by-120*s);g.lineTo(x+19*s,by-78*s);g.lineTo(x-19*s,by-78*s);g.lineTo(x-24*s,by-120*s);g.closePath();g.fill();
+  g.fillStyle=sh;g.beginPath();g.moveTo(x+4*s,by-178*s);g.lineTo(x+25*s,by-172*s);g.lineTo(x+24*s,by-120*s);g.lineTo(x+19*s,by-78*s);g.lineTo(x+4*s,by-78*s);g.closePath();g.fill();
+  g.fillStyle=C;g.fillRect(x-29*s,by-136*s,5*s,30*s);g.fillRect(x+24*s,by-136*s,5*s,30*s);       /* telinga */
+  g.fillStyle=sh;g.fillRect(x+24*s,by-136*s,5*s,30*s);
+  g.fillStyle=L;g.fillRect(x-24*s,by-148*s,48*s,7*s);                                              /* alis */
+  g.fillStyle="rgba(30,26,22,.62)";g.fillRect(x-24*s,by-141*s,48*s,11*s);
+  g.fillStyle=K;g.beginPath();g.ellipse(x-11*s,by-134*s,8*s,4.200*s,0,0,7);g.ellipse(x+11*s,by-134*s,8*s,4.200*s,0,0,7);g.fill();
+  g.fillStyle=L;g.beginPath();g.moveTo(x-5*s,by-142*s);g.lineTo(x+4*s,by-142*s);g.lineTo(x+6*s,by-103*s);g.lineTo(x-7*s,by-103*s);g.closePath();g.fill();  /* hidung */
+  g.fillStyle=sh;g.beginPath();g.moveTo(x+1*s,by-142*s);g.lineTo(x+4*s,by-142*s);g.lineTo(x+6*s,by-103*s);g.lineTo(x+1*s,by-103*s);g.closePath();g.fill();
+  g.fillStyle=K;g.beginPath();g.ellipse(x-3.500*s,by-103*s,3*s,2*s,0,0,7);g.ellipse(x+3.500*s,by-103*s,3*s,2*s,0,0,7);g.fill();
+  g.fillStyle=L;g.fillRect(x-12*s,by-93*s,24*s,3.500*s);                                            /* bibir */
+  g.fillStyle=K;g.fillRect(x-12*s,by-89.500*s,24*s,2.800*s);
+  g.fillStyle="rgba(30,26,22,.4)";g.fillRect(x-15*s,by-85*s,30*s,4*s);
+  g.strokeStyle="rgba(30,26,22,.45)";g.lineWidth=1.600*s;g.beginPath();g.moveTo(x-16*s,by-168*s);g.lineTo(x-12*s,by-156*s);g.lineTo(x-15*s,by-150*s);g.stroke();
+  g.fillStyle=tn("#6f9a55");g.globalAlpha=.55;g.beginPath();g.ellipse(x-12*s,by-172*s,11*s,4*s,-.15,0,7);g.fill();g.globalAlpha=1;
+  if(pk){                                                                                          /* pukao: topi batu merah */
+    g.fillStyle=tn("#a0583a");g.fillRect(x-17*s,by-206*s,34*s,30*s);
+    g.fillStyle="rgba(40,20,12,.35)";g.fillRect(x+3*s,by-206*s,14*s,30*s);
+    g.fillStyle=tn("#c47a52");g.beginPath();g.ellipse(x,by-206*s,17*s,5.500*s,0,0,7);g.fill();
+  }
+  g.restore();
+}
+function moaiFar(g,x,by,s,col){
+  g.fillStyle=col;g.beginPath();g.moveTo(x-25*s,by);g.lineTo(x-23*s,by-84*s);g.lineTo(x-25*s,by-172*s);g.quadraticCurveTo(x,by-182*s,x+25*s,by-172*s);g.lineTo(x+23*s,by-84*s);g.lineTo(x+25*s,by);g.closePath();g.fill();
+  g.fillStyle="rgba(255,255,255,.12)";g.fillRect(x-5*s,by-142*s,9*s,40*s);
+}
+function pillar(g,x,s,broken){
+  var y=gy(x),C=tn("#9b9588"),D=tn("#6f6a60"),L=tn("#bab4a6"),h=(broken?50:78)*s;
+  g.fillStyle=D;g.fillRect(x-18*s,y-12*s,36*s,16*s);g.fillStyle=L;g.fillRect(x-18*s,y-13*s,36*s,3*s);
+  g.fillStyle=C;g.fillRect(x-11*s,y-12*s-h,22*s,h);
+  g.fillStyle="rgba(40,34,28,.45)";g.fillRect(x+2*s,y-12*s-h,9*s,h);
+  g.strokeStyle=tn("#7d786d");g.lineWidth=1.400*s;g.beginPath();[-4,2].forEach(function(o){g.moveTo(x+o*s,y-14*s);g.lineTo(x+o*s,y-12*s-h+2*s);});g.stroke();
+  if(broken){g.fillStyle=C;g.beginPath();g.moveTo(x-11*s,y-12*s-h);g.lineTo(x-5*s,y-12*s-h-9*s);g.lineTo(x+1*s,y-12*s-h-3*s);g.lineTo(x+6*s,y-12*s-h-12*s);g.lineTo(x+11*s,y-12*s-h-4*s);g.lineTo(x+11*s,y-12*s-h);g.closePath();g.fill();}
+  else{g.fillStyle=L;g.fillRect(x-16*s,y-12*s-h-7*s,32*s,8*s);g.fillStyle=D;g.fillRect(x-16*s,y-12*s-h,32*s,2*s);}
+  g.fillStyle=tn("#5f9a4a");g.beginPath();g.ellipse(x-8*s,y-10*s,9*s,4*s,0,Math.PI,0);g.fill();
+}
+function slabs(g,x,s){
+  var y=gy(x),C=tn("#9b9588"),D=tn("#6f6a60"),L=tn("#bab4a6");
+  [[0,-10,40,16,-.14],[32,-7,28,13,.12]].forEach(function(b){g.save();g.translate(x+b[0]*s,y+b[1]*s);g.rotate(b[4]);
+    g.fillStyle=D;rrect(g,-b[2]/2*s,-b[3]/2*s,b[2]*s,b[3]*s,3*s);g.fill();g.fillStyle=C;rrect(g,-b[2]/2*s,-b[3]/2*s,b[2]*s,b[3]*.7*s,3*s);g.fill();
+    g.fillStyle=L;g.fillRect(-b[2]/2*s+3*s,-b[3]/2*s+1,b[2]*s-6*s,2*s);g.restore();});
+}
+function wallR(g,x,s){
+  var y=gy(x),C=tn("#9b9588"),D=tn("#6f6a60"),i;
+  for(i=0;i<3;i++){g.fillStyle=i%2?C:D;rrect(g,x-37*s+i*25*s,y-15*s,24*s,14*s,3*s);g.fill();}
+  for(i=0;i<2;i++){g.fillStyle=i%2?D:C;rrect(g,x-25*s+i*25*s,y-29*s,24*s,14*s,3*s);g.fill();}
+  g.fillStyle=tn("#5f9a4a");g.beginPath();g.ellipse(x+12*s,y-30*s,13*s,4*s,0,Math.PI,0);g.fill();
+}
+function tuft(g,x,s){
+  var y=gy(x);g.fillStyle=tn("#5f9a4a");
+  [[-10,-16,-6],[-4,-22,-1],[2,-18,5],[8,-14,11]].forEach(function(b){g.beginPath();g.moveTo(x+b[0]*s-3*s,y+1);g.lineTo(x+b[1]*0+b[2]*s,y+b[1]*s);g.lineTo(x+b[0]*s+3*s,y+1);g.closePath();g.fill();});
+}
 function rock(g,x,s,col){var y=gy(x);g.fillStyle=tn(col);g.beginPath();g.ellipse(x,y-5*s,20*s,12*s,0,Math.PI,0);g.fill();}
 function crater(g,x,s){var y=gy(x);g.fillStyle="rgba(40,44,56,.5)";g.beginPath();g.ellipse(x,y+6*s,30*s,8*s,0,0,7);g.fill();
   g.strokeStyle="rgba(230,235,245,.35)";g.lineWidth=3;g.beginPath();g.ellipse(x,y+4*s,30*s,8*s,0,Math.PI,0);g.stroke();}
@@ -684,9 +892,9 @@ var ARENAS={
   dirt:["#e2c690","#a98046"],top:"#f4dfae",hi:"#fff3d2",
   far:function(g){
     var sg=g.createLinearGradient(0,450,0,640);sg.addColorStop(0,tn("#5fd0e6"));sg.addColorStop(1,tn("#2a86b8"));
-    g.fillStyle=sg;g.fillRect(0,450,W,190);
+    g.fillStyle=sg;g.fillRect(-EX,450,W+2*EX,190);
     g.fillStyle=tn("#3f9a78");[[240,452,90,26],[1290,452,110,30],[900,451,60,16]].forEach(function(e){g.beginPath();g.ellipse(e[0],e[1],e[2],e[3],0,Math.PI,0);g.fill();});
-    g.strokeStyle="rgba(255,255,255,.5)";g.lineWidth=3;g.beginPath();g.moveTo(0,450);g.lineTo(W,450);g.stroke();},
+    g.strokeStyle="rgba(255,255,255,.5)";g.lineWidth=3;g.beginPath();g.moveTo(-EX,450);g.lineTo(W+EX,450);g.stroke();},
   deco:function(g){palm(g,240,.9,26);palm(g,345,.75,-22);palm(g,800,.7,16);palm(g,1265,.8,22);palm(g,1360,.95,-28);}},
  lava:{name:"Gunung Api",tod:"malam",g:1,fixed:true,
   sky:["#1a0707","#5b1a12","#c4481c"],mul:[.85,.72,.72],stars:0,cloud:"rgba(70,36,36,.6)",
@@ -702,6 +910,23 @@ var ARENAS={
     [[790,240,770,340,740,430],[815,240,850,330,880,440],[800,240,805,360,790,470]].forEach(function(p){g.beginPath();g.moveTo(p[0],p[1]);g.quadraticCurveTo(p[2],p[3],p[4],p[5]);g.stroke();});g.shadowBlur=0;
     g.fillStyle="rgba(60,35,35,.7)";[[790,190,46],[850,150,58],[790,110,66],[880,80,60]].forEach(function(c){g.beginPath();g.arc(c[0],c[1],c[2],0,7);g.fill();});},
   deco:function(g){[250,340,700,905,1265,1355].forEach(function(x,i){rock(g,x,1+(i%2)*.3,"#3a2a2a");lavaCrack(g,x+60);});}},
+ reruntuhan:{name:"Reruntuhan",tod:"senja",g:1,
+  half:[[0,425],[190,425],[290,458],[420,495],[540,520],[650,490],[735,400],[800,368]],
+  dirt:["#7a6a50","#3a2e22"],top:"#6ea65a",hi:"#9bd37f",
+  far:function(g){
+    poly(g,tn("#a9b88e"),[[0,470],[170,380],[340,455],[540,360],[740,450],[960,350],[1160,455],[1330,375],[1500,450],[1600,400]]);
+    var i,rx=[70,215,350,455,585,980,1100,1235,1360,1500];
+    rx.forEach(function(x,k){moaiFar(g,x,470+(k%3)*6,.22+(k%2)*.05,tn("#7b8a72"));});
+    poly(g,tn("#86a06c"),[[0,520],[220,440],[440,515],[680,430],[900,510],[1120,435],[1340,515],[1600,450]]);},
+  mid:function(g){[[470,.78,0],[580,1.35,1],[1020,1.35,0],[1135,.78,1]].forEach(function(m){moai(g,m[0],gy(m[0])+8,m[1],m[2]);});},
+  deco:function(g){wallR(g,190,1);tuft(g,420,1);pillar(g,705,1.05,true);tuft(g,765,1);tuft(g,835,1);pillar(g,895,1.05,false);slabs(g,1210,1);wallR(g,1410,1);}},
+ hujan:{name:"Hutan Hujan",tod:"pagi",g:1,fixed:true,
+  sky:["#2b3a4a","#4d6578","#8aa0b0"],mul:[.85,.9,.9],stars:0,cloud:"rgba(60,72,86,.8)",
+  half:[[0,430],[200,430],[300,470],[430,500],[560,515],[680,470],[760,365],[800,335]],
+  dirt:["#5b4630","#241a10"],top:"#2f8f4a",hi:"#5fc274",
+  far:function(g){poly(g,tn("#5f7f78"),[[0,470],[200,360],[420,460],[640,350],[860,450],[1080,340],[1300,450],[1600,370]]);
+    poly(g,tn("#456b5c"),[[0,520],[260,430],[520,510],[800,420],[1060,510],[1340,430],[1600,510]]);},
+  deco:function(g){DECX.forEach(function(x,i){if(i%2===0)tree(g,x,.9+(i%3)*.15);else bush(g,x,1.1);});}},
  bulan:{name:"Bulan",tod:"malam",g:.6,fixed:true,noClouds:true,space:true,
   sky:["#01020a","#060a22","#131d4a"],mul:[.95,.97,1],stars:1.3,
   half:[[0,430],[200,430],[290,470],[350,500],[430,505],[500,470],[560,505],[640,520],[720,482],[800,442]],
@@ -716,7 +941,8 @@ var ARENAS={
 };
 var AR=ARENAS.padang,curT=TOD.siang,HG=new Float32Array(W+1),waterSpans=[];
 function gy(x){return HG[clamp(Math.round(x),0,W)];}
-function terrainPath(g){g.beginPath();g.moveTo(0,H);for(var x=0;x<=W;x+=4)g.lineTo(x,HG[x]);g.lineTo(W,H);g.closePath();}
+function hgx(x){x=Math.round(x);if(x<0)x=-x;else if(x>W)x=2*W-x;return HG[clamp(x,0,W)];}
+function terrainPath(g){var a=Math.ceil(EX/4)*4+8;g.beginPath();g.moveTo(-a,H+EY+10);for(var x=-a;x<=W+a;x+=4)g.lineTo(x,hgx(x));g.lineTo(W+a,H+EY+10);g.closePath();}
 function buildTerrain(){
   var pts=AR.half.slice();
   for(var i=AR.half.length-2;i>=0;i--)pts.push([W-AR.half[i][0],AR.half[i][1]]);
@@ -732,98 +958,190 @@ function buildTerrain(){
 var bg=null,K=1;
 function drawBG(g){
   var T=curT;
-  var sk=g.createLinearGradient(0,0,0,600);sk.addColorStop(0,T.sky[0]);sk.addColorStop(.55,T.sky[1]);sk.addColorStop(1,T.sky[2]);
-  g.fillStyle=sk;g.fillRect(0,0,W,H);
-  if(T.stars){
-    var r=rng(77),n=Math.round(150*Math.min(1,T.stars));
-    for(var i=0;i<n;i++){var sx=r()*W,sy=r()*(T.stars<.5?200:430),sr=.7+r()*1.6;
-      g.fillStyle="rgba(255,255,255,"+(.45+r()*.5)+")";g.beginPath();g.arc(sx,sy,sr,0,7);g.fill();}
-  }
-  if(T.sun){
-    var s=T.sun,sg=g.createRadialGradient(s.x,s.y,10,s.x,s.y,s.r);
-    sg.addColorStop(0,"rgba("+s.c+",1)");sg.addColorStop(.35,"rgba("+s.c+",.9)");sg.addColorStop(1,"rgba("+s.c+",0)");
-    g.fillStyle=sg;g.beginPath();g.arc(s.x,s.y,s.r,0,7);g.fill();
-  }
-  if(T.moon){
-    var m=T.moon,mg=g.createRadialGradient(m.x,m.y,m.r*.6,m.x,m.y,m.r*3);
-    mg.addColorStop(0,"rgba(200,220,255,.35)");mg.addColorStop(1,"rgba(200,220,255,0)");
-    g.fillStyle=mg;g.beginPath();g.arc(m.x,m.y,m.r*3,0,7);g.fill();
-    g.fillStyle="#f3f1de";g.beginPath();g.arc(m.x,m.y,m.r,0,7);g.fill();
-    g.fillStyle="rgba(170,170,150,.55)";[[-12,-8,9],[10,6,12],[-4,16,6],[14,-14,5]].forEach(function(c){g.beginPath();g.arc(m.x+c[0],m.y+c[1],c[2],0,7);g.fill();});
-  }
   AR.far(g);
+  if(AR.mid){AR.mid(g);if(EX>2){g.save();g.scale(-1,1);AR.mid(g);g.restore();g.save();g.translate(2*W,0);g.scale(-1,1);AR.mid(g);g.restore();}}
   if(AR.water){
     var wg=g.createLinearGradient(0,AR.water,0,AR.water+80);wg.addColorStop(0,tn("#4fc8e0"));wg.addColorStop(1,tn("#1f78ad"));
-    g.fillStyle=wg;g.fillRect(0,AR.water,W,H-AR.water);
+    g.fillStyle=wg;g.fillRect(-EX,AR.water,W+2*EX,H+EY-AR.water);
   }
   var tg=g.createLinearGradient(0,320,0,900);tg.addColorStop(0,tn(AR.dirt[0]));tg.addColorStop(1,tn(AR.dirt[1]));
   terrainPath(g);g.fillStyle=tg;g.fill();
   g.lineJoin="round";g.lineCap="round";
-  g.beginPath();g.moveTo(0,HG[0]);for(var x=4;x<=W;x+=4)g.lineTo(x,HG[x]);
+  var xa=Math.ceil(EX/4)*4+8;g.beginPath();g.moveTo(-xa,hgx(-xa));for(var x=-xa+4;x<=W+xa;x+=4)g.lineTo(x,hgx(x));
   if(AR.glow){g.save();g.shadowColor="rgba(255,110,30,.95)";g.shadowBlur=26;g.strokeStyle=tn(AR.top);g.lineWidth=20;g.stroke();g.restore();}
   g.strokeStyle=tn(AR.top);g.lineWidth=20;g.stroke();
   g.save();g.translate(0,-5);g.strokeStyle=tn(AR.hi);g.lineWidth=6;g.stroke();g.restore();
   AR.deco(g);
+  if(EX>2){g.save();g.scale(-1,1);AR.deco(g);g.restore();g.save();g.translate(2*W,0);g.scale(-1,1);AR.deco(g);g.restore();}
 }
 function buildBG(){
   if(!bg)return;
-  var g=bg.getContext("2d");g.setTransform(K,0,0,K,0,0);g.clearRect(0,0,W,H);drawBG(g);
+  var g=bg.getContext("2d");g.setTransform(K,0,0,K,EX*K,EY*K);g.clearRect(-EX,-EY,W+2*EX,H+2*EY);drawBG(g);
+  if(typeof paintBars==="function")paintBars();
+}
+/* ---------- layar: resolusi & rasio aspek ---------- */
+var probe=document.createElement("div");
+probe.style.cssText="position:fixed;left:0;top:0;width:0;height:0;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)";
+document.body.appendChild(probe);
+function colA(c){return c.charAt(0)==="#"?hx(c):c.match(/[\d.]+/g).slice(0,3).map(Number);}
+function lerpC(a,b,t){return "rgb("+[0,1,2].map(function(i){return Math.round(a[i]+(b[i]-a[i])*t);}).join(",")+")";}
+/* warnai area di luar panggung (letterbox) agar menyatu dengan langit dan tanah arena */
+function paintBars(){
+  if(!bg||!curT||!HG)return;
+  var r=stage.getBoundingClientRect(),k=r.height/H,t=r.top,T=curT,s0=colA(T.sky[0]),s1=colA(T.sky[1]),s2=colA(T.sky[2]);
+  var gE=clamp((HG[0]+HG[W])/2,300,H-120),dirt=AR.dirt||["#3a2a1a","#1a120a"],top=AR.top||dirt[0];
+  var mid=gE<=330?lerpC(s0,s1,gE/330):lerpC(s1,s2,Math.min(1,(gE-330)/270));
+  var st=[["rgb("+s0.join(",")+")",0],["rgb("+s0.join(",")+")",t],["rgb("+s1.join(",")+")",t+330*k],[mid,t+gE*k],
+          [tn(top),t+gE*k],[tn(top),t+(gE+10)*k],[tn(dirt[0]),t+(gE+10)*k],[tn(dirt[1]),t+H*k]];
+  var bgs="linear-gradient(to bottom,"+st.map(function(x){return x[0]+" "+Math.round(x[1])+"px";}).join(",")+","+tn(dirt[1])+" 100%)";
+  document.documentElement.style.background=bgs;document.body.style.background=bgs;
 }
 function fit(){
-  var s=Math.min(innerWidth/W,innerHeight/H);
-  stage.style.transform="translate(-50%,-50%) scale("+s+")";
-  var nk=clamp(Math.round(s*(window.devicePixelRatio||1)*4)/4,1,2.5);
-  if(!bg||nk!==K){
-    K=nk;cv.width=Math.round(W*K);cv.height=Math.round(H*K);
-    bg=document.createElement("canvas");bg.width=cv.width;bg.height=cv.height;buildBG();
+  var cs=getComputedStyle(probe),sl=parseFloat(cs.paddingLeft)||0,sr=parseFloat(cs.paddingRight)||0,stp=parseFloat(cs.paddingTop)||0,sb=parseFloat(cs.paddingBottom)||0;
+  var aw=Math.max(200,innerWidth-sl-sr),ah=Math.max(120,innerHeight-stp-sb);
+  var dpr=window.devicePixelRatio||1,s=Math.min(aw/W,ah/H);
+  /* lebar panggung kelipatan 16 piksel perangkat: tinggi pun bulat dan tepi tajam, tanpa garis yang berkedip */
+  s=Math.max(16,Math.floor(W*s*dpr/16)*16)/dpr/W;
+  var sw=W*s,sh=H*s,left=Math.round((sl+(aw-sw)/2)*dpr)/dpr,top=Math.round((stp+(ah-sh)/2)*dpr)/dpr;
+  stage.style.left=left+"px";stage.style.top=top+"px";stage.style.transformOrigin="0 0";
+  stage.style.transform="scale("+s+")";
+  /* perluas dunia visual sampai memenuhi seluruh jendela (area bermain tetap 1600x900) */
+  var ex=Math.max(left/s,(innerWidth-left-sw)/s,0),ey=Math.max(top/s,(innerHeight-top-sh)/s,0);
+  var nx=clamp(Math.ceil(ex)+2,0,700),ny=clamp(Math.ceil(ey)+2,0,700);
+  var q=document.getElementById("inQual"),qv=q?q.value:"auto",mx=qv==="tinggi"?3:qv==="hemat"?1.25:2.5;
+  var nk=clamp(Math.round(s*(window.devicePixelRatio||1)*4)/4,1,mx);
+  if(!bg||nk!==K||nx!==EX||ny!==EY){
+    K=nk;EX=nx;EY=ny;
+    cv.width=Math.round((W+2*EX)*K);cv.height=Math.round((H+2*EY)*K);
+    cv.style.left=-EX+"px";cv.style.top=-EY+"px";cv.style.width=(W+2*EX)+"px";cv.style.height=(H+2*EY)+"px";
+    stage.style.setProperty("--ex",EX);stage.style.setProperty("--ey",EY);
+    bg=document.createElement("canvas");bg.width=cv.width;bg.height=cv.height;buildBG();buildStars();
+    while(clouds.length<5+Math.floor(EX/150))clouds.push({x:rnd(0,W+300+2*EX),y:rnd(80,260),s:rnd(.7,1.2),v:rnd(5,9)});
   }
+  paintBars();
 }
 
 /* ---------- partikel suasana ---------- */
-var amb=[],clouds=[{x:120,y:110,s:1,v:8},{x:520,y:200,s:.8,v:5},{x:900,y:100,s:1.2,v:6},{x:1350,y:230,s:.9,v:7},{x:1620,y:150,s:.7,v:9}];
+var birds=[],amb=[],clouds=[{x:120,y:110,s:1,v:8},{x:520,y:200,s:.8,v:5},{x:900,y:100,s:1.2,v:6},{x:1350,y:230,s:.9,v:7},{x:1620,y:150,s:.7,v:9}];
 function initAmbient(){
-  amb=[];var i;
-  if(AR===ARENAS.salju)for(i=0;i<110;i++)amb.push({k:"snow",x:rnd(0,W),y:rnd(0,540),vx:rnd(-22,-4),vy:rnd(28,70),r:rnd(1.5,3.8),ph:rnd(0,6)});
-  else if(AR===ARENAS.lava)for(i=0;i<70;i++)amb.push({k:"ember",x:rnd(0,W),y:rnd(200,560),vx:rnd(-14,14),vy:-rnd(20,70),r:rnd(1.5,3.6),ph:rnd(0,6)});
-  else if(curT===TOD.malam&&(AR===ARENAS.padang||AR===ARENAS.pantai))for(i=0;i<26;i++)amb.push({k:"fly",x:rnd(0,W),y:rnd(300,520),vx:rnd(-12,12),vy:rnd(-8,8),r:2.6,ph:rnd(0,6)});
+  amb=[];var i;birds=[];if(!AR.space&&AR!==ARENAS.lava&&AR!==ARENAS.hujan&&(curT.cyc||curT!==TOD.malam))for(i=0;i<5;i++)birds.push({x:rnd(-EX,W+EX),y:rnd(90,300),v:rnd(30,60),ph:rnd(0,6)});
+  if(AR===ARENAS.salju)for(i=0;i<110;i++)amb.push({k:"snow",x:rnd(-EX,W+EX),y:rnd(-EY,540),vx:rnd(-22,-4),vy:rnd(28,70),r:rnd(1.5,3.8),ph:rnd(0,6)});
+  else if(AR===ARENAS.lava)for(i=0;i<70;i++)amb.push({k:"ember",x:rnd(-EX,W+EX),y:rnd(200,560),vx:rnd(-14,14),vy:-rnd(20,70),r:rnd(1.5,3.6),ph:rnd(0,6)});
+  else if(AR===ARENAS.hujan)for(i=0;i<140;i++)amb.push({k:"rain",x:rnd(-EX,W+EX),y:rnd(-EY,540),vx:0,vy:rnd(700,950),r:1,ph:0});
+  else if((curT.cyc||curT===TOD.malam)&&(AR===ARENAS.padang||AR===ARENAS.pantai))for(i=0;i<26;i++)amb.push({k:"fly",x:rnd(-EX,W+EX),y:rnd(300,520),vx:rnd(-12,12),vy:rnd(-8,8),r:2.6,ph:rnd(0,6)});
 }
 function updateAmbient(dt){
   var wv=AR.space?0:wind;
   amb.forEach(function(a){
     a.ph+=dt*(a.k==="fly"?2.2:2);
-    if(a.k==="snow"){a.x+=(a.vx+wv*9+Math.sin(a.ph)*12)*dt;a.y+=a.vy*dt;if(a.y>545){a.y=-8;a.x=rnd(0,W);}if(a.x<-10)a.x=W+10;if(a.x>W+10)a.x=-10;}
-    else if(a.k==="ember"){a.x+=(a.vx+wv*8+Math.sin(a.ph)*10)*dt;a.y+=a.vy*dt;if(a.y<120){a.y=rnd(480,560);a.x=rnd(0,W);}if(a.x<-10)a.x=W+10;if(a.x>W+10)a.x=-10;}
-    else{a.x+=(a.vx+wv*3+Math.sin(a.ph)*14)*dt;a.y+=(a.vy+Math.cos(a.ph)*10)*dt;if(a.x<0)a.x=W;if(a.x>W)a.x=0;a.y=clamp(a.y,280,520);}
+    if(a.k==="snow"){a.x+=(a.vx+wv*9+Math.sin(a.ph)*12)*dt;a.y+=a.vy*dt;if(a.y>545){a.y=-8-EY;a.x=rnd(-EX,W+EX);}if(a.x<-EX-10)a.x=W+EX+10;if(a.x>W+EX+10)a.x=-EX-10;}
+    else if(a.k==="ember"){a.x+=(a.vx+wv*8+Math.sin(a.ph)*10)*dt;a.y+=a.vy*dt;if(a.y<120){a.y=rnd(480,560);a.x=rnd(-EX,W+EX);}if(a.x<-EX-10)a.x=W+EX+10;if(a.x>W+EX+10)a.x=-EX-10;}
+    else if(a.k==="rain"){a.x+=wv*45*dt;a.y+=a.vy*dt;if(a.y>545){a.y=-10-EY;a.x=rnd(-EX,W+EX);}if(a.x>W+EX+20)a.x=-EX-20;if(a.x<-EX-20)a.x=W+EX+20;}
+    else{a.x+=(a.vx+wv*3+Math.sin(a.ph)*14)*dt;a.y+=(a.vy+Math.cos(a.ph)*10)*dt;if(a.x<-EX)a.x=W+EX;if(a.x>W+EX)a.x=-EX;a.y=clamp(a.y,280,520);}
   });
-  if(!AR.noClouds)clouds.forEach(function(c){c.x=(((c.x+(c.v+wv*4)*dt)%(W+300))+(W+300))%(W+300);});
-  streaks.forEach(function(q){q.x+=wv*40*q.sp*dt;if(q.x<-120)q.x=W+120;if(q.x>W+120)q.x=-120;});
+  birds.forEach(function(b){b.x+=b.v*dt;b.ph+=dt*9;if(b.x>W+EX+30)b.x=-EX-30;if(b.x<-EX-30)b.x=W+EX+30;});
+  if(!AR.noClouds)clouds.forEach(function(c){var L=W+300+2*EX;c.x=(((c.x+c.v*dt)%L)+L)%L;});
+  streaks.forEach(function(q){q.x+=wv*40*q.sp*dt;if(q.x<-EX-120)q.x=W+EX+120;if(q.x>W+EX+120)q.x=-EX-120;});
+}
+var liveT=null,starCv=null;
+function nightLvl(){var T=(curT.cyc&&liveT)?liveT:curT;return T.stars||0;}
+/* bintang digambar sekali ke kanvas kecil, lalu dipudarkan lewat alpha tiap frame */
+function buildStars(){
+  starCv=document.createElement("canvas");starCv.width=bg.width;starCv.height=bg.height;
+  var g=starCv.getContext("2d");g.setTransform(K,0,0,K,EX*K,EY*K);
+  var r=rng(77),n=Math.round(150*(W+2*EX)/W),i;
+  for(i=0;i<n;i++){var sx=r()*(W+2*EX)-EX,sy=r()*(430+EY)-EY,sr=.7+r()*1.6,al=.45+r()*.5;
+    g.fillStyle="rgba(255,255,255,"+al+")";g.beginPath();g.arc(sx,sy,sr,0,7);g.fill();}
+}
+function drawSky(LT){
+  var sk=ctx.createLinearGradient(0,0,0,600);sk.addColorStop(0,LT.sky[0]);sk.addColorStop(.55,LT.sky[1]);sk.addColorStop(1,LT.sky[2]);
+  ctx.fillStyle=sk;ctx.fillRect(-EX,-EY,W+2*EX,H+2*EY);
+  if(LT.stars&&starCv){
+    var st=Math.min(1,LT.stars);
+    ctx.save();ctx.globalAlpha=Math.min(1,st*2.5);ctx.beginPath();ctx.rect(-EX,-EY,W+2*EX,200+230*st+EY);ctx.clip();
+    ctx.drawImage(starCv,-EX,-EY,W+2*EX,H+2*EY);ctx.restore();
+  }
+  if(LT.sun){
+    var s=LT.sun,sg=ctx.createRadialGradient(s.x,s.y,10,s.x,s.y,s.r);
+    ctx.save();ctx.globalAlpha=s.a===undefined?1:s.a;
+    sg.addColorStop(0,"rgba("+s.c+",1)");sg.addColorStop(.35,"rgba("+s.c+",.9)");sg.addColorStop(1,"rgba("+s.c+",0)");
+    ctx.fillStyle=sg;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,7);ctx.fill();ctx.restore();
+  }
+  if(LT.moon){
+    var m=LT.moon,mg=ctx.createRadialGradient(m.x,m.y,m.r*.6,m.x,m.y,m.r*3);
+    ctx.save();ctx.globalAlpha=m.a===undefined?1:m.a;
+    mg.addColorStop(0,"rgba(200,220,255,.35)");mg.addColorStop(1,"rgba(200,220,255,0)");
+    ctx.fillStyle=mg;ctx.beginPath();ctx.arc(m.x,m.y,m.r*3,0,7);ctx.fill();
+    ctx.fillStyle="#f3f1de";ctx.beginPath();ctx.arc(m.x,m.y,m.r,0,7);ctx.fill();
+    ctx.fillStyle="rgba(170,170,150,.55)";[[-12,-8,9],[10,6,12],[-4,16,6],[14,-14,5]].forEach(function(c){ctx.beginPath();ctx.arc(m.x+c[0],m.y+c[1],c[2],0,7);ctx.fill();});
+    ctx.restore();
+  }
+}
+var cloudSig="",cloudA=.85;
+/* awan kumulus: gumpalan bertumpuk, puncak terang, dasar datar dan gelap, tepi lembut */
+function mkCloud(seed,rgb,k2){
+  var cn=document.createElement("canvas");cn.width=Math.round(300*k2);cn.height=Math.round(140*k2);
+  var g=cn.getContext("2d");g.scale(k2,k2);
+  var r=rng(seed),base=[rgb[0],rgb[1],rgb[2]],lt=base.map(function(v){return Math.round(Math.min(255,v+(255-v)*.55));}),
+      sh=[Math.round(base[0]*.72),Math.round(base[1]*.76),Math.round(base[2]*.9)],puffs=[],n=7+Math.floor(r()*4),i;
+  for(i=0;i<n;i++){var t=(i+.5)/n,mid=1-Math.abs(t-.5)*1.7,rad=20+mid*30+r()*10;
+    puffs.push([150+(t-.5)*210+(r()-.5)*14,110-rad*.62+(r()-.5)*5,rad]);}
+  var m2=3+Math.floor(r()*3);
+  for(i=0;i<m2;i++){var rd=18+r()*18;puffs.push([150+(r()-.5)*110,65-rd*.5-r()*14,rd]);}
+  puffs.sort(function(a,b){return b[1]-a[1];});
+  puffs.forEach(function(p){
+    var gr=g.createRadialGradient(p[0]-p[2]*.25,p[1]-p[2]*.35,p[2]*.1,p[0],p[1],p[2]);
+    gr.addColorStop(0,"rgba("+lt+",1)");gr.addColorStop(.55,"rgba("+base.map(Math.round)+",1)");
+    gr.addColorStop(.88,"rgba("+base.map(Math.round)+",.9)");gr.addColorStop(1,"rgba("+base.map(Math.round)+",0)");
+    g.fillStyle=gr;g.beginPath();g.arc(p[0],p[1],p[2],0,7);g.fill();
+  });
+  g.globalCompositeOperation="source-atop";
+  var bs=g.createLinearGradient(0,70,0,114);bs.addColorStop(0,"rgba("+sh+",0)");bs.addColorStop(1,"rgba("+sh+",.55)");
+  g.fillStyle=bs;g.fillRect(0,0,300,140);
+  g.globalCompositeOperation="destination-out";
+  var fb=g.createLinearGradient(0,106,0,118);fb.addColorStop(0,"rgba(0,0,0,0)");fb.addColorStop(1,"rgba(0,0,0,1)");
+  g.fillStyle=fb;g.fillRect(0,106,300,34);
+  return cn;
 }
 function drawClouds(){
   if(AR.noClouds)return;
-  ctx.fillStyle=curT.cloud;
-  clouds.forEach(function(c){var x=c.x-150;
-    ctx.beginPath();ctx.ellipse(x,c.y,70*c.s,26*c.s,0,0,7);ctx.ellipse(x+45*c.s,c.y-14*c.s,50*c.s,26*c.s,0,0,7);ctx.ellipse(x-40*c.s,c.y-8*c.s,40*c.s,20*c.s,0,0,7);ctx.fill();});
+  var sig=curT.cloud+"|"+K+"|"+clouds.length;
+  if(sig!==cloudSig){
+    cloudSig=sig;var rgb=curT.cloud.match(/[\d.]+/g).map(Number);cloudA=rgb[3]===undefined?.85:rgb[3];
+    clouds.forEach(function(c,i){c.seed=c.seed||(i*7919+13);c.spr=mkCloud(c.seed,rgb,Math.min(K,2));});
+  }
+  ctx.save();ctx.globalAlpha=cloudA;
+  clouds.forEach(function(c){var m=c.s*.9,x=c.x-150-EX;ctx.drawImage(c.spr,x-150*m,c.y-110*m,300*m,140*m);});
+  ctx.restore();
 }
 function drawWater(){
   if(!waterSpans.length)return;
   ctx.strokeStyle="rgba(255,255,255,.6)";ctx.lineWidth=3;ctx.lineCap="round";
-  waterSpans.forEach(function(sp){
+  var sps=[];waterSpans.forEach(function(sp){sps.push(sp);if(EX>2){sps.push([-sp[1],-sp[0]]);sps.push([2*W-sp[1],2*W-sp[0]]);}});
+  sps.forEach(function(sp){
+    if(sp[1]<-EX-10||sp[0]>W+EX+10)return;
     ctx.beginPath();
     for(var x=sp[0];x<=sp[1];x+=6){var y=AR.water+Math.sin(x*.05+tNow*2)*2.5;if(x===sp[0])ctx.moveTo(x,y);else ctx.lineTo(x,y);}
     ctx.stroke();
   });
 }
 function drawAmbient(){
+  var wv=AR.space?0:wind;
+  ctx.strokeStyle="rgba(30,40,60,.7)";ctx.lineWidth=2.5;ctx.lineCap="round";
+  var nl=nightLvl(),ba=clamp((.55-nl)/.2,0,1),fa=curT.cyc?clamp((nl-.45)/.3,0,1):1;
+  ctx.save();ctx.globalAlpha=ba;if(ba>0)birds.forEach(function(b){var f=Math.sin(b.ph)*7;ctx.beginPath();ctx.moveTo(b.x-12,b.y-f);ctx.quadraticCurveTo(b.x-5,b.y-f-5,b.x,b.y);ctx.quadraticCurveTo(b.x+5,b.y-f-5,b.x+12,b.y-f);ctx.stroke();});ctx.restore();
   if(!AR.space&&Math.abs(wind)>1){
     var sw=Math.min(1,Math.abs(wind)/10),sg=wind<0?-1:1;
     ctx.lineCap="round";ctx.lineWidth=2.5;ctx.strokeStyle="rgba(255,255,255,"+(.12+.28*sw)+")";
     streaks.forEach(function(q){var L=q.l*(.4+sw);ctx.beginPath();ctx.moveTo(q.x,q.y);ctx.lineTo(q.x-sg*L,q.y+Math.sin(q.x*.02+tNow)*3);ctx.stroke();});
   }
   amb.forEach(function(a){
+    if(a.k==="fly"&&fa<=0)return;
     if(a.k==="snow"){ctx.fillStyle="rgba(255,255,255,.88)";ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
     else if(a.k==="ember"){var al=.35+.5*Math.abs(Math.sin(a.ph));ctx.fillStyle="rgba(255,"+(110+Math.floor(90*Math.abs(Math.sin(a.ph))))+",40,"+al+")";ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
+    else if(a.k==="rain"){ctx.strokeStyle="rgba(190,215,255,.55)";ctx.lineWidth=2;ctx.beginPath();var dx=wv*45/a.vy*22;ctx.moveTo(a.x-dx,a.y-22);ctx.lineTo(a.x,a.y);ctx.stroke();}
     else{var f=.25+.75*Math.abs(Math.sin(a.ph)),gg=ctx.createRadialGradient(a.x,a.y,0,a.x,a.y,10);
-      gg.addColorStop(0,"rgba(235,255,130,"+f+")");gg.addColorStop(1,"rgba(235,255,130,0)");ctx.fillStyle=gg;ctx.beginPath();ctx.arc(a.x,a.y,10,0,7);ctx.fill();}
+      gg.addColorStop(0,"rgba(235,255,130,"+(f*fa)+")");gg.addColorStop(1,"rgba(235,255,130,0)");ctx.fillStyle=gg;ctx.beginPath();ctx.arc(a.x,a.y,10,0,7);ctx.fill();}
   });
 }
 
@@ -832,6 +1150,7 @@ function setTheme(forceRandom){
   if(id==="acak"){var ids=Object.keys(ARENAS);id=forceRandom?ids[Math.floor(Math.random()*ids.length)]:"padang";}
   AR=ARENAS[id]||ARENAS.padang;
   if(AR.fixed)curT={sky:AR.sky,mul:AR.mul,stars:AR.stars||0,cloud:AR.cloud||"rgba(255,255,255,.5)"};
+  else if(S.tod==="jalan"){dayT=0;dayAcc=0;curT=cycleTOD(0);liveT=curT;}
   else curT=TOD[S.tod==="auto"?AR.tod:S.tod]||TOD.siang;
   MUL=curT.mul;
   GRAV=1000*AR.g;V0=1180*Math.sqrt(AR.g);
@@ -870,6 +1189,8 @@ var sfx={
   wrong:function(){tone(220,.3,"sawtooth",.12,-90);},
   coin:function(){tone(1319,.1,"square",.06);tone(1760,.2,"square",.06,0,.07);},
   buy:function(){tone(520,.08,"triangle",.14);tone(780,.12,"triangle",.14,0,.07);},
+  load:function(){noise(.14,.3,700);tone(110,.14,"square",.1,-30);tone(150,.1,"square",.08,-20,.18);},
+  ready:function(){tone(440,.07,"triangle",.13);tone(660,.1,"triangle",.13,0,.06);},
   deny:function(){tone(170,.2,"square",.09,-50);},
   up:function(lv){var b=440*Math.pow(1.06,lv);[0,4,7,12].forEach(function(s,i){tone(b*Math.pow(2,s/12),.22,"triangle",.16,0,i*.09);});},
   repair:function(){tone(700,.06,"square",.07);tone(900,.06,"square",.07,0,.09);tone(1200,.14,"triangle",.1,0,.18);},
@@ -889,9 +1210,9 @@ var POS=[130,430,1470,1170];
 function newGame(){
   bank=getBank();rollWind();wind=windTarget;windT=rnd(3,15);initStreaks();
   teams=[0,1].map(function(t){
-    return {t:t,name:(String(S["n"+t]||"").trim()||DEFN[t]),dir:t===0?1:-1,col:S["c"+t],ink:inkFor(S["c"+t]),sel:0,
-      coins:0,airCd:0,q:null,deck:[],dp:0,nextIn:0,fb:{txt:"",cls:""},
-      st:{c:0,w:0,shots:0,hits:0,earned:0,spent:0,dmg:0}};
+    return {t:t,name:(function(v){return(!v||isDef(v,t))?defName(t):v;})(String(S["n"+t]||"").trim()),dir:t===0?1:-1,col:S["c"+t],ink:inkFor(S["c"+t]),sel:0,
+      coins:0,streak:0,miss:[],airCd:0,q:null,deck:[],dp:0,nextIn:0,fb:{txt:"",cls:""},
+      st:{c:0,w:0,shots:0,hits:0,earned:0,spent:0,dmg:0,best:0}};
   });
   cannons=POS.map(function(x,i){
     var L=LV[0];
@@ -902,11 +1223,11 @@ function newGame(){
   var ml=String(S.mode||"pvp");
   if(ml.indexOf("ai-")===0&&AIL[ml.slice(3)]){
     var lvl=ml.slice(3),cfg=AIL[lvl];
-    teams[1].ai={lvl:lvl,cfg:cfg,ans:0,total:1,shopT:1.5,log:[],logKey:0,mood:"🤖",moodT:0,phase:"attack",phaseT:rnd(18,28)};
+    teams[1].ai={lvl:lvl,cfg:cfg,ans:0,total:1,shopT:1.5,log:[],logKey:0,mood:"bot",moodT:0,phase:"attack",phaseT:rnd(18,28)};
     aiNewAns(teams[1]);
     var nm=String(S.n1||"").trim();
-    if(!nm||nm===DEFN[1])teams[1].name="AI "+cfg.name;
-    aiLog(teams[1],"Siap bertanding!","");
+    if(!nm||isDef(nm,1))teams[1].name="AI "+aiName(lvl);
+    aiLog(teams[1],tt("ai.ready"),"");
   }
   projs=[];parts=[];floats=[];scorches=[];flashes=[];shake=0;ending=0;endReason="";tNow=0;
   timeLeft=(+S.dur||0)*60;
@@ -925,21 +1246,21 @@ function panelHTML(t){
   var ci=[t*2,t*2+1];
   var ctrl='<div class="ctrl">'+ci.map(function(c,k){
     return '<div class="cl" id="cl'+c+'">'+
-      '<button class="cl-head" data-sel="'+c+'"'+(isAI?' disabled':'')+' aria-label="Pilih meriam '+(k+1)+' sebagai target toko">'+
-        '<span class="badge">'+(k+1)+'</span><span class="lvchip" id="lv'+c+'">Lv 1</span><span class="ang" id="ang'+c+'">45°</span><span class="isi">TARGET</span></button>'+
-      '<div class="mag" id="mag'+c+'"><i></i><i></i><i></i><i></i><i></i><i></i><span class="sts" id="sts'+c+'"></span></div>'+
+      '<button class="cl-head" data-sel="'+c+'"'+(isAI?' disabled':'')+' aria-label="'+tt("ar.pickCannon",k+1)+'">'+
+        '<span class="badge">'+(k+1)+'</span><span class="lvchip" id="lv'+c+'">Lv 1</span><span class="ang" id="ang'+c+'">45°</span><span class="isi">'+tt("tag.target")+'</span></button>'+
+      '<div class="mag" id="mag'+c+'"><i></i><i></i><i></i><i></i><i></i><i></i><span class="ptag">'+(k?I("bolt")+tt("tag.fast"):I("weight")+tt("tag.heavy"))+'</span><span class="sts" id="sts'+c+'"></span></div>'+
       '<div class="cl-btns">'+
-        '<button class="hb" data-hold="'+c+'" data-dir="1"'+(isAI?' disabled':'')+' aria-label="Naikkan sudut meriam '+(k+1)+'">▲</button>'+
-        '<button class="hb" data-hold="'+c+'" data-dir="-1"'+(isAI?' disabled':'')+' aria-label="Turunkan sudut meriam '+(k+1)+'">▼</button>'+
-        '<button class="fire" id="fire'+c+'" data-fire="'+c+'"><span class="fl">TEMBAK</span><small class="fs">tahan = kuat</small></button>'+
+        '<button class="hb" data-hold="'+c+'" data-dir="1"'+(isAI?' disabled':'')+' aria-label="'+tt("ar.up",k+1)+'">'+I("up")+'</button>'+
+        '<button class="hb" data-hold="'+c+'" data-dir="-1"'+(isAI?' disabled':'')+' aria-label="'+tt("ar.down",k+1)+'">'+I("down")+'</button>'+
+        '<button class="fire" id="fire'+c+'" data-fire="'+c+'"><span class="fl">'+tt("fire.btn")+'</span><small class="fs">'+tt("fire.hold")+'</small></button>'+
       '</div></div>';
   }).join("")+'</div>';
   if(isAI){
     var tmA=teams[t],qaAI='<div class="qa" id="qa'+t+'">'+
-      '<div class="tabs"><div class="aitag"><span>🤖</span><span>AI '+esc(tmA.ai.cfg.name)+'</span></div>'+
-      '<div class="wallet" id="wl'+t+'" aria-label="Koin"><i class="coin"></i><b id="co'+t+'">0</b></div></div>'+
-      '<div class="pane"><div class="aihead"><div class="avatar" id="aiAv">🤖</div>'+
-      '<div class="aicol"><div class="aist" id="aiSt">Mengerjakan soal…</div><div class="aibar"><i id="aiBarI"></i></div></div></div>'+
+      '<div class="tabs"><div class="aitag"><span>'+I("bot")+'</span><span>AI '+esc(aiName(tmA.ai.lvl))+'</span></div>'+
+      '<div class="wallet" id="wl'+t+'" aria-label="'+tt("ar.coin")+'"><i class="coin"></i><b id="co'+t+'">0</b></div></div>'+
+      '<div class="pane"><div class="aihead"><div class="avatar" id="aiAv">'+I("bot")+'</div>'+
+      '<div class="aicol"><div class="aist" id="aiSt">'+tt("ai.st.work")+'</div><div class="aibar"><i id="aiBarI"></i></div></div></div>'+
       '<div class="ailog" id="aiLog"></div></div></div>';
     return t===0?ctrl+qaAI:qaAI+ctrl;
   }
@@ -948,9 +1269,9 @@ function panelHTML(t){
       '<span class="tx"><b></b><small></small></span><span class="pr"></span></button>';
   }).join("");
   var qa='<div class="qa" id="qa'+t+'">'+
-    '<div class="tabs"><button class="tab" data-team="'+t+'" data-tab="q" id="tabQ'+t+'" aria-selected="true">❓ Soal</button>'+
-    '<button class="tab" data-team="'+t+'" data-tab="s" id="tabS'+t+'" aria-selected="false">🛒 Toko</button>'+
-    '<div class="wallet" id="wl'+t+'" aria-label="Koin"><i class="coin"></i><b id="co'+t+'">0</b></div></div>'+
+    '<div class="tabs"><button class="tab" data-team="'+t+'" data-tab="q" id="tabQ'+t+'" aria-selected="true">'+I("ask")+' '+tt("tab.q")+'</button>'+
+    '<button class="tab" data-team="'+t+'" data-tab="s" id="tabS'+t+'" aria-selected="false">'+I("cart")+' '+tt("tab.s")+'</button>'+
+    '<div class="wallet" id="wl'+t+'" aria-label="'+tt("ar.coin")+'"><i class="coin"></i><b id="co'+t+'">0</b></div></div>'+
     '<div class="pane" id="pq'+t+'"><div class="q" id="q'+t+'"></div><div class="fb" id="fb'+t+'"></div><div class="ans" id="ans'+t+'"></div></div>'+
     '<div class="pane shop" id="shp'+t+'" hidden>'+items+'</div></div>';
   return t===0?ctrl+qa:qa+ctrl;
@@ -1019,8 +1340,8 @@ function coinFx(t,from){
   var dx=b.x-a.x,dy=b.y-a.y;
   var an=el.animate([
     {transform:"translate(0,0) scale(.6) rotateY(0deg)"},
-    {transform:"translate("+dx*.3+"px,"+(dy*.3-120)+"px) scale(1.55) rotateY(360deg)",offset:.42},
-    {transform:"translate("+dx+"px,"+dy+"px) scale(.85) rotateY(720deg)"}
+    {transform:"translate("+dx*.3+"px,"+(dy*.3-120)+"px) scale(1.55) rotateY(540deg)",offset:.42},
+    {transform:"translate("+dx+"px,"+dy+"px) scale(.85) rotateY(1080deg)"}
   ],{duration:860,easing:"cubic-bezier(.35,.1,.3,1)"});
   an.onfinish=arrive;
 }
@@ -1047,14 +1368,17 @@ function answer(t,i){
   if(q.opts[i].ok){
     tm.st.c++;tm.st.earned++;tm.coins++;
     btns[i].classList.add("ok");
-    tm.fb={txt:"✔ Benar! +1 koin",cls:"good"};
-    tm.nextIn=1.0;sfx.correct();coinFx(t,btns[i]);
+    tm.fb={txt:I("ok")+" "+tt("fb.ok"),cls:"good"};
+    tm.streak=(tm.streak||0)+1;if(tm.streak>tm.st.best)tm.st.best=tm.streak;
+    if(tm.streak%3===0){tm.coins++;tm.st.earned++;tm.fb={txt:I("fire")+" "+tt("fb.combo",tm.streak),cls:"good"};say(tgt(t),tt("say.combo",tm.streak),"#ffb020",30);}
+    tm.nextIn=1.2;sfx.correct();coinFx(t,btns[i]);
   }else{
     tm.st.w++;
     btns[i].classList.add("bad");
     var ok=q.opts.findIndex(function(o){return o.ok;});
     btns[ok].classList.add("ok");
-    tm.fb={txt:"✘ Jawaban benar: "+q.opts[ok].x,cls:"bad"};
+    tm.fb={txt:I("no")+" "+tt("fb.wrong")+esc(q.opts[ok].x),cls:"bad"};
+    tm.streak=0;if(!tm.miss.some(function(m){return m[0]===q.text;}))tm.miss.push([q.text,q.opts[ok].x]);
     tm.nextIn=2.4;sfx.wrong();
   }
   btns.forEach(function(b){b.disabled=true;});
@@ -1065,29 +1389,29 @@ function adjust(ci,dir){var c=cannons[ci];if(!c||c.dead)return;c.angle=clamp(c.a
 /* ---------- TOKO ---------- */
 function itemInfo(t,id){
   var tm=teams[t],c=tgt(t),L=LV[c.lv-1],r={name:"",sub:"",price:0,ok:true,why:"",noPrice:false},dead=c.dead;
-  function ammo(name,sub,base){r.name=name;r.sub=sub;r.price=price(base);r.ok=!dead&&c.mag.length<L.cap;r.why=dead?"Meriam hancur":"Magazin penuh";}
+  function ammo(k,base){r.name=tt("shop."+k);r.sub=tt("shop."+k+".s");r.price=price(base);r.ok=!dead&&c.mag.length<L.cap;r.why=dead?tt("shop.dead"):tt("shop.full");}
   switch(id){
-    case "n":ammo("Peluru","Peluru biasa",1);break;
-    case "b":ammo("Peluru Besar","Ledakan luas",3);break;
-    case "t":ammo("Peluru Tiga","Tembak 3 arah",4);break;
-    case "i":ammo("Peluru Es","Beku 4 dtk",3);break;
+    case "n":ammo("n",1);break;
+    case "b":ammo("b",3);break;
+    case "t":ammo("t",4);r.price+=(S.price==="mahal"?2:1);break;
+    case "i":ammo("i",3);break;
     case "u":
-      if(c.lv>=10){r.name="Level maksimal";r.sub=LV[9].n;r.ok=false;r.why="Sudah Lv 10";r.noPrice=true;}
-      else{r.name="Upgrade Lv "+(c.lv+1);r.sub="Dmg "+LV[c.lv].dmg+" · HP "+LV[c.lv].hp;r.price=price(UPC[c.lv-1]);r.ok=!dead;r.why="Meriam hancur";}
+      if(c.lv>=10){r.name=tt("shop.u.max");r.sub=lvName(10);r.ok=false;r.why=tt("shop.u.why");r.noPrice=true;}
+      else{r.name=tt("shop.u",c.lv+1);r.sub=tt("shop.u.s",LV[c.lv].dmg,LV[c.lv].hp);r.price=price(UPC[c.lv-1]);r.ok=!dead;r.why=tt("shop.dead");}
       break;
     case "r":
-      if(dead){r.name="Bangun Ulang";r.sub="Pulih 50%";r.price=price(3+c.lv);r.ok=true;}
-      else{r.name="Perbaiki";r.sub="+50% nyawa";r.price=price(1+Math.ceil(c.lv/2));r.ok=c.hp<c.max;r.why="Nyawa sudah penuh";}
+      if(dead){r.name=tt("shop.r.re");r.sub=tt("shop.r.re.s");r.price=price(3);r.ok=true;}
+      else{r.name=tt("shop.r");r.sub=tt("shop.r.s");r.price=price(1+Math.ceil(c.lv/2));r.ok=c.hp<c.max;r.why=tt("shop.r.why");}
       break;
     case "s":
-      r.name="Perisai";r.sub="Serap 60% dmg";r.price=price(2+Math.ceil(c.lv/2));
-      r.ok=!dead&&c.shield<Math.round(c.max*.6);r.why=dead?"Meriam hancur":"Perisai sudah penuh";break;
-    case "d":r.name="Radar Bidik";r.sub="Garis 45 dtk";r.price=price(2);r.ok=!dead;r.why="Meriam hancur";break;
-    case "k":r.name="Reload Kilat";r.sub="Cepat 30 dtk";r.price=price(3);r.ok=!dead;r.why="Meriam hancur";break;
+      r.name=tt("shop.s");r.sub=tt("shop.s.s");r.price=price(2+Math.ceil(c.lv/2));
+      r.ok=!dead&&c.shield<Math.round(c.max*.6);r.why=dead?tt("shop.dead"):tt("shop.s.why");break;
+    case "d":r.name=tt("shop.d");r.sub=tt("shop.d.s");r.price=price(2);r.ok=!dead;r.why=tt("shop.dead");break;
+    case "k":r.name=tt("shop.k");r.sub=tt("shop.k.s");r.price=price(3);r.ok=!dead;r.why=tt("shop.dead");break;
     case "a":
-      r.name="Bom Udara";r.price=price(10);
-      if(tm.airCd>0){r.sub="Siap "+Math.ceil(tm.airCd)+" dtk";r.ok=false;r.why="Sedang isi ulang";}
-      else{r.sub="6 bom ke lawan";r.ok=alive(1-t)>0;r.why="Tidak ada target";}
+      r.name=tt("shop.a");r.price=price(10);
+      if(tm.airCd>0){r.sub=tt("shop.a.cd",Math.ceil(tm.airCd));r.ok=false;r.why=tt("shop.a.why");}
+      else{r.sub=tt("shop.a.s");r.ok=alive(1-t)>0;r.why=tt("shop.a.no");}
       break;
   }
   return r;
@@ -1100,23 +1424,30 @@ function buy(t,id,btn){
   if(state!=="playing"||ending>0)return;
   var tm=teams[t],c=tgt(t),info=itemInfo(t,id);
   if(!info.ok){deny(c,info.why,btn);return;}
-  if(tm.coins<info.price){deny(c,"Koin kurang!",btn);return;}
+  if(tm.coins<info.price){deny(c,tt("shop.nocoin"),btn);return;}
   tm.coins-=info.price;tm.st.spent+=info.price;spendFx(t,info.price);
   switch(id){
     case "n":case "b":case "t":case "i":
-      c.mag.push(id);c.pulse=1;say(c,"+ "+info.name,MAGCOL[id],26);sfx.buy();break;
+      var wasEmpty=c.mag.length===0;
+      c.mag.push(id);c.pulse=1;say(c,"+ "+info.name,MAGCOL[id],26);sfx.buy();
+      if(wasEmpty){
+        var Lq=LV[c.lv-1],lt=Math.max(1.8,Lq.rel*(c.k?.75:1.2)*(c.turbo>0?.35:1)*.6);
+        if(c.reload<lt){c.reload=lt;c.rmax=lt;}
+        c.loading=true;c.sayT=.9;sfx.load();
+      }
+      break;
     case "u":
       var old=LV[c.lv-1];c.lv++;var N=LV[c.lv-1];
       c.sc=N.sc;c.max=N.hp;c.hp+=N.hp-old.hp;c.pop=1;
-      levelFx(c);say(c,"LEVEL "+c.lv+"! "+N.n,"#ffe27a",26);sfx.up(c.lv);break;
+      levelFx(c);say(c,tt("say.level",c.lv,lvName(c.lv)),"#ffe27a",26);sfx.up(c.lv);break;
     case "r":
-      if(c.dead){c.dead=false;c.hp=Math.ceil(c.max*.5);c.mag=[];c.reload=0;c.freeze=0;c.shield=0;c.pop=1;say(c,"DIBANGUN ULANG!","#8ef0a8",28);}
-      else{var add=Math.ceil(c.max*.5),before=c.hp;c.hp=Math.min(c.max,c.hp+add);say(c,"+"+(c.hp-before)+" nyawa","#8ef0a8");}
+      if(c.dead){c.dead=false;c.lv=1;c.sc=LV[0].sc;c.max=LV[0].hp;c.hp=Math.ceil(c.max*.5);c.mag=[];c.reload=0;c.loading=false;c.freeze=0;c.shield=0;c.pop=1;say(c,tt("say.rebuilt"),"#8ef0a8",28);}
+      else{var add=Math.ceil(c.max*.5),before=c.hp;c.hp=Math.min(c.max,c.hp+add);say(c,tt("say.hp",c.hp-before),"#8ef0a8");}
       sparkleCannon(c,"#8ef0a8");sfx.repair();break;
     case "s":
-      c.shieldMax=Math.round(c.max*.6);c.shield=c.shieldMax;c.shieldFlash=.7;say(c,"PERISAI!","#7fe6ff");sfx.shield();break;
-    case "d":c.radar=45;say(c,"RADAR AKTIF","#ffd166",26);sfx.buy();break;
-    case "k":c.turbo=30;c.reload=Math.min(c.reload,.3);say(c,"ISI ULANG KILAT","#ffd166",26);sfx.buy();break;
+      c.shieldMax=Math.round(c.max*.6);c.shield=c.shieldMax;c.shieldFlash=.7;say(c,tt("say.shield"),"#7fe6ff");sfx.shield();break;
+    case "d":c.radar=45;say(c,tt("say.radar"),"#ffd166",26);sfx.buy();break;
+    case "k":c.turbo=30;c.reload=Math.min(c.reload,.3);say(c,tt("say.turbo"),"#ffd166",26);sfx.buy();break;
     case "a":airstrike(t);break;
   }
 }
@@ -1137,7 +1468,7 @@ function airstrike(t){
     projs.push({x:x,y:-40,vx:0,vy:0,tx:x,delay:.5+i*.22,team:t,from:null,type:"a",air:true,dmg:L.dmg*.55,rad:L.rad*.95,r:9,age:0,dead:false,trail:[]});
   }
   tm.airCd=25;sfx.siren();
-  say(tgt(t),"SERANGAN UDARA!","#ff9a7a",28);
+  say(tgt(t),tt("say.air"),"#ff9a7a",28);
 }
 
 /* ---------- MENEMBAK ---------- */
@@ -1153,10 +1484,10 @@ function fire(ci,pow){
   var L=LV[c.lv-1],type=c.mag.shift(),sh=SH[type],m=muzzle(c),sp=vOf(pow);
   (type==="t"?[-6,0,6]:[0]).forEach(function(da){
     var a=(c.angle+da)*Math.PI/180;
-    projs.push({x:m.x,y:m.y,vx:m.d*Math.cos(a)*sp,vy:-Math.sin(a)*sp,age:0,from:c,team:c.team,type:type,
-      dmg:L.dmg*sh.d,rad:L.rad*sh.r,r:6+c.lv*.55+(type==="b"?4:0),dead:false,trail:[],delay:0});
+    projs.push({x:m.x,y:m.y,vx:m.d*Math.cos(a)*sp,vy:-Math.sin(a)*sp,age:0,from:c,team:c.team,type:type,lv:c.lv,
+      dmg:L.dmg*sh.d*(c.k?.9:1.15),rad:L.rad*sh.r,r:6+c.lv*.55+(type==="b"?4:0),dead:false,trail:[],delay:0});
   });
-  c.reload=L.rel*(c.turbo>0?.35:1);c.recoil=1;c.aimFlash=0;
+  c.reload=L.rel*(c.k?.75:1.2)*(c.turbo>0?.35:1);c.rmax=c.reload;c.loading=c.mag.length>0;c.sayT=c.loading?.55:0;c.recoil=1;c.aimFlash=0;
   teams[c.team].st.shots++;
   flashes.push({x:m.x,y:m.y,r:40+c.lv*5,life:.14,max:.14});
   var ang=c.angle*Math.PI/180;
@@ -1178,9 +1509,10 @@ function hurt(c,dmg,p){
   }
   if(c.team!==p.team)teams[p.team].st.dmg+=dmg;
   if(c.hp<=0){destroyCannon(c);return;}
-  if(p.type==="i"&&!hadShield){c.freeze=4;say(c,"BEKU!","#8fe9ff",30);sfx.freeze();}
+  if(p.type==="i"&&!hadShield){c.freeze=4;say(c,tt("say.freeze"),"#8fe9ff",30);sfx.freeze();}
 }
 function explode(x,y,onGround,p){
+  if(p.aiTg&&p.from&&p.from.ai&&p.type!=="t")p.from.ai.spot[p.aiTg.i]={dx:x-p.aiTg.x,t:tNow,w:p.aiW||0};
   var hitEnemy=false,wet=onGround&&AR.water&&y>AR.water-2&&waterSpans.some(function(s){return x>=s[0]&&x<=s[1];});
   var sz=p.rad/66,cols=wet?["#bfefff","#7fd8ff","#ffffff","#5cc4f0"]:["#ffe066","#ffb020","#ff6a3d","#fff3b0"];
   flashes.push({x:x,y:y,r:p.rad*1.5,life:.28,max:.28});
@@ -1193,7 +1525,7 @@ function explode(x,y,onGround,p){
   for(var j=0;j<12;j++)parts.push({x:x+rnd(-30,30),y:y+rnd(-20,10),vx:rnd(-40,40),vy:rnd(-110,-40),life:rnd(1,1.9),max:1.9,r:rnd(14,24)*Math.sqrt(sz),
     col:wet?"#d8f4ff":(p.type==="i"?"#cfeeff":"#9aa0ad"),g:0,type:"s"});
   if(onGround&&!wet)scorches.push({x:x,y:y,r:rnd(28,40)*Math.sqrt(sz),ice:p.type==="i"});
-  shake=Math.max(shake,6+sz*6);sfx.boom();
+  shake=Math.max(shake,6+sz*6);flashes.push({x:x,y:y,r:p.rad*1.15,life:.38,max:.38,ring:true});sfx.boom();
   cannons.forEach(function(c){
     if(c.dead)return;
     var d=Math.hypot(x-c.x,y-(c.gy-28*c.sc)),hitR=46*c.sc;
@@ -1209,7 +1541,7 @@ function explode(x,y,onGround,p){
 }
 function destroyCannon(c){
   c.dead=true;c.mag=[];c.hold=0;c.shield=0;c.freeze=0;c.radar=0;c.turbo=0;
-  floats.push({x:c.x,y:c.gy-c.sc*150-60,txt:"HANCUR!",life:1.6,max:1.6,col:"#ffd166",sz:34});
+  floats.push({x:c.x,y:c.gy-c.sc*150-60,txt:tt("say.dead"),life:1.6,max:1.6,col:"#ffd166",sz:34});
   flashes.push({x:c.x,y:c.gy-30,r:190,life:.4,max:.4});
   for(var i=0;i<50;i++){
     var a=rnd(0,Math.PI*2),sp=rnd(80,520);
@@ -1226,6 +1558,28 @@ function checkEnd(){
 }
 function endGame(reason){if(ending>0)return;ending=1.9;endReason=reason;holds.clear();cannons.forEach(function(c){c.hold=0;});}
 
+function reviewHTML(){
+  var h='';
+  [0,1].forEach(function(t){
+    var tm=teams[t],m=tm.miss.slice(0,3);
+    if(tm.ai){h+='<div class="rv"></div>';return;}
+    h+='<div class="rv"><h3 style="color:'+tm.col+'">'+I("memo")+tt("rv.h")+esc(tm.name)+'</h3>'+
+      (m.length?m.map(function(x){return '<p>'+esc(x[0])+' '+I("r")+' <b>'+esc(x[1])+'</b></p>';}).join(""):(tm.st.c+tm.st.w===0?'<p>'+tt("rv.none")+'</p>':'<p>'+tt("rv.great")+' '+I("party")+'</p>'))+'</div>';
+  });
+  return '<div class="rvg">'+h+'</div>';
+}
+function confetti(col){
+  if(reduceMotion)return;
+  var fx=$("#fx"),cs=[col,"#ffd166","#3ddc84","#5ce1ff","#ff6ea8"];
+  for(var i=0;i<70;i++){
+    var el=document.createElement("i");
+    el.style.cssText="position:absolute;width:10px;height:16px;top:-20px;left:"+rnd(0,W)+"px;border-radius:2px;background:"+cs[i%5];
+    fx.appendChild(el);
+    if(el.animate){var an=el.animate([{transform:"translate(0,0) rotate(0deg)",opacity:1},{transform:"translate("+rnd(-120,120)+"px,"+(H+40)+"px) rotate("+rnd(300,900)+"deg)",opacity:.9}],{duration:rnd(1800,3200),delay:rnd(0,900),easing:"ease-in"});
+      an.onfinish=(function(e){return function(){e.remove();};})(el);}
+    else el.remove();
+  }
+}
 function finish(){
   state="over";
   var a=[alive(0),alive(1)],hp=[totalHP(0),totalHP(1)],win=-1;
@@ -1235,27 +1589,28 @@ function finish(){
     if(hp[0]!==hp[1])win=hp[0]>hp[1]?0:1;
     else if(teams[0].st.dmg!==teams[1].st.dmg)win=teams[0].st.dmg>teams[1].st.dmg?0:1;
   }
-  var why=endReason==="time"?"Waktu habis. Pemenang ditentukan dari total nyawa meriam.":
-          (win<0?"Kedua tim kehilangan semua meriam.":"Semua meriam lawan sudah hancur.");
-  if(teams[1].ai)why+=" Lawan: AI "+teams[1].ai.cfg.name+".";
-  var head=win>=0?"🏆 "+esc(teams[win].name)+" menang!":"Seri!";
+  var why=endReason==="time"?tt("res.time"):
+          (win<0?tt("res.both"):tt("res.all"));
+  if(teams[1].ai)why+=tt("res.vsai",aiName(teams[1].ai.lvl));
+  var head=win>=0?I("trophy")+tt("res.wins",esc(teams[win].name)):tt("res.draw");
   function acc(tm){var n=tm.st.c+tm.st.w;return n?Math.round(100*tm.st.c/n)+"%":"-";}
-  function lvs(t){return cannons.filter(function(c){return c.team===t;}).map(function(c){return "Lv "+c.lv+(c.dead?" (hancur)":"");}).join(" dan ");}
-  var rows=[["Level meriam",lvs],
-            ["Koin terkumpul",function(t){return teams[t].st.earned;}],
-            ["Koin dibelanjakan",function(t){return teams[t].st.spent;}],
-            ["Jawaban benar / salah",function(t){return teams[t].st.c+" / "+teams[t].st.w;}],
-            ["Ketepatan jawaban",function(t){return acc(teams[t]);}],
-            ["Tembakan / kena sasaran",function(t){return teams[t].st.shots+" / "+teams[t].st.hits;}],
-            ["Total damage",function(t){return teams[t].st.dmg;}],
-            ["Sisa nyawa meriam",function(t){return hp[t];}]];
+  function lvs(t){return cannons.filter(function(c){return c.team===t;}).map(function(c){return "Lv "+c.lv+(c.dead?tt("res.destroyed"):"");}).join(tt("res.and"));}
+  var rows=[[tt("row.lv"),lvs],
+            [tt("row.earned"),function(t){return teams[t].st.earned;}],
+            [tt("row.spent"),function(t){return teams[t].st.spent;}],
+            [tt("row.cw"),function(t){return teams[t].st.c+" / "+teams[t].st.w;}],
+            [tt("row.acc"),function(t){return acc(teams[t]);}],
+            [tt("row.shots"),function(t){return teams[t].st.shots+" / "+teams[t].st.hits;}],
+            [tt("row.dmg"),function(t){return teams[t].st.dmg;}],
+            [tt("row.combo"),function(t){return I("fire")+" "+teams[t].st.best;}],
+            [tt("row.hp"),function(t){return hp[t];}]];
   $("#overCard").innerHTML='<h1>'+head+'</h1><p class="why">'+why+'</p>'+
     '<table class="tbl"><tr><th></th><th style="color:'+teams[0].col+'">'+esc(teams[0].name)+'</th><th style="color:'+teams[1].col+'">'+esc(teams[1].name)+'</th></tr>'+
     rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1](0)+'</td><td>'+r[1](1)+'</td></tr>';}).join("")+
-    '</table><div class="row" style="justify-content:center;margin-top:18px">'+
-    '<button class="solid" id="btnAgain" type="button">Main lagi</button>'+
-    '<button class="sec" id="btnOverMenu" type="button">Kembali ke menu</button></div>';
-  showOv("ovOver");sfx.win();
+    '</table>'+reviewHTML()+'<div class="row" style="justify-content:center;margin-top:12px">'+
+    '<button class="solid" id="btnAgain" type="button">'+tt("btn.again")+'</button>'+
+    '<button class="sec" id="btnOverMenu" type="button">'+tt("back.menu")+'</button></div>';
+  showOv("ovOver");sfx.win();if(win>=0)confetti(teams[win].col);
 }
 
 /* =====================================================================
@@ -1269,54 +1624,75 @@ function finish(){
    ===================================================================== */
 var AIL={
  mudah: {name:"Mudah", acc:.45,tmin:9,  tmax:15, err:9,  perr:.09, rot:22,think:[1.4,2.8],shop:2.2},
- sedang:{name:"Sedang",acc:.70,tmin:6,  tmax:11, err:3.5,perr:.03, rot:38,think:[.8,1.7], shop:1.5},
- sulit: {name:"Sulit", acc:.90,tmin:4,  tmax:7.5,err:2.2,perr:.012,rot:70,think:[.35,.9], shop:.9}
+ sedang:{name:"Sedang",acc:.70,tmin:6,  tmax:11, err:3.2,perr:.03, rot:42,think:[.8,1.6], shop:1.4},
+ sulit: {name:"Sulit", acc:.92,tmin:3.8,tmax:7,  err:1.1,perr:.008,rot:80,think:[.3,.8], shop:.8}
 };
 function aiLog(tm,txt,cls){var a=tm.ai;a.log.unshift({t:txt,c:cls||""});if(a.log.length>6)a.log.pop();a.logKey++;}
 function aiNewAns(tm){var a=tm.ai;a.total=rnd(a.cfg.tmin,a.cfg.tmax);a.ans=a.total;}
 
 /* cari kombinasi sudut dan tenaga yang paling dekat mengenai sasaran (memperhitungkan angin) */
 function aiWindEst(lvl){var wa=windAcc();return lvl==="mudah"?0:lvl==="sedang"?wa*.55:wa;}
-function aiSolve(c,tc,wa){
-  var tx=tc.x,ty=tc.gy-28*tc.sc,d=teams[c.team].dir,len=80*c.sc,h=1/120,list=[],best=1e18;
-  for(var a=MINA;a<=MAXA;a+=1){
-    var r=a*Math.PI/180,cs=Math.cos(r),sn=Math.sin(r),x0=c.x+d*cs*len,y0=c.gy-30*c.sc-sn*len;
-    for(var pw=.3;pw<=1.0001;pw+=.05){
-      var sp=vOf(pw),vx=d*cs*sp,vy=-sn*sp,x=x0,y=y0,md=1e18;
-      for(var s=0;s<420;s++){
-        vy+=GRAV*h;vx+=wa*h;x+=vx*h;y+=vy*h;
-        var dx=x-tx,dy=y-ty,dd=dx*dx+dy*dy;if(dd<md)md=dd;
-        if(x<0||x>W||y>=gy(x))break;
-      }
-      list.push([a,pw,md]);if(md<best)best=md;
-    }
+function aiSim(c,a,pw,wa,tx,ty,d,len){
+  var r=a*Math.PI/180,cs=Math.cos(r),sn=Math.sin(r),h=1/120,sp=vOf(pw),vx=d*cs*sp,vy=-sn*sp,x=c.x+d*cs*len,y=c.gy-30*c.sc-sn*len,md=1e18,tm=0;
+  for(var s=0;s<420;s++){
+    vy+=GRAV*h;vx+=wa*h;x+=vx*h;y+=vy*h;tm+=h;
+    var dx=x-tx,dy=y-ty,dd=dx*dx+dy*dy;if(dd<md)md=dd;
+    if(x<0||x>W||y>=gy(x))break;
   }
-  var lim=Math.pow(Math.sqrt(best)+12,2),ok=list.filter(function(e){return e[2]<=lim;}),pk=ok[Math.floor(Math.random()*ok.length)];
-  return {ang:pk[0],pow:pk[1],d:Math.sqrt(best)};
+  return {md:md,t:tm};
 }
-function aiOrder(c,lvl){
-  var en=cannons.filter(function(x){return x.team!==c.team&&!x.dead;});
-  if(lvl==="mudah")return shuffle(en);
-  if(lvl==="sedang"){
-    return Math.random()<.5?en.sort(function(a,b){return Math.abs(a.x-c.x)-Math.abs(b.x-c.x);}):en.sort(function(a,b){return a.hp-b.hp;});
+/* cari sudut dan tenaga: kasar lalu halus; pilih lintasan tercepat (paling kecil dipengaruhi angin) */
+function aiSolve(c,tc,wa,adjX,smart){
+  var tx=clamp(tc.x+(adjX||0),20,W-20),ty=tc.gy-28*tc.sc,d=teams[c.team].dir,len=80*c.sc,list=[],best=1e18,bi=0;
+  for(var a=MINA;a<=MAXA;a+=1)for(var pw=.3;pw<=1.0001;pw+=.05){
+    var r=aiSim(c,a,pw,wa,tx,ty,d,len);list.push([a,pw,r.md,r.t]);if(r.md<best){best=r.md;}
   }
-  var L=LV[c.lv-1],kill=en.filter(function(x){return x.hp+x.shield<=L.dmg;});
-  en.sort(function(a,b){return b.lv-a.lv||a.hp-b.hp;});
-  return kill.concat(en.filter(function(x){return kill.indexOf(x)<0;}));
+  var lim=Math.pow(Math.sqrt(best)+10,2),ok=list.filter(function(e){return e[2]<=lim;});
+  var pk=smart?ok.sort(function(x,y){return x[3]-y[3];})[0]:ok[Math.floor(Math.random()*ok.length)];
+  var fa=pk[0],fp=pk[1],fb=1e18,fr={a:fa,p:fp,t:9};
+  for(var a2=pk[0]-1.5;a2<=pk[0]+1.5;a2+=.25)for(var p2=pk[1]-.05;p2<=pk[1]+.05;p2+=.0125){
+    var q=clamp(p2,.3,1),aa=clamp(a2,MINA,MAXA),rr=aiSim(c,aa,q,wa,tx,ty,d,len);
+    if(rr.md<fb-1||(Math.abs(rr.md-fb)<=1&&rr.t<fr.t)){fb=rr.md;fr={a:aa,p:q,t:rr.t};}
+  }
+  return {ang:fr.a,pow:fr.p,d:Math.sqrt(fb)};
+}
+function aiDmg(c,type){return LV[c.lv-1].dmg*SH[type||"n"].d*(c.k?.9:1.15);}
+function aiPending(c,e){
+  var s=0;projs.forEach(function(p){if(!p.dead&&p.team===c.team&&p.aiTg===e)s+=p.dmg*.7;});return s;
+}
+/* nilai sebuah target: peluang menghancurkan, ancaman, kondisi, jenis peluru, dan ketepatan bidikan */
+function aiScore(c,e,sl,lvl){
+  var smart=lvl==="sulit",type=c.mag[0]||"n",dmg=aiDmg(c,type)*.9,eff=e.hp+e.shield,rem=eff-(smart?aiPending(c,e):0);
+  var ready=e.mag.length>0&&e.freeze<=0,s=-sl.d*.9;
+  if(rem<=0)s-=45;
+  else if(dmg>=rem)s+=60;
+  else s+=40*Math.min(1,dmg/rem);
+  s+=LV[e.lv-1].dmg*.35*(ready?1:.4)+e.lv*3+(1-e.hp/e.max)*18;
+  if(type==="i"){
+    if(e.freeze>0||e.shield>0)s-=50;else if(ready)s+=25+e.lv*2;else s-=15;
+  }
+  if(type==="b"&&smart){
+    var mate=cannons.filter(function(o){return o.team!==c.team&&!o.dead&&o!==e&&Math.abs(o.x-e.x)<LV[c.lv-1].rad*1.6;}).length;s+=mate*18;
+  }
+  return s+(smart?rnd(-4,4):rnd(-18,18));
 }
 function aiCombat(c,dt,cfg,lvl,tm){
   var a=c.ai;
-  if(!a)a=c.ai={st:0,wait:rnd(cfg.think[0],cfg.think[1]),aim:c.angle,pow:.75,tg:null,w0:0};
+  if(!a)a=c.ai={st:0,wait:rnd(cfg.think[0],cfg.think[1]),aim:c.angle,pow:.75,tg:null,w0:0,spot:{},skip:0};
   if(a.st===0){
     a.wait-=dt;if(a.wait>0||c.mag.length===0)return;
-    var order=aiOrder(c,lvl);if(!order.length)return;
-    var wa=aiWindEst(lvl),pick=null,sol=null;
-    for(var i=0;i<order.length;i++){
-      var sl=aiSolve(c,order[i],wa);
-      if(!sol||sl.d<sol.d){sol=sl;pick=order[i];}
-      if(sl.d<=60){sol=sl;pick=order[i];break;}
-    }
-    a.tg=pick;a.aim=clamp(sol.ang+rnd(-cfg.err,cfg.err),MINA,MAXA);a.pow=clamp(sol.pow+rnd(-cfg.perr,cfg.perr),.3,1);a.w0=wind;a.st=1;
+    var en=cannons.filter(function(x){return x.team!==c.team&&!x.dead;});if(!en.length)return;
+    var wa=aiWindEst(lvl),best=null,gain=lvl==="sulit"?.7:lvl==="sedang"?.35:0;
+    if(lvl==="mudah")en=[en[Math.floor(Math.random()*en.length)]];
+    en.forEach(function(e){
+      var sp=a.spot[e.i],adj=0;
+      if(gain&&sp&&tNow-sp.t<25&&Math.abs(wind-sp.w)<2.5)adj=clamp(-sp.dx*gain,-120,120);
+      var sl=aiSolve(c,e,wa,adj,lvl==="sulit"),sc=lvl==="mudah"?0:aiScore(c,e,sl,lvl);
+      if(!best||sc>best.sc)best={e:e,sl:sl,sc:sc};
+    });
+    if(lvl==="sulit"&&best.sl.d>60&&c.mag.length<=1&&a.skip<3){a.skip++;a.wait=.7;return;}
+    a.skip=0;
+    a.tg=best.e;a.aim=clamp(best.sl.ang+rnd(-cfg.err,cfg.err),MINA,MAXA);a.pow=clamp(best.sl.pow+rnd(-cfg.perr,cfg.perr),.3,1);a.w0=wind;a.st=1;
   }
   if(a.st===1){
     var diff=a.aim-c.angle,step=cfg.rot*dt;
@@ -1326,15 +1702,17 @@ function aiCombat(c,dt,cfg,lvl,tm){
   }
   if(a.st===2){
     if(!a.tg||a.tg.dead){c.charging=false;a.st=0;a.wait=.2;return;}
-    if(lvl==="sulit"&&Math.abs(wind-a.w0)>1.6){c.charging=false;a.st=0;a.wait=.15;return;}
+    var thr=lvl==="sulit"?1.5:lvl==="sedang"?3:99;
+    if(Math.abs(wind-a.w0)>thr){c.charging=false;a.st=0;a.wait=.15;return;}
     a.wait-=dt;if(a.wait>0)return;
     if(!canFire(c)){c.charging=false;return;}
     if(c.mag.length===0){c.charging=false;a.st=0;return;}
     if(!c.charging){c.charging=true;c.charge=.15;}
     if(c.charge>=a.pow-.004){
-      var tk=a.tg.k;
-      fire(c.i,a.pow);
-      aiLog(tm,"💥 M"+(c.k+1)+" menembak M"+(tk+1),"shot");
+      var tk=a.tg.k,pw=a.pow;
+      fire(c.i,pw);
+      for(var q=projs.length-1;q>=0&&projs[q].from===c&&projs[q].age===0;q--){projs[q].aiTg=a.tg;projs[q].aiW=wind;}
+      aiLog(tm,tt("ai.shot",c.k+1,tk+1),"shot");
       a.st=0;a.wait=rnd(cfg.think[0],cfg.think[1]);
     }
   }
@@ -1345,10 +1723,17 @@ function aiBuy(t,id,c){
   if(!info.ok||tm.coins<info.price)return false;
   var wasDead=c.dead;
   buy(t,id,null);
-  var nm={n:"Peluru",b:"Peluru Besar",t:"Peluru Tiga",i:"Peluru Es",u:"Upgrade ke Lv "+c.lv,r:wasDead?"Bangun ulang":"Perbaiki",
-          s:"Perisai",d:"Radar",k:"Reload kilat",a:"Bom Udara"}[id];
-  aiLog(tm,"🛒 "+nm+(id==="a"?"":" · M"+(c.k+1)),"buy");
+  var nm={n:tt("ai.b.n"),b:tt("ai.b.b"),t:tt("ai.b.t"),i:tt("ai.b.i"),u:tt("ai.b.u",c.lv),r:wasDead?tt("ai.b.r1"):tt("ai.b.r0"),
+          s:tt("ai.b.s"),d:tt("ai.b.d"),k:tt("ai.b.k"),a:tt("ai.b.a")}[id];
+  aiLog(tm,"{cart} "+nm+(id==="a"?"":" · M"+(c.k+1)),"buy");
   return true;
+}
+function aiSit(t){
+  var foe=cannons.filter(function(c){return c.team!==t&&!c.dead;}),threat=0;
+  foe.forEach(function(f){var d=aiDmg(f,f.mag[0]);if(f.freeze>0||f.mag.length===0)d*=.35;threat+=d;});
+  var my=totalHP(t),en=totalHP(1-t);
+  return {threat:threat,foe:foe,my:my,en:en,lead:my>en*1.1,timeLow:+S.dur>0&&timeLeft<45,
+          enHP:foe.reduce(function(a,f){return a+f.hp+f.shield;},0)};
 }
 function aiShop(tm,t,lvl){
   var a=tm.ai,mine=cannons.filter(function(c){return c.team===t;}),live=mine.filter(function(c){return !c.dead;});
@@ -1359,7 +1744,6 @@ function aiShop(tm,t,lvl){
   var enemyTop=Math.max.apply(null,cannons.filter(function(c){return c.team!==t&&!c.dead;}).map(function(c){return c.lv;}).concat([1]));
   var hurtC=live.filter(function(c){return c.hp<c.max*.5;})[0];
   var low=live.filter(function(x){return x.mag.length<2;})[0],r=Math.random();
-  /* fase menabung: kumpulkan koin lalu upgrade meriam terkuat */
   function invest(attackMin,attackMax){
     var u=aiInfo(t,"u",strong);
     if(!u.ok){a.phase="attack";a.phaseT=rnd(attackMin,attackMax);return;}
@@ -1373,29 +1757,50 @@ function aiShop(tm,t,lvl){
     if(low&&r<.7)aiBuy(t,"n",low);
     return;
   }
+  var S2=aiSit(t),smart=lvl==="sulit";
+  /* bangun ulang meriam yang hancur (murah) agar tidak kalah jumlah */
+  if(dead&&aiBuy(t,"r",dead))return;
+  /* darurat: meriam yang bisa hancur oleh satu rentetan lawan */
+  var risk=live.filter(function(x){return x.hp+x.shield<=S2.threat*1.1;}).sort(function(x,y){return y.lv-x.lv;})[0];
+  if(risk&&(smart||r<.6)){
+    if(risk.hp<risk.max*.7&&aiBuy(t,"r",risk))return;
+    if(risk.shield===0&&aiBuy(t,"s",risk))return;
+    if(risk.hp<risk.max&&aiBuy(t,"r",risk))return;
+  }
+  /* lawan tinggal satu dan lemah: semua koin untuk serangan */
+  var allIn=S2.foe.length===1&&S2.enHP<=aiDmg(strong,"b")*2.2;
+  /* akhir waktu: unggul -> bertahan, tertinggal -> serang */
+  if(S2.timeLow&&S2.lead){
+    var h2=live.filter(function(x){return x.hp<x.max;}).sort(function(x,y){return x.hp/x.max-y.hp/y.max;})[0];
+    if(h2&&aiBuy(t,"r",h2))return;
+    var s2=live.filter(function(x){return x.shield===0;})[0];
+    if(s2&&aiBuy(t,"s",s2))return;
+  }
   if(lvl==="sedang"){
-    if(dead&&aiBuy(t,"r",dead))return;
     if(hurtC&&aiBuy(t,"r",hurtC))return;
     var weak=live.filter(function(x){return x.hp<x.max*.65&&x.shield===0;})[0];
     if(weak&&r<.5&&aiBuy(t,"s",weak))return;
-    if(a.phase==="invest"){invest(35,50);return;}
+    if(a.phase==="invest"&&!S2.timeLow){invest(35,50);return;}
     if(empty&&aiBuy(t,"n",empty))return;
     if(r<.3&&aiBuy(t,"b",strong))return;
     if(low)aiBuy(t,"n",low);
     return;
   }
-  if(dead&&aiBuy(t,"r",dead))return;
+  /* sulit */
   var thr=live.filter(function(x){return x.shield===0&&(x.hp<x.max*.75||enemyTop>x.lv);})[0];
-  if(thr&&tm.coins>=4&&aiBuy(t,"s",thr))return;
+  if(!allIn&&thr&&tm.coins>=4&&aiBuy(t,"s",thr))return;
   if(hurtC&&aiBuy(t,"r",hurtC))return;
-  if(a.phase==="invest"){invest(20,30);return;}
+  if(a.phase==="invest"&&!S2.timeLow&&!allIn&&S2.threat<aiDmg(strong,"n")*3){invest(20,30);return;}
   if(strong.mag.length<1&&aiBuy(t,"n",strong))return;
   if(empty&&aiBuy(t,"n",empty))return;
-  if(tm.coins>=6){
-    if(enemyTop>=strong.lv&&aiBuy(t,"i",strong))return;
-    if(aiBuy(t,"b",strong))return;
-  }
-  if(tm.coins>=13&&aiBuy(t,"a",strong))return;
+  if(tm.coins>=13||(allIn&&tm.coins>=10)){if(aiBuy(t,"a",strong))return;}
+  /* peluru Es membekukan ancaman terkuat yang siap menembak */
+  var rdy=S2.foe.filter(function(f){return f.mag.length>0&&f.freeze<=0&&f.shield===0;}).sort(function(x,y){return y.lv-x.lv;})[0];
+  if(tm.coins>=4&&rdy&&rdy.lv>=strong.lv&&strong.mag.indexOf("i")<0&&aiBuy(t,"i",strong))return;
+  /* peluru Besar jika dua lawan berdekatan atau lawan berperisai */
+  var cluster=S2.foe.length>1&&Math.abs(S2.foe[0].x-S2.foe[1].x)<LV[strong.lv-1].rad*1.8;
+  if(tm.coins>=4&&(cluster||S2.foe.some(function(f){return f.shield>0;}))&&aiBuy(t,"b",strong))return;
+  if(tm.coins>=6&&aiBuy(t,"b",strong))return;
   if(tm.coins>=8&&strong.mag.length>=3&&aiBuy(t,"k",strong))return;
   if(low)aiBuy(t,"n",low);
 }
@@ -1407,12 +1812,14 @@ function aiUpdate(dt){
   if(a.ans<=0){
     if(Math.random()<cfg.acc){
       tm.coins++;tm.st.c++;tm.st.earned++;
-      aiLog(tm,"✔ Jawaban benar (+1 koin)","ok");a.mood="😎";
+      aiLog(tm,tt("ai.ok"),"ok");a.mood="cool";
+      tm.streak=(tm.streak||0)+1;if(tm.streak>tm.st.best)tm.st.best=tm.streak;
+      if(tm.streak%3===0){tm.coins++;tm.st.earned++;aiLog(tm,tt("ai.combo",tm.streak),"ok");}
       coinFx(t,document.getElementById("aiAv"));
-    }else{tm.st.w++;aiLog(tm,"✘ Jawaban salah","bad");a.mood="😵";}
+    }else{tm.st.w++;tm.streak=0;aiLog(tm,tt("ai.bad"),"bad");a.mood="dizzy";}
     a.moodT=1.3;aiNewAns(tm);
   }
-  a.moodT-=dt;if(a.moodT<=0)a.mood="🤖";
+  a.moodT-=dt;if(a.moodT<=0)a.mood="bot";
   if(a.lvl!=="mudah"){
     a.phaseT-=dt;
     if(a.phaseT<=0){
@@ -1426,11 +1833,11 @@ function aiUpdate(dt){
 function syncAI(tm){
   var a=tm.ai,bar=document.getElementById("aiBarI");
   if(bar)bar.style.width=Math.max(0,Math.min(100,100*(1-a.ans/a.total))).toFixed(0)+"%";
-  txt("aiAv",a.mood);
-  txt("aiSt",a.moodT>0?(a.mood==="😎"?"Jawaban benar! +1 koin":"Jawaban salah…"):"Mengerjakan soal…");
+  htm("aiAv",I(a.mood==="cool"?"botcool":a.mood==="dizzy"?"botdizzy":"bot"));
+  txt("aiSt",a.moodT>0?(a.mood==="cool"?tt("ai.st.ok"):tt("ai.st.bad")):tt("ai.st.work"));
   if(hc.aiMood!==a.mood){hc.aiMood=a.mood;var av=document.getElementById("aiAv");if(av){av.classList.remove("hop");void av.offsetWidth;av.classList.add("hop");}}
   if(hc.aiLog!==a.logKey){hc.aiLog=a.logKey;var le=document.getElementById("aiLog");
-    if(le)le.innerHTML=a.log.map(function(e){return '<div class="'+e.c+'">'+esc(e.t)+'</div>';}).join("");}
+    if(le)le.innerHTML=a.log.map(function(e){return '<div class="'+e.c+'">'+tok(esc(e.t))+'</div>';}).join("");}
 }
 
 var holds=new Map();
@@ -1445,7 +1852,9 @@ function update(dt){
       var rate=c.holdT<.25?0:(c.holdT<1.2?24:55);
       if(rate){c.angle=clamp(c.angle+c.hold*rate*dt,MINA,MAXA);c.aimFlash=2.2;}
     }
-    if(c.reload>0)c.reload=Math.max(0,c.reload-dt);
+    if(c.sayT>0){c.sayT-=dt;if(c.sayT<=0&&c.loading&&!c.dead&&c.reload>.25)say(c,tt("say.load"),"#cfe3ff",24);}
+    if(c.reload>0){c.reload=Math.max(0,c.reload-dt);
+      if(c.reload===0&&c.loading){c.loading=false;if(!c.dead){c.pulse=1;say(c,tt("say.ready"),"#8ef0a8",24);sfx.ready();}}}
     if(c.charging){
       if(c.dead||c.freeze>0||ending>0||c.mag.length===0){c.charging=false;c.charge=0;}
       else{c.charge=Math.min(1,c.charge+dt/CH);if(!teams[c.team].ai)c.aimFlash=1.3;}
@@ -1453,7 +1862,7 @@ function update(dt){
     c.recoil=Math.max(0,c.recoil-dt*5);c.pulse=Math.max(0,c.pulse-dt*2.5);c.pop=Math.max(0,c.pop-dt*2.2);
     c.flash=Math.max(0,c.flash-dt);c.shieldFlash=Math.max(0,c.shieldFlash-dt);c.aimFlash=Math.max(0,c.aimFlash-dt);
     if(!c.dead){c.freeze=Math.max(0,c.freeze-dt);c.radar=Math.max(0,c.radar-dt);c.turbo=Math.max(0,c.turbo-dt);}
-    if(c.dead){c.smokeT-=dt;if(c.smokeT<=0){c.smokeT=.14;parts.push({x:c.x+rnd(-14,14),y:c.gy-26,vx:rnd(-12,12),vy:rnd(-70,-40),life:rnd(1.2,2),max:2,r:rnd(12,20),col:"#6f7480",g:0,type:"s"});}}
+    if(c.dead||c.hp<c.max*.3){c.smokeT-=dt;if(c.smokeT<=0){c.smokeT=.14;parts.push({x:c.x+rnd(-14,14),y:c.gy-26,vx:rnd(-12,12),vy:rnd(-70,-40),life:rnd(1.2,2),max:2,r:rnd(12,20),col:"#6f7480",g:0,type:"s"});}}
   });
   teams.forEach(function(tm,t){
     tm.airCd=Math.max(0,tm.airCd-dt);
@@ -1478,6 +1887,7 @@ function update(dt){
       var g=gy(p.x);
       if(p.y>=g){explode(p.x,g,true,p);p.dead=true;}
     }
+    if(!p.dead&&p.lv>=7&&p.type!=="i"&&!reduceMotion&&Math.random()<.6)parts.push({x:p.x,y:p.y,vx:rnd(-40,40),vy:rnd(-60,10),life:rnd(.3,.6),max:.6,r:rnd(2,4.5),col:FIREC[Math.min(p.lv,10)][0],g:-60,type:"f"});
     if(!p.dead){p.trail.push({x:p.x,y:p.y});if(p.trail.length>16)p.trail.shift();}
   });
   projs=projs.filter(function(p){return !p.dead;});
@@ -1512,10 +1922,22 @@ function drawFlag(x,col){
   for(i=N;i>=0;i--)ctx.lineTo(bt[i][0],bt[i][1]);
   ctx.closePath();ctx.fillStyle=col;ctx.fill();
   ctx.lineWidth=3;ctx.lineJoin="round";ctx.strokeStyle="#0d1330";ctx.stroke();
-  var lb=windLabel(),st=windShort();
+  var lb=windLabel(),wi=windInfo();
   ctx.font="800 18px "+getComputedStyle(document.body).fontFamily;ctx.textAlign="center";ctx.textBaseline="middle";
-  var tw=ctx.measureText(st).width,lx=clamp(x,tw/2+6,W-tw/2-6);
-  ctx.lineWidth=5;ctx.strokeStyle="#0d1330";ctx.strokeText(st,lx,top-20);ctx.fillStyle=lb.c;ctx.fillText(st,lx,top-20);
+  var nw=ctx.measureText(wi.num).width,cw=13,aw=wi.n?wi.n*cw+6:0,tw=aw+nw,lx=clamp(x,tw/2+6,W-tw/2-6),sx=lx-tw/2,y0=top-20,k2;
+  ctx.lineCap="round";ctx.lineJoin="round";
+  for(k2=0;k2<wi.n;k2++){var ax=sx+k2*cw+5,d=wi.dir;
+    [[7,"#0d1330"],[3.6,lb.c]].forEach(function(l){ctx.lineWidth=l[0];ctx.strokeStyle=l[1];ctx.beginPath();
+      ctx.moveTo(ax-3*d,y0-6);ctx.lineTo(ax+3.5*d,y0);ctx.lineTo(ax-3*d,y0+6);ctx.stroke();});}
+  ctx.textAlign="left";ctx.lineWidth=5;ctx.strokeStyle="#0d1330";ctx.strokeText(wi.num,sx+aw,y0);ctx.fillStyle=lb.c;ctx.fillText(wi.num,sx+aw,y0);
+}
+function zap(x1,y1,x2,y2,n,amp,w,rg){
+  var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,nx=-dy/L,ny=dx/L,pts=[[x1,y1]];
+  for(var i=1;i<n;i++){var t=i/n,o=(rg()-.5)*2*amp;pts.push([x1+dx*t+nx*o,y1+dy*t+ny*o]);}
+  pts.push([x2,y2]);
+  [[w+5,"rgba(80,190,255,.30)"],[w+2,"rgba(150,225,255,.55)"],[w,"rgba(240,252,255,.95)"]].forEach(function(l){
+    ctx.lineWidth=l[0];ctx.strokeStyle=l[1];ctx.beginPath();
+    pts.forEach(function(p,i){if(i)ctx.lineTo(p[0],p[1]);else ctx.moveTo(p[0],p[1]);});ctx.stroke();});
 }
 function drawCannon(c){
   var tm=teams[c.team],d=tm.dir,col=tm.col,sc=c.sc*(1+.2*c.pop),px=c.x,py=c.gy-30*sc,st=LVSTY[c.lv-1];
@@ -1533,6 +1955,12 @@ function drawCannon(c){
     ag.addColorStop(0,hexA(col,.32+.14*Math.sin(tNow*3)));ag.addColorStop(1,hexA(col,0));
     ctx.fillStyle=ag;ctx.beginPath();ctx.arc(px,py,92*sc,0,7);ctx.fill();
   }
+  if(c.loading&&c.rmax>0){
+    var pr=clamp(1-c.reload/c.rmax,0,1),mc=MAGCOL[c.mag[0]]||"#ffd166",bw=56*sc;
+    ctx.save();
+    ctx.fillStyle="rgba(0,0,0,.55)";rrect(ctx,px-bw/2,c.gy+9,bw,8,4);ctx.fill();
+    ctx.fillStyle=mc;rrect(ctx,px-bw/2+1.5,c.gy+10.5,Math.max(1,(bw-3)*pr),5,2.5);ctx.fill();ctx.restore();
+  }
   ctx.save();ctx.translate(px,py);ctx.scale(d*sc,sc);ctx.rotate(-c.angle*Math.PI/180);ctx.translate(-c.recoil*12,0);
   var g=ctx.createLinearGradient(0,-13,0,13);g.addColorStop(0,st[0]);g.addColorStop(.5,st[1]);g.addColorStop(1,st[2]);
   ctx.fillStyle=g;rrect(ctx,-14,-13,96,26,8);ctx.fill();
@@ -1542,7 +1970,23 @@ function drawCannon(c){
   if(c.lv>=5){ctx.fillStyle=st[2];ctx.fillRect(48,-14,6,28);}
   if(c.lv>=7){var fg=ctx.createRadialGradient(86,0,2,86,0,18);fg.addColorStop(0,"rgba(255,200,80,"+(.55+.3*Math.sin(tNow*8))+")");fg.addColorStop(1,"rgba(255,120,30,0)");
     ctx.fillStyle=fg;ctx.beginPath();ctx.arc(86,0,18,0,7);ctx.fill();}
-  if(c.lv>=10){ctx.fillStyle="#ffe27a";[[64,-16],[74,-20],[84,-16]].forEach(function(p){ctx.beginPath();ctx.moveTo(p[0]-4,p[1]+2);ctx.lineTo(p[0],p[1]-9);ctx.lineTo(p[0]+4,p[1]+2);ctx.closePath();ctx.fill();});}
+  if(c.lv>=10){
+    /* paku emas di atas dan bawah laras, melengkung ke belakang dan tidak melewati moncong */
+    ctx.fillStyle="#ffe27a";ctx.strokeStyle=st[2];ctx.lineWidth=1.6;ctx.lineJoin="round";
+    [26,40,54].forEach(function(x){[-1,1].forEach(function(sd){
+      ctx.beginPath();ctx.moveTo(x-6,sd*12);ctx.lineTo(x-7,sd*25);ctx.lineTo(x+5,sd*12);ctx.closePath();ctx.fill();ctx.stroke();});});
+    /* listrik */
+    var rg=rng(Math.floor(tNow*16)+c.i*131+5);
+    ctx.save();ctx.globalCompositeOperation="lighter";ctx.lineCap="round";ctx.lineJoin="round";
+    var eg=ctx.createRadialGradient(36,0,4,36,0,60);eg.addColorStop(0,"rgba(120,215,255,"+(.09+.05*Math.sin(tNow*20))+")");eg.addColorStop(1,"rgba(120,215,255,0)");
+    ctx.fillStyle=eg;ctx.beginPath();ctx.arc(36,0,60,0,7);ctx.fill();
+    if(rg()<.85)zap(-6,-4,76,-4,9,4.5,1.6,rg);
+    if(rg()<.7)zap(-6,4,76,4,9,4.5,1.6,rg);
+    [[19,-25,33,-25],[33,-25,47,-25],[19,25,33,25],[33,25,47,25]].forEach(function(a){if(rg()<.55)zap(a[0],a[1],a[2],a[3],4,3,1.3,rg);});
+    for(var q=0;q<2;q++){var bx=18+rg()*44,sd=rg()<.5?-1:1;zap(bx,sd*13,bx+(rg()-.5)*16,sd*(30+rg()*14),4,4,1.4,rg);}
+    for(var q2=0;q2<2;q2++){var an=rg()*6.283,rr=7+rg()*9;zap(84,0,84+Math.cos(an)*rr,Math.sin(an)*rr,3,2,1.2,rg);}
+    ctx.restore();
+  }
   ctx.restore();
   ctx.save();ctx.translate(px,c.gy);ctx.scale(sc,sc);
   ctx.fillStyle="#3a2f28";rrect(ctx,-40,-32,80,24,8);ctx.fill();
@@ -1557,7 +2001,10 @@ function drawCannon(c){
   if(c.freeze>0){
     ctx.fillStyle="rgba(170,235,255,.55)";rrect(ctx,px-58*sc,c.gy-92*sc,116*sc,96*sc,14*sc);ctx.fill();
     ctx.strokeStyle="rgba(255,255,255,.9)";ctx.lineWidth=3;ctx.stroke();
-    ctx.font="700 "+Math.round(30*sc)+"px "+getComputedStyle(document.body).fontFamily;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillStyle="#fff";ctx.fillText("❄",px,c.gy-44*sc);
+    ctx.font="700 "+Math.round(30*sc)+"px "+getComputedStyle(document.body).fontFamily;ctx.textAlign="center";ctx.textBaseline="middle";ctx.save();ctx.translate(px,c.gy-44*sc);ctx.strokeStyle="#fff";ctx.lineWidth=3*sc;ctx.lineCap="round";ctx.lineJoin="round";
+    var zr=18*sc,zq;for(zq=0;zq<3;zq++){ctx.rotate(Math.PI/3);ctx.beginPath();ctx.moveTo(-zr,0);ctx.lineTo(zr,0);
+      ctx.moveTo(zr*.55,-zr*.3);ctx.lineTo(zr*.82,0);ctx.lineTo(zr*.55,zr*.3);ctx.moveTo(-zr*.55,-zr*.3);ctx.lineTo(-zr*.82,0);ctx.lineTo(-zr*.55,zr*.3);ctx.stroke();}
+    ctx.restore();
   }
   if(c.shield>0){
     var fr=c.shield/(c.shieldMax||1),R=68*sc,ph=Math.sin(tNow*4)*.06;
@@ -1567,19 +2014,34 @@ function drawCannon(c){
   }
   ctx.restore();
 }
+function drawBall(g,x,y,r,type){
+  var gr=g.createRadialGradient(x-r*.35,y-r*.4,r*.08,x,y,r);
+  gr.addColorStop(0,"#6b7590");gr.addColorStop(.22,"#303645");gr.addColorStop(.6,"#14161d");gr.addColorStop(1,"#050608");
+  g.save();
+  g.beginPath();g.arc(x,y,r+1.6,0,7);g.fillStyle="rgba(255,255,255,.55)";g.fill();
+  g.beginPath();g.arc(x,y,r,0,7);g.fillStyle=gr;g.fill();
+  if(type==="b"||type==="t"||type==="i"){
+    g.save();g.beginPath();g.arc(x,y,r,0,7);g.clip();g.strokeStyle=MAGCOL[type];g.lineWidth=r*.34;
+    g.beginPath();g.ellipse(x,y+r*.18,r*1.05,r*.32,-.28,0,Math.PI);g.stroke();g.restore();
+  }
+  g.beginPath();g.ellipse(x-r*.36,y-r*.42,r*.34,r*.2,-.6,0,7);g.fillStyle="rgba(255,255,255,.7)";g.fill();
+  g.beginPath();g.arc(x-r*.5,y-r*.55,r*.09,0,7);g.fillStyle="rgba(255,255,255,.95)";g.fill();
+  g.beginPath();g.arc(x,y,r,0,7);g.lineWidth=1.4;g.strokeStyle="rgba(0,0,0,.8)";g.stroke();
+  g.restore();
+}
 function drawBar(c){
   var tm=teams[c.team],sc=c.sc,x=c.x,y=c.gy-128*sc-26,w=132,h=20,L=LV[c.lv-1],ff=getComputedStyle(document.body).fontFamily;
   if(!c.dead){
     var n=L.cap,gap=21,x0=x-(n-1)*gap/2;
     for(var i=0;i<n;i++){
-      var cx=x0+i*gap,cy=y-27,pr=6.5+((c.pulse>0&&i===c.mag.length-1)?c.pulse*4:0),ty=c.mag[i];
+      var cx=x0+i*gap,cy=y-27,pr=7+((c.pulse>0&&i===c.mag.length-1)?c.pulse*4:0),ty=c.mag[i];
       ctx.beginPath();ctx.arc(cx,cy,pr,0,7);
-      if(ty){ctx.fillStyle=MAGCOL[ty];ctx.fill();ctx.lineWidth=2.5;ctx.strokeStyle="#0d1330";ctx.stroke();}
+      if(ty){drawBall(ctx,cx,cy,pr,ty);}
       else{ctx.fillStyle="rgba(13,19,48,.55)";ctx.fill();ctx.lineWidth=2.5;ctx.strokeStyle="rgba(255,255,255,.9)";ctx.stroke();}
     }
     if(c.shield>0){
       rrect(ctx,x-w/2,y-12,w,8,4);ctx.fillStyle="#0d1330";ctx.fill();
-      ctx.save();rrect(ctx,x-w/2,y-12,w,8,4);ctx.clip();ctx.fillStyle="#5ce1ff";ctx.fillRect(x-w/2,y-12,w*c.shield/(c.shieldMax||1),8);ctx.restore();
+      ctx.save();rrect(ctx,x-w/2,y-12,w,8,4);ctx.clip();ctx.fillStyle="#5ce1ff";ctx.fillRect(x-w/2,y-12,w*Math.min(1,(c.shv>0?c.shv:c.shield)/(c.shieldMax||1)),8);ctx.restore();
     }
     if(tm.sel===c.k&&state==="playing"&&!tm.ai){
       var by=y-48+Math.sin(tNow*5)*3;ctx.fillStyle=tm.col;ctx.strokeStyle="#0d1330";ctx.lineWidth=2.5;ctx.lineJoin="round";
@@ -1587,13 +2049,19 @@ function drawBar(c){
     }
   }
   rrect(ctx,x-w/2,y,w,h,10);ctx.fillStyle="#0d1330";ctx.fill();
-  var p=c.hp/c.max;
+  var ez=Math.min(1,rdt*9);
+  if(c.hpv===undefined||c.dead&&c.hp<=0&&c.hpv<.5)c.hpv=c.hp;
+  c.hpv+=(c.hp-c.hpv)*ez;if(Math.abs(c.hp-c.hpv)<.02)c.hpv=c.hp;
+  c.shv=(c.shv===undefined?c.shield:c.shv)+((c.shield||0)-(c.shv===undefined?c.shield:c.shv))*ez;
+  var p=c.hpv/c.max;
   if(p>0){ctx.save();rrect(ctx,x-w/2,y,w,h,10);ctx.clip();ctx.fillStyle=hpColor(p);ctx.fillRect(x-w/2,y,w*p,h);ctx.restore();}
   rrect(ctx,x-w/2,y,w,h,10);ctx.lineWidth=3;ctx.strokeStyle="#fff";ctx.stroke();
   ctx.font="800 14px "+ff;ctx.textAlign="center";ctx.textBaseline="middle";
   ctx.lineWidth=3;ctx.strokeStyle="rgba(13,19,48,.85)";
-  var label=c.dead?"✖":c.hp+"/"+c.max;
+  var label=c.dead?"":c.hp+"/"+c.max;
   ctx.strokeText(label,x,y+h/2+1);ctx.fillStyle="#fff";ctx.fillText(label,x,y+h/2+1);
+  if(c.dead){ctx.save();ctx.lineCap="round";ctx.strokeStyle="#fff";ctx.lineWidth=3.4;ctx.beginPath();
+    ctx.moveTo(x-5,y+h/2-5);ctx.lineTo(x+5,y+h/2+5);ctx.moveTo(x+5,y+h/2-5);ctx.lineTo(x-5,y+h/2+5);ctx.stroke();ctx.restore();}
   ctx.beginPath();ctx.arc(x-w/2-17,y+h/2,15,0,7);ctx.fillStyle=tm.col;ctx.fill();
   ctx.lineWidth=3;ctx.strokeStyle="#0d1330";ctx.stroke();
   ctx.fillStyle=tm.ink;ctx.font="900 17px "+ff;ctx.fillText(String(c.k+1),x-w/2-17,y+h/2+1);
@@ -1625,19 +2093,41 @@ function drawGauge(c){
   ctx.font="800 16px "+ff;ctx.textAlign="center";ctx.textBaseline="middle";
   var tx=Math.round(c.charge*100)+"%";ctx.lineWidth=4;ctx.strokeStyle="#0d1330";ctx.strokeText(tx,gx,gb-gh-12);ctx.fillStyle="#fff";ctx.fillText(tx,gx,gb-gh-12);
 }
+var FIREC={7:["#ff8a2a","#ffe27a"],8:["#5cb8ff","#eafaff"],9:["#3fe08a","#e0ffd0"],10:["#ffc233","#fff6c8"]};
+function h2r(h){return parseInt(h.slice(1,3),16)+","+parseInt(h.slice(3,5),16)+","+parseInt(h.slice(5,7),16);}
 function drawProj(p){
   if(p.delay>0){
     var gyy=gy(p.tx),pu=1+.15*Math.sin(tNow*12);
     ctx.strokeStyle="rgba(255,90,70,.95)";ctx.lineWidth=4;ctx.beginPath();ctx.ellipse(p.tx,gyy,26*pu,9*pu,0,0,7);ctx.stroke();
     ctx.beginPath();ctx.moveTo(p.tx-16,gyy);ctx.lineTo(p.tx+16,gyy);ctx.stroke();return;
   }
+  var lv=p.lv||1,sk=p.type!=="i"&&p.type!=="a",fire=lv>=7&&sk,fc=fire?FIREC[Math.min(lv,10)]:null;
   var tc=p.type==="i"?"200,240,255":p.type==="b"?"255,170,80":p.type==="a"?"255,110,90":"255,255,255";
+  if(fire)tc=h2r(fc[0]);else if(lv>=3&&sk&&p.type!=="b")tc=h2r(LVSTY[lv-1][0]);
   p.trail.forEach(function(q,i){
     ctx.fillStyle="rgba("+tc+","+(i/p.trail.length*.55)+")";
     ctx.beginPath();ctx.arc(q.x,q.y,2+i/p.trail.length*p.r*.6,0,7);ctx.fill();
   });
   var body=p.type==="i"?"#7fdcff":p.type==="b"?"#7a1d0a":p.type==="a"?"#8a1c1c":p.type==="t"?"#7a2a8a":"#20232f";
-  ctx.fillStyle=body;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill();
+  if(fire){
+    var sp=Math.hypot(p.vx,p.vy)||1,ux=p.vx/sp,uy=p.vy/sp,len=p.r*(3.4+.6*Math.sin(tNow*30+p.x)),nx=-uy,ny=ux,hx=p.x-ux*len,hy=p.y-uy*len;
+    ctx.save();ctx.globalCompositeOperation="lighter";
+    var fg=ctx.createLinearGradient(p.x,p.y,hx,hy);fg.addColorStop(0,"rgba("+h2r(fc[1])+",.95)");fg.addColorStop(.5,"rgba("+h2r(fc[0])+",.7)");fg.addColorStop(1,"rgba("+h2r(fc[0])+",0)");
+    ctx.fillStyle=fg;ctx.beginPath();ctx.moveTo(p.x+nx*p.r,p.y+ny*p.r);
+    ctx.quadraticCurveTo(p.x-ux*len*.6+nx*p.r*.8,p.y-uy*len*.6+ny*p.r*.8,hx+rnd(-3,3),hy+rnd(-3,3));
+    ctx.quadraticCurveTo(p.x-ux*len*.6-nx*p.r*.8,p.y-uy*len*.6-ny*p.r*.8,p.x-nx*p.r,p.y-ny*p.r);ctx.closePath();ctx.fill();ctx.restore();
+    body=fc[1];
+  }else if(lv>=3&&sk&&p.type==="n")body=LVSTY[lv-1][2];
+  ctx.save();ctx.shadowColor="rgb("+tc+")";ctx.shadowBlur=fire?26:16;ctx.fillStyle=body;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill();if(lv>=3&&sk){ctx.strokeStyle=fire?fc[0]:LVSTY[lv-1][0];ctx.lineWidth=2.2;ctx.stroke();}ctx.restore();
+  if(lv>=10&&sk){
+    var rg=rng(Math.floor(tNow*18)+Math.floor(p.x*.05)+7);
+    ctx.save();ctx.globalCompositeOperation="lighter";ctx.lineCap="round";ctx.lineJoin="round";
+    for(var z=0;z<4;z++){var an=rg()*6.283,r1=p.r*1.05,r2=p.r*(2.1+rg()*1.2);
+      zap(p.x+Math.cos(an)*r1,p.y+Math.sin(an)*r1,p.x+Math.cos(an+.35)*r2,p.y+Math.sin(an+.35)*r2,3,3,1.3,rg);}
+    var sp2=Math.hypot(p.vx,p.vy)||1,bx2=-p.vx/sp2,by2=-p.vy/sp2;
+    zap(p.x,p.y,p.x+bx2*p.r*5,p.y+by2*p.r*5,5,p.r*.9,1.4,rg);
+    ctx.restore();
+  }
   ctx.fillStyle="rgba(255,255,255,.55)";ctx.beginPath();ctx.arc(p.x-p.r*.3,p.y-p.r*.3,p.r*.32,0,7);ctx.fill();
   if(p.y<74){
     var mx=clamp(p.x,20,W-20),my=84;
@@ -1647,12 +2137,14 @@ function drawProj(p){
 }
 function render(){
   if(!bg)return;
-  ctx.setTransform(K,0,0,K,0,0);
-  ctx.clearRect(0,0,W,H);
+  ctx.setTransform(K,0,0,K,EX*K,EY*K);
+  ctx.clearRect(-EX,-EY,W+2*EX,H+2*EY);
   ctx.save();
   if(shake>.1&&!reduceMotion)ctx.translate(rnd(-shake,shake)/2,rnd(-shake,shake)/2);
-  ctx.drawImage(bg,0,0,W,H);
-  drawClouds();drawWater();
+  drawSky((curT.cyc&&liveT)?liveT:curT);
+  drawClouds();
+  ctx.drawImage(bg,-EX,-EY,W+2*EX,H+2*EY);
+  drawWater();
   if(scorches.length){
     ctx.save();terrainPath(ctx);ctx.clip();
     scorches.forEach(function(s){
@@ -1674,6 +2166,7 @@ function render(){
   ctx.globalAlpha=1;
   flashes.forEach(function(f){
     var a=f.life/f.max,r=f.r*(1.3-a*.3);
+    if(f.ring){ctx.strokeStyle="rgba(255,255,255,"+a*.75+")";ctx.lineWidth=7*a+1;ctx.beginPath();ctx.arc(f.x,f.y,f.r*(1.1-a),0,7);ctx.stroke();return;}
     var g=ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,r);
     g.addColorStop(0,"rgba(255,250,210,"+a+")");g.addColorStop(.5,"rgba(255,170,60,"+(a*.7)+")");g.addColorStop(1,"rgba(255,120,30,0)");
     ctx.fillStyle=g;ctx.beginPath();ctx.arc(f.x,f.y,r,0,7);ctx.fill();
@@ -1707,7 +2200,7 @@ function syncShop(t){
     if(hc[k]!==key){
       hc[k]=key;var el=document.getElementById(k);if(!el)return;
       el.className="item"+(info.ok?"":" off")+(poor&&info.ok?" poor":"");
-      el.querySelector("b").textContent=info.name;el.querySelector("small").textContent=info.sub;el.title=info.name+": "+info.sub+(id==="s"?" (juga kebal beku)":"");
+      el.querySelector("b").textContent=info.name;el.querySelector("small").textContent=info.sub;el.title=info.name+": "+info.sub+(id==="s"?tt("shop.s.title"):"");
       el.querySelector(".pr").innerHTML=info.noPrice?"":'<i class="coin sm"></i>'+info.price;
     }
   });
@@ -1722,33 +2215,38 @@ function syncHUD(){
     var mk=c.mag.join("")+"|"+L.cap;
     if(hc["m"+i]!==mk){hc["m"+i]=mk;var me=document.getElementById("mag"+i);
       if(me)for(var j=0;j<6;j++)me.children[j].className=j>=L.cap?"x":(c.mag[j]||"");}
-    txt("sts"+i,(c.shield>0?"🛡️":"")+(c.freeze>0?"❄️":"")+(c.radar>0?"🔭":"")+(c.turbo>0?"⚡":""));
+    htm("sts"+i,(c.shield>0?I("shield"):"")+(c.freeze>0?'<span class="ic am" style="--c:#5ce1ff;display:inline-grid;place-items:center;background:var(--c);width:19px;height:19px;border-radius:50%;vertical-align:-.3em">'+I("snow")+"</span>":"")+(c.radar>0?I("radar"):"")+(c.turbo>0?I("bolt"):""));
     var fb=document.getElementById("fire"+i),st,label,sub="";
-    if(c.dead){st="D";label="RUSAK";}
-    else if(c.freeze>0){st="F";label="BEKU";}
-    else if(c.mag.length===0){st="E";label="KOSONG";}
-    else if(c.reload>0){st="R"+Math.round((1-c.reload/(L.rel*(c.turbo>0?.35:1)))*20);label="MENGISI";}
-    else if(c.charging){st="C"+Math.round(c.charge*50);label=Math.round(c.charge*100)+"%";sub=tm.ai?"":"lepas = tembak";}
-    else{st="K";label="TEMBAK";sub=tm.ai?"":"tahan = kuat";}
+    if(c.dead){st="D";label=tt("st.dead");}
+    else if(c.freeze>0){st="F";label=tt("st.frozen");}
+    else if(c.mag.length===0){st="E";label=tt("st.empty");}
+    else if(c.reload>0){st="R";label=tt("st.loading");sub=c.loading&&!tm.ai?tt("st.loadsub"):"";}
+    else if(c.charging){st="C"+Math.round(c.charge*100);label=Math.round(c.charge*100)+"%";sub=tm.ai?"":tt("fire.rel");}
+    else{st="K";label=tt("fire.btn");sub=tm.ai?"":tt("fire.hold");}
     if(hc["f"+i]!==st&&fb){
       hc["f"+i]=st;var chg=st.charAt(0)==="C";
       fb.querySelector(".fl").textContent=label;fb.querySelector(".fs").textContent=sub;
       fb.classList.toggle("chg",chg);
       fb.disabled=((st!=="K"&&!chg)||!!tm.ai);
-      fb.style.setProperty("--p",st==="K"?"100%":chg?Math.max(6,Math.round(c.charge*100))+"%":st.charAt(0)==="R"?Math.max(0,Math.min(100,(+st.slice(1)*5)))+"%":"0%");
+      hc["p"+i]=-1;
+      if(st==="K")fb.style.setProperty("--p","100%");else if(st!=="R"&&!chg)fb.style.setProperty("--p","0%");
+    }
+    if(fb&&(st==="R"||st.charAt(0)==="C")){
+      var pct=st==="R"?clamp((1-c.reload/(c.rmax||L.rel*(c.k?.75:1.2)*(c.turbo>0?.35:1)))*100,0,100):Math.max(6,c.charge*100);
+      if(Math.abs((hc["p"+i]||0)-pct)>=.2){hc["p"+i]=pct;fb.style.setProperty("--p",pct.toFixed(1)+"%");}
     }
   });
   teams.forEach(function(tm,t){
     txt("co"+t,String(tm.coins));
-    htm("ps"+t,'<i class="coin sm"></i>'+tm.coins+'&nbsp;&nbsp;❤ '+totalHP(t));
-    txt("pn"+t,(tm.ai?"🤖 ":"")+tm.name);
-    txt("tabS"+t,"🛒 Toko · M"+(tm.sel+1));
+    htm("ps"+t,'<i class="coin sm"></i>'+tm.coins+'&nbsp;&nbsp;'+I("heart")+' '+totalHP(t));
+    htm("pn"+t,(tm.ai?I("bot")+" ":"")+esc(tm.name));
+    htm("tabS"+t,I("cart")+" "+tt("tab.shopm",tm.sel+1));
     if(tm.ai)syncAI(tm);else syncShop(t);
     var msg=tm.fb.txt;
-    if(hc["fbm"+t]!==msg){hc["fbm"+t]=msg;var fe=document.getElementById("fb"+t);if(fe){fe.textContent=msg;fe.className="fb "+tm.fb.cls;}}
+    if(hc["fbm"+t]!==msg){hc["fbm"+t]=msg;var fe=document.getElementById("fb"+t);if(fe){fe.innerHTML=msg;fe.className="fb "+tm.fb.cls;}}
   });
   var wl=windLabel();
-  if(hc.wtx!==wl.t){hc.wtx=wl.t;var wb=document.getElementById("windBox");if(wb){wb.textContent=wl.t;wb.style.color=wl.c;}}
+  if(hc.wtx!==wl.t){hc.wtx=wl.t;var wb=document.getElementById("windBox");if(wb){wb.innerHTML=wl.t;wb.style.color=wl.c;}}
   txt("timer",+S.dur>0?fmt(timeLeft):"∞");
 }
 
@@ -1756,9 +2254,11 @@ function syncHUD(){
    LOOP
    ===================================================================== */
 var last=0;
+var rdt=.016;
 function frame(ts){
-  var dt=Math.min(.033,(ts-last)/1000||.016);last=ts;
-  if(state==="playing")update(dt);
+  var dt=Math.min(.033,(ts-last)/1000||.016);last=ts;rdt=dt;
+  if(state==="playing"){update(dt);
+    if(curT.cyc){dayT+=dt;dayAcc+=dt;liveT=cycleTOD(dayT/DAYLEN);if(dayAcc>3){dayAcc=0;curT=liveT;MUL=curT.mul;buildBG();}}}
   if(state!=="paused")updateAmbient(dt);
   if(state!=="playing"&&state!=="paused")updateWind(dt);
   if(state!=="playing"&&state!=="paused")tNow+=dt;
@@ -1821,8 +2321,7 @@ function hideOv(id){document.getElementById(id).classList.remove("show");}
 function buildSwatches(){
   [0,1].forEach(function(t){
     $("#sw"+t).innerHTML=PALETTE.map(function(p){
-      return '<button type="button" class="sw" data-sw="'+t+'" data-c="'+p[0]+'" data-n="'+p[1]+
-        '" style="--c:'+p[0]+';--i:'+inkFor(p[0])+'" aria-label="'+p[1]+'" title="'+p[1]+'" aria-pressed="false"></button>';
+      return '<button type="button" class="sw" data-sw="'+t+'" data-c="'+p[0]+'" style="--c:'+p[0]+';--i:'+inkFor(p[0])+'" aria-pressed="false"></button>';
     }).join("");
   });
   syncSwatches();
@@ -1834,7 +2333,7 @@ function syncSwatches(){
     [].forEach.call($("#sw"+t).children,function(b){
       var c=b.dataset.c;
       b.setAttribute("aria-pressed",String(c===cur));b.disabled=(c===other);
-      b.title=b.dataset.n+(c===other?" (dipakai tim lain)":"");b.setAttribute("aria-label",b.title);
+      b.title=colName(c)+(c===other?tt("col.used"):"");b.setAttribute("aria-label",b.title);
     });
   });
 }
@@ -1859,7 +2358,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSw();})
 function readMenu(){
   S.n0=$("#inN0").value;S.n1=$("#inN1").value;S.mode=$("#inMode").value;S.wind=$("#inWind").value;
   S.dur=+$("#inDur").value;S.price=$("#inPrice").value;S.arena=$("#inArena").value;S.tod=$("#inTod").value;
-  S.cat=$("#inCat").value;S.assist=$("#inAssist").value;S.src=$("#inSrc").value;S.sound=$("#inSound").checked;
+  S.cat=$("#inCat").value;S.assist=$("#inAssist").value;S.src=$("#inSrc").value;S.sound=$("#inSound").checked;S.lang=LANG;
   saveS();
 }
 function syncTodEnabled(){
@@ -1870,15 +2369,15 @@ function fillMenu(){
   $("#inN0").value=S.n0;$("#inN1").value=S.n1;$("#inMode").value=S.mode||"pvp";$("#inWind").value=S.wind||"normal";$("#inDur").value=String(S.dur);$("#inPrice").value=S.price;
   $("#inArena").value=S.arena;$("#inTod").value=S.tod;$("#inCat").value=S.cat;$("#inAssist").value=S.assist;
   $("#inSrc").value=S.src;$("#inSound").checked=!!S.sound;
-  $("#optBuiltin").textContent="Soal bawaan ("+BANK.length+" soal)";
-  $("#btnSound").textContent=S.sound?"🔊":"🔇";
+  $("#inLang").value=LANG;applyLang();
+  $("#btnSound").innerHTML=I(S.sound?"snd":"mute");
   syncTodEnabled();
 }
 function startGame(){
   closeSw();readMenu();
   if(S.src==="custom"&&parseCustom(customText).length<4){
     S.src="builtin";$("#inSrc").value="builtin";saveS();
-    alert("Soal buatan sendiri belum cukup (minimal 4 soal). Soal bawaan dipakai lebih dulu.");
+    alert(tt("edit.alert"));
   }
   initAudio();setTheme(true);newGame();
   hideOv("ovMenu");hideOv("ovOver");hideOv("ovPause");
@@ -1894,7 +2393,7 @@ function setPause(on){
 }
 function updateCount(){
   var n=parseCustom($("#taSoal").value).length;
-  $("#soalCnt").textContent=n+" soal valid"+(n<4?" (minimal 4)":"");
+  $("#soalCnt").textContent=tt("edit.count",n)+(n<4?tt("edit.min"):"");
 }
 function themeChanged(){
   readMenu();syncTodEnabled();
@@ -1912,7 +2411,7 @@ document.addEventListener("click",function(e){
   else if(id==="btnOverMenu")toMenu();
 });
 $("#btnSound").onclick=function(){
-  S.sound=!S.sound;$("#btnSound").textContent=S.sound?"🔊":"🔇";$("#inSound").checked=S.sound;saveS();if(S.sound)initAudio();
+  S.sound=!S.sound;$("#btnSound").innerHTML=I(S.sound?"snd":"mute");$("#inSound").checked=S.sound;saveS();if(S.sound)initAudio();
 };
 $("#btnFull").onclick=function(){
   try{if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}catch(e){}
@@ -1922,9 +2421,9 @@ $("#inArena").onchange=themeChanged;
 $("#inTod").onchange=themeChanged;
 $("#btnPeek").onclick=function(){closeSw();readMenu();$("#ovMenu").classList.add("peek");};
 $("#btnPeekBack").onclick=function(){$("#ovMenu").classList.remove("peek");};
-$("#btnEdit").onclick=function(){$("#taSoal").value=customText||SAMPLE;updateCount();showOv("ovEdit");};
+$("#btnEdit").onclick=function(){$("#taSoal").value=customText||sampleText();updateCount();showOv("ovEdit");};
 $("#taSoal").addEventListener("input",updateCount);
-$("#btnSample").onclick=function(){$("#taSoal").value=SAMPLE;updateCount();};
+$("#btnSample").onclick=function(){$("#taSoal").value=sampleText();updateCount();};
 $("#btnClear").onclick=function(){$("#taSoal").value="";updateCount();};
 $("#btnEditClose").onclick=function(){hideOv("ovEdit");};
 $("#btnEditSave").onclick=function(){
@@ -1933,7 +2432,15 @@ $("#btnEditSave").onclick=function(){
   hideOv("ovEdit");
 };
 document.addEventListener("visibilitychange",function(){if(document.hidden)setPause(true);});
-window.addEventListener("resize",fit);
+document.addEventListener("keydown",function(e){if(e.key==="p"||e.key==="P"){if(state==="playing")setPause(true);else if(state==="paused")setPause(false);}});
+window.addEventListener("resize",fit);window.addEventListener("orientationchange",function(){setTimeout(fit,200);});
+document.addEventListener("fullscreenchange",function(){setTimeout(fit,120);});
+if(window.visualViewport)visualViewport.addEventListener("resize",fit);
+$("#inQual").addEventListener("change",fit);
+$("#inLang").addEventListener("change",function(){
+  LANG=$("#inLang").value==="en"?"en":"id";S.lang=LANG;applyLang();buildSwatches();readMenu();updateCount();
+  if(state==="menu"){newGame();}
+});
 
 /* =====================================================================
    MULAI
