@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="id">
+<html translate="no" class="notranslate" lang="id">
 <head>
 <meta charset="utf-8">
+<meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Meriam Tempur v6: Combo, Koin, Toko, AI, dan Angin</title>
 <style>
@@ -13,7 +14,7 @@
 @media (prefers-color-scheme:dark){:root{--page:#0b1030}}
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%;margin:0;overflow:hidden;background:var(--page);color:#fff;font-family:var(--font);
-  -webkit-user-select:none;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  -webkit-user-select:none;user-select:none;touch-action:none;-webkit-tap-highlight-color:transparent}
 button,input,select,textarea{font-family:inherit}
 button{cursor:pointer}
 :focus-visible{outline:4px solid #ffd166;outline-offset:2px}
@@ -29,7 +30,7 @@ button{cursor:pointer}
 
 /* ---------- KOIN ---------- */
 /* koin emas: sisi depan, inti, dan sisi belakang bertumpuk di ruang 3D agar tebalnya terlihat saat berputar */
-:root{--ball-n:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-b:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23ff6a3d%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-i:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%235ce1ff%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cg fill=%27%23eafaff%27 fill-opacity=%27.9%27%3E%3Cpath d=%27M 22 -30 l 2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z%27/%3E%3Cpath d=%27M 30 -10 l 1.2 3.5 3.5 1.2 -3.5 1.2 -1.2 3.5 -1.2 -3.5 -3.5 -1.2 3.5 -1.2z%27/%3E%3C/g%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-t:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 29) scale(.46)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(29 69) scale(.46)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(71 69) scale(.46)%27/%3E%3C/svg%3E");--coinimg:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%0A%3ClinearGradient id=%27rim%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff4b0%27/%3E%3Cstop offset=%27.35%27 stop-color=%27%23f2b82a%27/%3E%3Cstop offset=%27.7%27 stop-color=%27%23b87408%27/%3E%3Cstop offset=%271%27 stop-color=%27%236e3f00%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27gv%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%238a5200%27/%3E%3Cstop offset=%271%27 stop-color=%27%23ffe58a%27/%3E%3C/linearGradient%3E%0A%3CradialGradient id=%27face%27 cx=%27.38%27 cy=%27.32%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff1a0%27/%3E%3Cstop offset=%27.45%27 stop-color=%27%23f7c635%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c98608%27/%3E%3C/radialGradient%3E%0A%3CradialGradient id=%27vig%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%27.6%27 stop-color=%27%236e3e00%27 stop-opacity=%270%27/%3E%3Cstop offset=%271%27 stop-color=%27%236e3e00%27 stop-opacity=%27.45%27/%3E%3C/radialGradient%3E%0A%3ClinearGradient id=%27band%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%27.36%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%27.5%27 stop-color=%27%23fff%27 stop-opacity=%27.42%27/%3E%3Cstop offset=%27.64%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27st%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff7c8%27/%3E%3Cstop offset=%27.5%27 stop-color=%27%23f9cf45%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c5820a%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27gl%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.75%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/linearGradient%3E%0A%3CclipPath id=%27fc%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2738%27/%3E%3C/clipPath%3E%3CclipPath id=%27cc%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748.6%27/%3E%3C/clipPath%3E%0A%3Cfilter id=%27gr%27 x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%271.4%27 numOctaves=%272%27 seed=%274%27/%3E%3CfeColorMatrix values=%270 0 0 0 .42  0 0 0 0 .25  0 0 0 0 0  .9 0 0 0 -.32%27/%3E%3C/filter%3E%0A%3Cg id=%27G%27 fill=%27none%27 stroke-linejoin=%27miter%27 stroke-linecap=%27butt%27%3E%3Cpath d=%27M 63.8 40.2 A 17.5 17.5 0 1 0 64.8 60.3 L 64.8 51 L 50.5 51%27/%3E%3Cpath d=%27M 50.5 51 L 50.5 57.5%27 stroke-width=%270%27/%3E%3C/g%3E%3C/defs%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2749%27 fill=%27url(%23rim)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2746.6%27 fill=%27none%27 stroke=%27%236e4200%27 stroke-opacity=%27.55%27 stroke-width=%273.4%27 stroke-dasharray=%271.4 1.9%27/%3E%0A%3Cpath d=%27M 4.7 66.5 A 48.2 48.2 0 0 1 66.5 4.7%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.7%27 stroke-width=%271.3%27 stroke-linecap=%27round%27/%3E%0A%3Cpath d=%27M 95.3 33.5 A 48.2 48.2 0 0 1 33.5 95.3%27 fill=%27none%27 stroke=%27%233d2200%27 stroke-opacity=%27.55%27 stroke-width=%271.3%27 stroke-linecap=%27round%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2743.5%27 fill=%27url(%23gv)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23face)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23vig)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23band)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2735.5%27 fill=%27none%27 stroke=%27%23a86a06%27 stroke-opacity=%27.7%27 stroke-width=%271.6%27 stroke-dasharray=%271 3.1%27 stroke-linecap=%27round%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2731.2%27 fill=%27none%27 stroke=%27%23fff6c0%27 stroke-opacity=%27.5%27 stroke-width=%27.9%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%237a4600%27 stroke-opacity=%27.6%27 stroke-width=%278.6%27 transform=%27translate(1.4 1.7)%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%23fffbd0%27 stroke-opacity=%27.9%27 stroke-width=%278.6%27 transform=%27translate(-1.1 -1.3)%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%23b57508%27 stroke-width=%279.2%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27url(%23st)%27 stroke-width=%277.6%27/%3E%0A%3Cg clip-path=%27url(%23fc)%27%3E%3Cellipse cx=%2736%27 cy=%2725%27 rx=%2727%27 ry=%2713%27 transform=%27rotate(-32 36 25)%27 fill=%27url(%23gl)%27 fill-opacity=%27.5%27/%3E%3C/g%3E%0A%3Crect width=%27100%27 height=%27100%27 filter=%27url(%23gr)%27 clip-path=%27url(%23cc)%27 opacity=%27.55%27/%3E%3C/svg%3E")}
+:root{--ball-c:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%238fe060%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(41 60) scale(.78)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(78 24) scale(.26)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(86 50) scale(.21)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(64 15) scale(.2)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(90 74) scale(.17)%27/%3E%3C/svg%3E");--ball-n:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-b:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23ff6a3d%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-i:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -46 8 A 46 15 0 0 0 46 8%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%235ce1ff%27 stroke-width=%279%27 clip-path=%27url(%23c)%27/%3E%3Cpath d=%27M -46 4 A 46 15 0 0 0 46 4%27 transform=%27rotate(-16)%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.22%27 stroke-width=%271.6%27 clip-path=%27url(%23c)%27/%3E%3Cg fill=%27%23eafaff%27 fill-opacity=%27.9%27%3E%3Cpath d=%27M 22 -30 l 2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z%27/%3E%3Cpath d=%27M 30 -10 l 1.2 3.5 3.5 1.2 -3.5 1.2 -1.2 3.5 -1.2 -3.5 -3.5 -1.2 3.5 -1.2z%27/%3E%3C/g%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 50)%27/%3E%3C/svg%3E");--ball-t:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3CradialGradient id=%27b%27 cx=%27.36%27 cy=%27.3%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%236b7590%27/%3E%3Cstop offset=%27.22%27 stop-color=%27%23303645%27/%3E%3Cstop offset=%27.6%27 stop-color=%27%2314161d%27/%3E%3Cstop offset=%271%27 stop-color=%27%23050608%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27rl%27 cx=%27.72%27 cy=%27.8%27 r=%27.42%27%3E%3Cstop offset=%270%27 stop-color=%27%238a9bbd%27 stop-opacity=%27.4%27/%3E%3Cstop offset=%271%27 stop-color=%27%238a9bbd%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CradialGradient id=%27sp%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.95%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/radialGradient%3E%3CclipPath id=%27c%27%3E%3Ccircle r=%2746%27/%3E%3C/clipPath%3E%3Cg id=%27B%27%3E%3Ccircle r=%2746%27 fill=%27url(%23b)%27/%3E%3Ccircle r=%2746%27 fill=%27url(%23rl)%27/%3E%3Cpath d=%27M -42 -14 Q 0 6 42 -14%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.07%27 stroke-width=%272%27/%3E%3Cellipse cx=%27-17%27 cy=%27-22%27 rx=%2716%27 ry=%279.500%27 transform=%27rotate(-35 -17 -22)%27 fill=%27url(%23sp)%27/%3E%3Ccircle cx=%27-25%27 cy=%27-29%27 r=%273.200%27 fill=%27%23fff%27 fill-opacity=%27.92%27/%3E%3Ccircle r=%2745.200%27 fill=%27none%27 stroke=%27%23000%27 stroke-opacity=%27.75%27 stroke-width=%271.800%27/%3E%3C/g%3E%3C/defs%3E%3Cuse href=%27%23B%27 transform=%27translate(50 29) scale(.46)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(29 69) scale(.46)%27/%3E%3Cuse href=%27%23B%27 transform=%27translate(71 69) scale(.46)%27/%3E%3C/svg%3E");--coinimg:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%0A%3ClinearGradient id=%27rim%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff4b0%27/%3E%3Cstop offset=%27.35%27 stop-color=%27%23f2b82a%27/%3E%3Cstop offset=%27.7%27 stop-color=%27%23b87408%27/%3E%3Cstop offset=%271%27 stop-color=%27%236e3f00%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27gv%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%238a5200%27/%3E%3Cstop offset=%271%27 stop-color=%27%23ffe58a%27/%3E%3C/linearGradient%3E%0A%3CradialGradient id=%27face%27 cx=%27.38%27 cy=%27.32%27 r=%27.8%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff1a0%27/%3E%3Cstop offset=%27.45%27 stop-color=%27%23f7c635%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c98608%27/%3E%3C/radialGradient%3E%0A%3CradialGradient id=%27vig%27 cx=%27.5%27 cy=%27.5%27 r=%27.5%27%3E%3Cstop offset=%27.6%27 stop-color=%27%236e3e00%27 stop-opacity=%270%27/%3E%3Cstop offset=%271%27 stop-color=%27%236e3e00%27 stop-opacity=%27.45%27/%3E%3C/radialGradient%3E%0A%3ClinearGradient id=%27band%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%27.36%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%27.5%27 stop-color=%27%23fff%27 stop-opacity=%27.42%27/%3E%3Cstop offset=%27.64%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27st%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff7c8%27/%3E%3Cstop offset=%27.5%27 stop-color=%27%23f9cf45%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c5820a%27/%3E%3C/linearGradient%3E%0A%3ClinearGradient id=%27gl%27 x1=%270%27 y1=%270%27 x2=%270%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23fff%27 stop-opacity=%27.75%27/%3E%3Cstop offset=%271%27 stop-color=%27%23fff%27 stop-opacity=%270%27/%3E%3C/linearGradient%3E%0A%3CclipPath id=%27fc%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2738%27/%3E%3C/clipPath%3E%3CclipPath id=%27cc%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748.6%27/%3E%3C/clipPath%3E%0A%3Cfilter id=%27gr%27 x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%271.4%27 numOctaves=%272%27 seed=%274%27/%3E%3CfeColorMatrix values=%270 0 0 0 .42  0 0 0 0 .25  0 0 0 0 0  .9 0 0 0 -.32%27/%3E%3C/filter%3E%0A%3Cg id=%27G%27 fill=%27none%27 stroke-linejoin=%27miter%27 stroke-linecap=%27butt%27%3E%3Cpath d=%27M 63.8 40.2 A 17.5 17.5 0 1 0 64.8 60.3 L 64.8 51 L 50.5 51%27/%3E%3Cpath d=%27M 50.5 51 L 50.5 57.5%27 stroke-width=%270%27/%3E%3C/g%3E%3C/defs%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2749%27 fill=%27url(%23rim)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2746.6%27 fill=%27none%27 stroke=%27%236e4200%27 stroke-opacity=%27.55%27 stroke-width=%273.4%27 stroke-dasharray=%271.4 1.9%27/%3E%0A%3Cpath d=%27M 4.7 66.5 A 48.2 48.2 0 0 1 66.5 4.7%27 fill=%27none%27 stroke=%27%23fff%27 stroke-opacity=%27.7%27 stroke-width=%271.3%27 stroke-linecap=%27round%27/%3E%0A%3Cpath d=%27M 95.3 33.5 A 48.2 48.2 0 0 1 33.5 95.3%27 fill=%27none%27 stroke=%27%233d2200%27 stroke-opacity=%27.55%27 stroke-width=%271.3%27 stroke-linecap=%27round%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2743.5%27 fill=%27url(%23gv)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23face)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23vig)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740.2%27 fill=%27url(%23band)%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2735.5%27 fill=%27none%27 stroke=%27%23a86a06%27 stroke-opacity=%27.7%27 stroke-width=%271.6%27 stroke-dasharray=%271 3.1%27 stroke-linecap=%27round%27/%3E%0A%3Ccircle cx=%2750%27 cy=%2750%27 r=%2731.2%27 fill=%27none%27 stroke=%27%23fff6c0%27 stroke-opacity=%27.5%27 stroke-width=%27.9%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%237a4600%27 stroke-opacity=%27.6%27 stroke-width=%278.6%27 transform=%27translate(1.4 1.7)%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%23fffbd0%27 stroke-opacity=%27.9%27 stroke-width=%278.6%27 transform=%27translate(-1.1 -1.3)%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27%23b57508%27 stroke-width=%279.2%27/%3E%0A%3Cuse href=%27%23G%27 stroke=%27url(%23st)%27 stroke-width=%277.6%27/%3E%0A%3Cg clip-path=%27url(%23fc)%27%3E%3Cellipse cx=%2736%27 cy=%2725%27 rx=%2727%27 ry=%2713%27 transform=%27rotate(-32 36 25)%27 fill=%27url(%23gl)%27 fill-opacity=%27.5%27/%3E%3C/g%3E%0A%3Crect width=%27100%27 height=%27100%27 filter=%27url(%23gr)%27 clip-path=%27url(%23cc)%27 opacity=%27.55%27/%3E%3C/svg%3E")}
 .coin{display:inline-block;position:relative;flex:none;width:34px;height:34px;vertical-align:middle;
   background:var(--coinimg) center/contain no-repeat;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
 .coin.sm{width:24px;height:24px;filter:none;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.4)}
@@ -78,10 +79,11 @@ button{cursor:pointer}
 .mag{display:flex;align-items:center;gap:5px;height:24px;padding-left:2px}
 .mag i{display:block;flex:none;width:18px;height:18px;border-radius:50%;border:3px solid rgba(255,255,255,.5)}
 .mag i.x{display:none}
-.mag i.n,.mag i.b,.mag i.t,.mag i.i{width:21px;height:21px;border:0;border-radius:0;background:var(--ball-n) center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+.mag i.n,.mag i.b,.mag i.t,.mag i.i,.mag i.c{width:21px;height:21px;border:0;border-radius:0;background:var(--ball-n) center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
 .mag i.b{background-image:var(--ball-b)}
 .mag i.t{background-image:var(--ball-t)}
 .mag i.i{background-image:var(--ball-i)}
+.mag i.c{background-image:var(--ball-c)}
 .mag .sts{margin-left:auto;font-size:17px;letter-spacing:2px;white-space:nowrap}
 .cl-btns{display:flex;gap:6px;flex:1;min-height:0}
 .hb{flex:none;width:60px;border:none;border-radius:12px;background:#e9edff;color:#0f1633;font-size:26px;
@@ -107,6 +109,8 @@ button{cursor:pointer}
 .wallet{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:30px;font-weight:900;color:#ffd166;
   font-variant-numeric:tabular-nums}
 .wallet.bump{animation:bump .4s}
+.wallet{position:relative}
+.invb{position:absolute;right:-2px;top:-15px;font-style:normal;font-size:13px;font-weight:900;line-height:1;background:linear-gradient(#8ff0b0,#3ddc84);color:#06301a;border-radius:9px;padding:3px 8px;white-space:nowrap;box-shadow:0 2px 4px rgba(0,0,0,.35);z-index:3}
 @keyframes bump{40%{transform:scale(1.4)}}
 .pane{height:265px;display:flex;flex-direction:column;gap:6px}
 .pane[hidden]{display:none}
@@ -131,13 +135,13 @@ button{cursor:pointer}
 .ans button.ok{background:var(--green)}
 .ans button.bad{background:var(--bad)}
 
-.shop{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,1fr);gap:6px;will-change:transform;contain:layout paint;backface-visibility:hidden}
+.shop{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(6,1fr);gap:5px;will-change:transform;contain:layout paint;backface-visibility:hidden}
 .item{display:flex;align-items:center;gap:6px;border:none;border-radius:12px;background:var(--cream);color:var(--ink);
   padding:0 8px;text-align:left;min-width:0}
 .item .ic{flex:none;width:28px;height:28px;display:grid;place-items:center;font-size:21px}
 .item .ic.am{border-radius:50%;background:var(--c);font-size:15px}
 .ball{display:block;width:28px;height:28px;background:var(--ball-n) center/contain no-repeat}.ball.n,.ball.b,.ball.i{border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.45)}
-.ball.b{background-image:var(--ball-b)}.ball.t{background-image:var(--ball-t)}.ball.i{background-image:var(--ball-i)}
+.ball.c{background-image:var(--ball-c)}.ball.b{background-image:var(--ball-b)}.ball.t{background-image:var(--ball-t)}.ball.i{background-image:var(--ball-i)}
 .item .tx{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.08}
 .item .tx b{font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .tx small{font-size:12px;opacity:.72;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -214,6 +218,8 @@ button{cursor:pointer}
 .sw[aria-pressed="true"]::after{content:"";position:absolute;inset:0;background:var(--i);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M5 12.500l4.500 4.500L19 7%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.600%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center/24px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M5 12.500l4.500 4.500L19 7%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.600%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center/24px no-repeat}
 .sw:disabled{opacity:.3;cursor:not-allowed}
 .sw:disabled::after{content:"";position:absolute;inset:0;background:var(--i);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M6 6l12 12M18 6L6 18%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.400%27 stroke-linecap=%27round%27/%3E%3C/svg%3E") center/20px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath d=%27M6 6l12 12M18 6L6 18%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%273.400%27 stroke-linecap=%27round%27/%3E%3C/svg%3E") center/20px no-repeat}
+.audst{margin-top:6px;font-size:12px;opacity:.7;text-align:center;min-height:16px}
+#btnStart:disabled{opacity:.55;cursor:wait}
 .big{display:block;margin:16px auto 0;min-width:420px;height:64px;border:none;border-radius:20px;
   background:linear-gradient(#ffc245,#ff9f1a);color:#2a1a00;font-size:32px;font-weight:900;box-shadow:0 8px 0 #b56a00}
 .big:active{transform:translateY(5px);box-shadow:0 3px 0 #b56a00}
@@ -242,6 +248,7 @@ button{cursor:pointer}
 .rvg{display:grid;grid-template-columns:1fr 1fr;gap:18px;text-align:left;margin-top:8px}
 .rv h3{margin:0 0 4px;font-size:18px}.rv p{margin:2px 0;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ptag{margin-left:6px;font-size:12px;font-weight:800;background:rgba(255,255,255,.16);border-radius:8px;padding:2px 6px;white-space:nowrap}
+label[hidden]{display:none!important}.ib.spd{font:900 15px system-ui,sans-serif;color:#fff;letter-spacing:-.5px}
 .si{width:1.1em;height:1.1em;display:inline-block;vertical-align:-.2em;flex:none;overflow:visible}
 .ib .si{width:24px;height:24px;vertical-align:middle}
 .hb .si{width:30px;height:30px;vertical-align:middle}
@@ -254,7 +261,7 @@ button{cursor:pointer}
 .tbl .si{width:22px;height:22px}.wnd .si{width:.8em;height:.8em}
 </style>
 </head>
-<body>
+<body translate="no" class="notranslate">
 <svg id="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
 <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a8"/><stop offset=".5" stop-color="#f7c635"/><stop offset="1" stop-color="#c98608"/></linearGradient>
 <linearGradient id="gSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7fc"/><stop offset=".55" stop-color="#b4c0d4"/><stop offset="1" stop-color="#6f7f9a"/></linearGradient>
@@ -293,6 +300,7 @@ button{cursor:pointer}
 <symbol id="i-memo" viewBox="0 0 32 32"><rect x="5" y="3.500" width="19" height="25" rx="3" fill="#fff8e1" stroke="#b8a46a" stroke-width="1.400"/><path d="M9 10h11M9 15h11M9 20h7" stroke="#6b8bd6" stroke-width="2" stroke-linecap="round"/><path d="M21 27l1-5 8-9 4 4-9 8z" transform="translate(-4 -2) scale(.9)" fill="#ffd24a" stroke="#a8761a" stroke-width="1.300" stroke-linejoin="round"/></symbol>
 <symbol id="i-party" viewBox="0 0 32 32"><path d="M3 29L9 10l13 13z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.400" stroke-linejoin="round"/><path d="M6.500 20l5.500 5.500M8.500 14.500l9 9" stroke="#e24a4a" stroke-width="2.200" stroke-linecap="round"/><path d="M15 9c1-4 4-4 5-7M20 14c3-1 5-4 9-3M18 11c3-3 7-3 9-6" fill="none" stroke="#4aa8ff" stroke-width="1.800" stroke-linecap="round"/><circle cx="24" cy="4" r="1.600" fill="#ff6ea8"/><circle cx="28" cy="16" r="1.600" fill="#3ddc84"/><circle cx="13" cy="3.500" r="1.500" fill="#ffd24a"/></symbol>
 <symbol id="i-trophy" viewBox="0 0 32 32"><path d="M9 4h14v8a7 7 0 0 1-14 0z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.500" stroke-linejoin="round"/><path d="M9 7H4.500c0 5 2 8 5.500 8.500M23 7h4.500c0 5-2 8-5.500 8.500" fill="none" stroke="#c98608" stroke-width="2.200" stroke-linecap="round"/><path d="M16 19v5M11 28h10l-1.500-4h-7z" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.500" stroke-linejoin="round"/><path d="M12 6v6" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-invest" viewBox="0 0 32 32"><rect x="3.500" y="19" width="5.500" height="9.500" rx="1.600" fill="url(#gGreen)" stroke="#12663a" stroke-width="1.100"/><rect x="11" y="14" width="5.500" height="14.500" rx="1.600" fill="url(#gGreen)" stroke="#12663a" stroke-width="1.100"/><rect x="18.500" y="9" width="5.500" height="19.500" rx="1.600" fill="url(#gGreen)" stroke="#12663a" stroke-width="1.100"/><path d="M3.500 14.500L12 8.500l5 3.500L27 3.500" fill="none" stroke="#ffd24a" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.500 3.200h6v6" fill="none" stroke="#ffd24a" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26.500" cy="22.500" r="5" fill="url(#gGold)" stroke="#9a6205" stroke-width="1.200"/><path d="M24.500 21.500l1.500-1.200v5M24.700 25.200h3.600" fill="none" stroke="#8a5600" stroke-width="1.300" stroke-linecap="round"/></symbol>
 <symbol id="i-heart" viewBox="0 0 32 32"><path d="M16 28.500C4.500 20 2.500 12.500 7.500 7.500c3.800-3.300 7.500-1 8.500 2 1-3 4.700-5.300 8.500-2 5 5 3 12.500-8.500 21z" fill="url(#gRed)" stroke="#9a1c1c" stroke-width="1.400" stroke-linejoin="round"/><path d="M9 10c1-1.500 3-2 4.500-1" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/></symbol>
 </svg>
 <div id="rot" data-i="rot">Untuk tampilan terbaik, gunakan layar landscape (papan tulis digital atau laptop).</div>
@@ -305,6 +313,7 @@ button{cursor:pointer}
     <div class="center">
       <div class="timer" id="timer">10:00</div>
       <button class="ib" id="btnPause" data-i-aria="ar.pause" aria-label="Jeda permainan"><svg class="si" aria-hidden="true"><use href="#i-pause"/></svg></button>
+      <button class="ib spd" id="btnSpeed" data-i-aria="ar.speed" aria-label="Kecepatan simulasi" hidden>x1</button>
       <button class="ib" id="btnSound" data-i-aria="ar.sound" aria-label="Suara nyala atau mati"><svg class="si" aria-hidden="true"><use href="#i-snd"/></svg></button>
       <button class="ib" id="btnFull" data-i-aria="ar.full" aria-label="Layar penuh"><svg class="si" aria-hidden="true"><use href="#i-full"/></svg></button>
     </div>
@@ -353,7 +362,7 @@ button{cursor:pointer}
           </div>
           <label><span data-i="lbl.mode">Mode bermain</span>
             <select id="inMode"><option value="pvp" data-i="opt.pvp">Dua tim manusia</option>
-              <option value="ai-mudah" data-i="opt.ai-mudah">Lawan AI: Mudah</option><option value="ai-sedang" data-i="opt.ai-sedang">Lawan AI: Sedang</option><option value="ai-sulit" data-i="opt.ai-sulit">Lawan AI: Sulit</option></select></label>
+              <option value="ai-mudah" data-i="opt.ai-mudah">Lawan AI: Mudah</option><option value="ai-sedang" data-i="opt.ai-sedang">Lawan AI: Sedang</option><option value="ai-sulit" data-i="opt.ai-sulit">Lawan AI: Sulit</option><option value="aiai" data-i="opt.aiai">AI vs AI</option></select></label>
           <label><span data-i="lbl.dur">Waktu main</span>
             <select id="inDur"><option value="5" data-i="opt.d5">5 menit</option><option value="10" data-i="opt.d10">10 menit</option><option value="15" data-i="opt.d15">15 menit</option><option value="0" data-i="opt.d0">Tanpa batas</option></select></label>
           <label><span data-i="lbl.arena">Arena</span>
@@ -380,9 +389,12 @@ button{cursor:pointer}
             <select id="inQual"><option value="auto" data-i="opt.qauto">Otomatis (sesuai layar)</option><option value="tinggi" data-i="opt.tinggi">Tinggi (layar 4K)</option><option value="hemat" data-i="opt.hemat">Hemat (perangkat lambat)</option></select></label>
           <label class="chk"><input type="checkbox" id="inSound"><span data-i="lbl.sound">Suara efek</span></label>
           <label><span data-i="lbl.lang">Bahasa / Language</span><select id="inLang"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></label>
+          <label id="lblAI0" hidden><span data-i="lbl.ai0">Tingkat AI kiri</span><select id="inAI0"><option value="mudah" data-i="ai.mudah">Mudah</option><option value="sedang" data-i="ai.sedang" selected>Sedang</option><option value="sulit" data-i="ai.sulit">Sulit</option></select></label>
+          <label id="lblAI1" hidden><span data-i="lbl.ai1">Tingkat AI kanan</span><select id="inAI1"><option value="mudah" data-i="ai.mudah">Mudah</option><option value="sedang" data-i="ai.sedang" selected>Sedang</option><option value="sulit" data-i="ai.sulit">Sulit</option></select></label>
         </div>
       </div>
       <button class="big" id="btnStart" type="button" data-i="btn.start">MULAI DUEL</button>
+      <div class="audst" id="audioStatus" aria-live="polite"></div>
     </div>
   </div>
 
@@ -579,12 +591,12 @@ var LVSTY=[
  ["#ffe27a","#f0a800","#8a5a00"]
 ];
 var UPC=[3,5,7,10,13,17,22,28,35];                 /* harga naik dari Lv n ke n+1 */
-var SH={n:{d:1,r:1},b:{d:1,r:1.6},t:{d:.6,r:1},i:{d:.5,r:1.2},a:{d:1,r:1}};  /* pengali damage dan radius */
-var MAGCOL={n:"#ffd166",b:"#ff6a3d",t:"#e05cff",i:"#5ce1ff"};
-var ITEM_IDS=["n","b","t","i","u","r","s","d","k","a"];
+var SH={n:{d:1,r:1},b:{d:1,r:1.6},t:{d:.6,r:1},c:{d:1,r:1},i:{d:.5,r:1.2},a:{d:1,r:1}};  /* pengali damage dan radius */
+var MAGCOL={n:"#ffd166",b:"#ff6a3d",t:"#e05cff",c:"#9be564",i:"#5ce1ff"};
+var ITEM_IDS=["n","b","t","c","i","u","r","s","d","k","a","v"];
 /* ---------- LOKALISASI: Bahasa Indonesia / English ---------- */
 var LANG="id";
-var I18N={"id":{"doc.title":"Meriam Tempur v6: Combo, Koin, Toko, AI, dan Angin","rot":"Untuk tampilan terbaik, gunakan layar landscape (papan tulis digital atau laptop).","title":"Meriam Tempur","sub":"Jawab soal untuk dapat koin, belanja di toko, naikkan level meriam sampai Lv 10, lalu hancurkan meriam lawan.","how.h":"Cara main","how1":"Jawaban benar di tab <b>Soal</b> menghasilkan <b>1 koin</b>. Tiga benar beruntun = <b>combo +1 koin</b>.","how2":"Buka tab <b>Toko</b>: beli peluru, upgrade meriam, perbaiki, perisai, radar bidik, bom udara, dan lainnya. Meriam 1 = <b>Berat</b> (damage besar, isi ulang lambat), meriam 2 = <b>Cepat</b>. Ketuk kotak meriam (bertanda TARGET) untuk memilih meriam yang dibeli.","how3":"Atur sudut dengan {up} {down}. <b>Tahan TEMBAK</b> untuk mengisi tenaga, lepas untuk menembak. Bendera menunjukkan arah dan kecepatan angin.","how4":"Hancurkan kedua meriam lawan. Bila waktu habis, nyawa meriam terbanyak menang.","lvl":"Meriam mulai dari Lv 1 (damage maks. 5) sampai Lv 10 (damage maks. 120). Peluru berapi mulai Lv 7. Meriam yang hancur dibangun ulang dari Lv 1. Mode AI: tim kanan dimainkan komputer dengan aturan yang sama.","lbl.n0":"Nama tim kiri","lbl.n1":"Nama tim kanan","ph.n0":"Tim Kiri","ph.n1":"Tim Kanan","btn.color":"Warna","lbl.mode":"Mode bermain","opt.pvp":"Dua tim manusia","opt.ai-mudah":"Lawan AI: Mudah","opt.ai-sedang":"Lawan AI: Sedang","opt.ai-sulit":"Lawan AI: Sulit","lbl.dur":"Waktu main","opt.d5":"5 menit","opt.d10":"10 menit","opt.d15":"15 menit","opt.d0":"Tanpa batas","lbl.arena":"Arena","opt.padang":"Padang Hijau","opt.gurun":"Gurun Pasir","opt.salju":"Pegunungan Salju","opt.pantai":"Pantai Tropis","opt.lava":"Gunung Api","opt.bulan":"Bulan (gravitasi rendah)","opt.reruntuhan":"Reruntuhan (patung moai)","opt.hujan":"Hutan Hujan","opt.acak":"Acak tiap main","lbl.tod":"Waktu hari","opt.auto":"Otomatis (sesuai arena)","opt.pagi":"Pagi","opt.siang":"Siang","opt.senja":"Senja","opt.malam":"Malam","opt.jalan":"Berjalan (1 hari = 15 menit)","lbl.price":"Harga di toko","opt.murah":"Murah","opt.normal":"Normal","opt.mahal":"Mahal","lbl.assist":"Garis bantu bidik","opt.short":"Pendek","opt.long":"Panjang (disarankan)","opt.off":"Mati","lbl.cat":"Kategori soal","opt.all":"Semua kategori","opt.v":"Kosakata","opt.g":"Tata bahasa","opt.k":"Dunia kerja","opt.e":"Ekspresi &amp; percakapan","lbl.src":"Sumber soal","opt.builtin":"Soal bawaan ({0} soal)","opt.custom":"Soal buatan saya","btn.edit":"Tulis soal sendiri","btn.peek":"Lihat arena","lbl.wind":"Kekuatan angin","opt.mati":"Mati","opt.lemah":"Lemah","opt.kencang":"Kencang","lbl.qual":"Kualitas grafis","opt.qauto":"Otomatis (sesuai layar)","opt.tinggi":"Tinggi (layar 4K)","opt.hemat":"Hemat (perangkat lambat)","lbl.sound":"Suara efek","lbl.lang":"Bahasa / Language","btn.start":"MULAI DUEL","edit.h":"Soal buatan sendiri","edit.p":"Satu soal per baris, dipisah tanda <code>|</code> dengan urutan: pertanyaan, jawaban benar, lalu 1 sampai 3 jawaban salah. Baris berawalan <code>#</code> diabaikan. Minimal 4 soal.","btn.sample":"Isi contoh","btn.clear":"Hapus semua","btn.cancel":"Batal","btn.save":"Simpan","edit.count":"{0} soal valid","edit.min":" (minimal 4)","edit.sample":"# Contoh (hapus atau ganti dengan soal Anda)","edit.alert":"Soal buatan sendiri belum cukup (minimal 4 soal). Soal bawaan dipakai lebih dulu.","pause.h":"Permainan dijeda","btn.resume":"Lanjutkan","btn.restart":"Ulangi dari awal","back.menu":"Kembali ke menu","ar.pause":"Jeda permainan","ar.sound":"Suara nyala atau mati","ar.full":"Layar penuh","ar.panelL":"Panel tim kiri","ar.panelR":"Panel tim kanan","ar.pickL":"Pilih warna tim kiri","ar.pickR":"Pilih warna tim kanan","ar.qlist":"Daftar soal","col.#ff5a4f":"Merah","col.#ff8a3d":"Oranye","col.#ffb020":"Kuning tua","col.#ffe14d":"Kuning","col.#a3e635":"Hijau limau","col.#3ddc84":"Hijau","col.#14c8b0":"Tosca","col.#22d3ee":"Sian","col.#3aa0ff":"Biru","col.#5b7cff":"Biru nila","col.#8b6cff":"Ungu","col.#b862f0":"Ungu terang","col.#f05bd0":"Magenta","col.#ff6ea8":"Merah muda","col.#ff4d7a":"Mawar","col.#ff7a66":"Salmon","col.#ffa8a0":"Jambu pucat","col.#ffc999":"Persik","col.#ffe08a":"Kuning pastel","col.#d6f27a":"Limau pastel","col.#9ae6b4":"Mint","col.#8ee6e0":"Aqua","col.#9fd3ff":"Biru pastel","col.#c7b6ff":"Lavender","col.#e5e7eb":"Putih","col.#9ca3af":"Abu-abu","col.#d9a066":"Cokelat muda","col.#c8642f":"Terakota","col.#2e9e5b":"Hijau tua","col.#1f9fb5":"Teal","col.#4f6fe6":"Biru royal","col.#a855c7":"Ungu tua","col.used":" (dipakai tim lain)","ai.mudah":"Mudah","ai.sedang":"Sedang","ai.sulit":"Sulit","lv1":"Meriam Kecil","lv2":"Meriam Perunggu","lv3":"Meriam Besi","lv4":"Meriam Baja","lv5":"Meriam Berat","lv6":"Meriam Perak","lv7":"Meriam Api","lv8":"Meriam Petir","lv9":"Meriam Naga","lv10":"Meriam Legenda","wind.none":"Tanpa udara","wind.calm":"Angin tenang","tab.q":"Soal","tab.s":"Toko","tab.shopm":"Toko · M{0}","tag.target":"TARGET","tag.fast":"Cepat","tag.heavy":"Berat","ar.pickCannon":"Pilih meriam {0} sebagai target toko","ar.up":"Naikkan sudut meriam {0}","ar.down":"Turunkan sudut meriam {0}","ar.coin":"Koin","fire.btn":"TEMBAK","fire.hold":"tahan = kuat","fire.rel":"lepas = tembak","st.dead":"RUSAK","st.frozen":"BEKU","st.empty":"KOSONG","st.loading":"MENGISI","st.loadsub":"memuat peluru","say.load":"MENGISI...","say.ready":"SIAP!","say.combo":"COMBO x{0}","say.level":"LEVEL {0}! {1}","say.rebuilt":"DIBANGUN ULANG! Lv 1","say.hp":"+{0} nyawa","say.shield":"PERISAI!","say.radar":"RADAR AKTIF","say.turbo":"ISI ULANG KILAT","say.freeze":"BEKU!","say.dead":"HANCUR!","fb.ok":"Benar! +1 koin","fb.combo":"Combo x{0}! Bonus +1 koin","fb.wrong":"Jawaban benar: ","shop.nocoin":"Koin kurang!","shop.dead":"Meriam hancur","shop.full":"Magazin penuh","shop.n":"Peluru","shop.n.s":"Peluru biasa","shop.b":"Peluru Besar","shop.b.s":"Ledakan luas","shop.t":"Peluru Tiga","shop.t.s":"Tembak 3 arah","shop.i":"Peluru Es","shop.i.s":"Beku 4 dtk","shop.u.max":"Level maksimal","shop.u.why":"Sudah Lv 10","shop.u":"Upgrade Lv {0}","shop.u.s":"Dmg {0} · HP {1}","shop.r.re":"Bangun Ulang","shop.r.re.s":"Mulai Lv 1 · pulih 50%","shop.r":"Perbaiki","shop.r.s":"+50% nyawa","shop.r.why":"Nyawa sudah penuh","shop.s":"Perisai","shop.s.s":"Serap 60% dmg","shop.s.why":"Perisai sudah penuh","shop.s.title":" (juga kebal beku)","shop.d":"Radar Bidik","shop.d.s":"Garis 45 dtk","shop.k":"Reload Kilat","shop.k.s":"Cepat 30 dtk","shop.a":"Bom Udara","shop.a.cd":"Siap {0} dtk","shop.a.why":"Sedang isi ulang","shop.a.s":"6 bom ke lawan","shop.a.no":"Tidak ada target","ai.ready":"Siap bertanding!","ai.ok":"{ok} Jawaban benar (+1 koin)","ai.combo":"{fire} Combo x{0} (+1 koin)","ai.bad":"{no} Jawaban salah","ai.shot":"{boom} M{0} menembak M{1}","ai.b.n":"Peluru","ai.b.b":"Peluru Besar","ai.b.t":"Peluru Tiga","ai.b.i":"Peluru Es","ai.b.u":"Upgrade ke Lv {0}","ai.b.r1":"Bangun ulang","ai.b.r0":"Perbaiki","ai.b.s":"Perisai","ai.b.d":"Radar","ai.b.k":"Reload kilat","ai.b.a":"Bom Udara","ai.st.ok":"Jawaban benar! +1 koin","ai.st.bad":"Jawaban salah…","ai.st.work":"Mengerjakan soal…","res.time":"Waktu habis. Pemenang ditentukan dari total nyawa meriam.","res.both":"Kedua tim kehilangan semua meriam.","res.all":"Semua meriam lawan sudah hancur.","res.vsai":" Lawan: AI {0}.","res.wins":"{0} menang!","res.draw":"Seri!","res.destroyed":" (hancur)","res.and":" dan ","row.lv":"Level meriam","row.earned":"Koin terkumpul","row.spent":"Koin dibelanjakan","row.cw":"Jawaban benar / salah","row.acc":"Ketepatan jawaban","row.shots":"Tembakan / kena sasaran","row.dmg":"Total damage","row.combo":"Combo terbaik","row.hp":"Sisa nyawa meriam","rv.h":"Perlu dipelajari: ","rv.none":"Jawab pertanyaan.","rv.great":"Tidak ada soal salah. Hebat!","btn.again":"Main lagi","say.air":"Memanggil serangan udara"},"en":{"doc.title":"Battle Cannon v6: Combos, Coins, Shop, AI and Wind","rot":"For the best experience, use a landscape screen (smart board or laptop).","title":"Battle Cannon","sub":"Answer questions to earn coins, shop, upgrade your cannons up to Lv 10, then destroy the enemy cannons.","how.h":"How to play","how1":"A correct answer on the <b>Quiz</b> tab earns <b>1 coin</b>. Three correct in a row = <b>combo +1 coin</b>.","how2":"Open the <b>Shop</b> tab: buy shells, upgrade cannons, repair, shield, aim radar, air strike and more. Cannon 1 = <b>Heavy</b> (big damage, slow reload), cannon 2 = <b>Fast</b>. Tap a cannon box (marked TARGET) to choose which cannon you are buying for.","how3":"Set the angle with {up} {down}. <b>Hold FIRE</b> to charge power, release to shoot. The flag shows wind direction and speed.","how4":"Destroy both enemy cannons. If time runs out, the team with the most cannon HP wins.","lvl":"Cannons start at Lv 1 (max damage 5) and go up to Lv 10 (max damage 120). Shells are on fire from Lv 7. A destroyed cannon is rebuilt from Lv 1. AI mode: the right team is played by the computer under the same rules.","lbl.n0":"Left team name","lbl.n1":"Right team name","ph.n0":"Left Team","ph.n1":"Right Team","btn.color":"Color","lbl.mode":"Game mode","opt.pvp":"Two human teams","opt.ai-mudah":"Vs AI: Easy","opt.ai-sedang":"Vs AI: Medium","opt.ai-sulit":"Vs AI: Hard","lbl.dur":"Time limit","opt.d5":"5 minutes","opt.d10":"10 minutes","opt.d15":"15 minutes","opt.d0":"No limit","lbl.arena":"Arena","opt.padang":"Green Meadow","opt.gurun":"Sand Desert","opt.salju":"Snow Mountains","opt.pantai":"Tropical Beach","opt.lava":"Volcano","opt.bulan":"Moon (low gravity)","opt.reruntuhan":"Ruins (moai statues)","opt.hujan":"Rainforest","opt.acak":"Random each game","lbl.tod":"Time of day","opt.auto":"Automatic (by arena)","opt.pagi":"Morning","opt.siang":"Midday","opt.senja":"Sunset","opt.malam":"Night","opt.jalan":"Moving (1 day = 15 min)","lbl.price":"Shop prices","opt.murah":"Cheap","opt.normal":"Normal","opt.mahal":"Expensive","lbl.assist":"Aim guide line","opt.short":"Short","opt.long":"Long (recommended)","opt.off":"Off","lbl.cat":"Question category","opt.all":"All categories","opt.v":"Vocabulary","opt.g":"Grammar","opt.k":"Workplace","opt.e":"Expressions &amp; conversation","lbl.src":"Question source","opt.builtin":"Built-in questions ({0})","opt.custom":"My own questions","btn.edit":"Write my own questions","btn.peek":"View arena","lbl.wind":"Wind strength","opt.mati":"Off","opt.lemah":"Weak","opt.kencang":"Strong","lbl.qual":"Graphics quality","opt.qauto":"Automatic (screen based)","opt.tinggi":"High (4K screens)","opt.hemat":"Low (slow devices)","lbl.sound":"Sound effects","lbl.lang":"Bahasa / Language","btn.start":"START DUEL","edit.h":"My own questions","edit.p":"One question per line, separated by <code>|</code> in this order: question, correct answer, then 1 to 3 wrong answers. Lines starting with <code>#</code> are ignored. At least 4 questions.","btn.sample":"Fill sample","btn.clear":"Clear all","btn.cancel":"Cancel","btn.save":"Save","edit.count":"{0} valid questions","edit.min":" (minimum 4)","edit.sample":"# Example (delete or replace with your own questions)","edit.alert":"Your own questions are not enough yet (minimum 4). The built-in questions will be used first.","pause.h":"Game paused","btn.resume":"Resume","btn.restart":"Restart","back.menu":"Back to menu","ar.pause":"Pause game","ar.sound":"Sound on or off","ar.full":"Fullscreen","ar.panelL":"Left team panel","ar.panelR":"Right team panel","ar.pickL":"Choose left team color","ar.pickR":"Choose right team color","ar.qlist":"Question list","col.#ff5a4f":"Red","col.#ff8a3d":"Orange","col.#ffb020":"Amber","col.#ffe14d":"Yellow","col.#a3e635":"Lime","col.#3ddc84":"Green","col.#14c8b0":"Turquoise","col.#22d3ee":"Cyan","col.#3aa0ff":"Blue","col.#5b7cff":"Indigo","col.#8b6cff":"Purple","col.#b862f0":"Bright purple","col.#f05bd0":"Magenta","col.#ff6ea8":"Pink","col.#ff4d7a":"Rose","col.#ff7a66":"Salmon","col.#ffa8a0":"Light coral","col.#ffc999":"Peach","col.#ffe08a":"Pastel yellow","col.#d6f27a":"Pastel lime","col.#9ae6b4":"Mint","col.#8ee6e0":"Aqua","col.#9fd3ff":"Pastel blue","col.#c7b6ff":"Lavender","col.#e5e7eb":"White","col.#9ca3af":"Gray","col.#d9a066":"Tan","col.#c8642f":"Terracotta","col.#2e9e5b":"Dark green","col.#1f9fb5":"Teal","col.#4f6fe6":"Royal blue","col.#a855c7":"Deep purple","col.used":" (used by the other team)","ai.mudah":"Easy","ai.sedang":"Medium","ai.sulit":"Hard","lv1":"Small Cannon","lv2":"Bronze Cannon","lv3":"Iron Cannon","lv4":"Steel Cannon","lv5":"Heavy Cannon","lv6":"Silver Cannon","lv7":"Fire Cannon","lv8":"Thunder Cannon","lv9":"Dragon Cannon","lv10":"Legend Cannon","wind.none":"No air","wind.calm":"Calm wind","tab.q":"Quiz","tab.s":"Shop","tab.shopm":"Shop · C{0}","tag.target":"TARGET","tag.fast":"Fast","tag.heavy":"Heavy","ar.pickCannon":"Select cannon {0} as the shop target","ar.up":"Raise the angle of cannon {0}","ar.down":"Lower the angle of cannon {0}","ar.coin":"Coins","fire.btn":"FIRE","fire.hold":"hold = stronger","fire.rel":"release = fire","st.dead":"BROKEN","st.frozen":"FROZEN","st.empty":"EMPTY","st.loading":"LOADING","st.loadsub":"loading a shell","say.load":"LOADING...","say.ready":"READY!","say.combo":"COMBO x{0}","say.level":"LEVEL {0}! {1}","say.rebuilt":"REBUILT! Lv 1","say.hp":"+{0} HP","say.shield":"SHIELD!","say.radar":"RADAR ON","say.turbo":"QUICK RELOAD","say.freeze":"FROZEN!","say.dead":"DESTROYED!","fb.ok":"Correct! +1 coin","fb.combo":"Combo x{0}! Bonus +1 coin","fb.wrong":"Correct answer: ","shop.nocoin":"Not enough coins!","shop.dead":"Cannon destroyed","shop.full":"Magazine full","shop.n":"Shell","shop.n.s":"Normal shell","shop.b":"Big Shell","shop.b.s":"Wide blast","shop.t":"Triple Shell","shop.t.s":"Fires 3 ways","shop.i":"Ice Shell","shop.i.s":"Freezes 4 s","shop.u.max":"Max level","shop.u.why":"Already Lv 10","shop.u":"Upgrade Lv {0}","shop.u.s":"Dmg {0} · HP {1}","shop.r.re":"Rebuild","shop.r.re.s":"Starts at Lv 1 · 50% HP","shop.r":"Repair","shop.r.s":"+50% HP","shop.r.why":"HP already full","shop.s":"Shield","shop.s.s":"Absorbs 60% dmg","shop.s.why":"Shield already full","shop.s.title":" (also freeze-proof)","shop.d":"Aim Radar","shop.d.s":"Guide line 45 s","shop.k":"Quick Reload","shop.k.s":"Fast for 30 s","shop.a":"Air Strike","shop.a.cd":"Ready in {0} s","shop.a.why":"Recharging","shop.a.s":"6 bombs","shop.a.no":"No target","ai.ready":"Ready to battle!","ai.ok":"{ok} Correct answer (+1 coin)","ai.combo":"{fire} Combo x{0} (+1 coin)","ai.bad":"{no} Wrong answer","ai.shot":"{boom} C{0} fires at C{1}","ai.b.n":"Shell","ai.b.b":"Big Shell","ai.b.t":"Triple Shell","ai.b.i":"Ice Shell","ai.b.u":"Upgrade to Lv {0}","ai.b.r1":"Rebuild","ai.b.r0":"Repair","ai.b.s":"Shield","ai.b.d":"Radar","ai.b.k":"Quick reload","ai.b.a":"Air Strike","ai.st.ok":"Correct! +1 coin","ai.st.bad":"Wrong answer…","ai.st.work":"Working on the question…","res.time":"Time is up. The winner is decided by total cannon HP.","res.both":"Both teams lost all their cannons.","res.all":"All enemy cannons are destroyed.","res.vsai":" Opponent: AI {0}.","res.wins":"{0} wins!","res.draw":"Draw!","res.destroyed":" (destroyed)","res.and":" and ","row.lv":"Cannon level","row.earned":"Coins earned","row.spent":"Coins spent","row.cw":"Correct / wrong answers","row.acc":"Answer accuracy","row.shots":"Shots / hits","row.dmg":"Total damage","row.combo":"Best combo","row.hp":"Remaining cannon HP","rv.h":"To review: ","rv.none":"Answer some questions.","rv.great":"No wrong answers. Great job!","btn.again":"Play again","say.air":"Calling airstrike"}};
+var I18N={"id":{"doc.title":"Meriam Tempur v6: Combo, Koin, Toko, AI, dan Angin","rot":"Untuk tampilan terbaik, gunakan layar landscape (papan tulis digital atau laptop).","title":"Meriam Tempur","sub":"Jawab soal untuk dapat koin, belanja di toko, naikkan level meriam sampai Lv 10, lalu hancurkan meriam lawan.","how.h":"Cara main","how1":"Jawaban benar di tab <b>Soal</b> menghasilkan <b>1 koin</b>. Tiga benar beruntun = <b>combo +1 koin</b>.","how2":"Buka tab <b>Toko</b>: beli peluru (termasuk Peluru Tandan), upgrade meriam, perbaiki, perisai, radar bidik, bom udara, investasi, dan lainnya. Meriam 1 = <b>Berat</b> (damage besar, isi ulang lambat), meriam 2 = <b>Cepat</b>. Ketuk kotak meriam (bertanda TARGET) untuk memilih meriam yang dibeli.","how3":"Atur sudut dengan {up} {down}, atau <b>tekan dan seret meriam</b>. <b>Tahan TEMBAK</b> untuk mengisi tenaga, lepas untuk menembak. Bendera menunjukkan arah dan kecepatan angin.","how4":"Hancurkan kedua meriam lawan. Bila waktu habis, nyawa meriam terbanyak menang.","lvl":"Meriam mulai dari Lv 1 (damage maks. 5) sampai Lv 10 (damage maks. 120). Peluru berapi mulai Lv 7. Meriam yang hancur dibangun ulang dari Lv 1. Mode AI: komputer memakai toko dan strategi yang sama dengan pemain. Mode AI vs AI: kedua tim dimainkan komputer, atur kecepatan dengan tombol xN di atas.","lbl.n0":"Nama tim kiri","lbl.n1":"Nama tim kanan","ph.n0":"Tim Kiri","ph.n1":"Tim Kanan","btn.color":"Warna","lbl.mode":"Mode bermain","opt.pvp":"Dua tim manusia","opt.ai-mudah":"Lawan AI: Mudah","opt.ai-sedang":"Lawan AI: Sedang","opt.ai-sulit":"Lawan AI: Sulit","lbl.dur":"Waktu main","opt.d5":"5 menit","opt.d10":"10 menit","opt.d15":"15 menit","opt.d0":"Tanpa batas","lbl.arena":"Arena","opt.padang":"Padang Hijau","opt.gurun":"Gurun Pasir","opt.salju":"Pegunungan Salju","opt.pantai":"Pantai Tropis","opt.lava":"Gunung Api","opt.bulan":"Bulan (gravitasi rendah)","opt.reruntuhan":"Reruntuhan (patung moai)","opt.hujan":"Hutan Hujan","opt.acak":"Acak tiap main","lbl.tod":"Waktu hari","opt.auto":"Otomatis (sesuai arena)","opt.pagi":"Pagi","opt.siang":"Siang","opt.senja":"Senja","opt.malam":"Malam","opt.jalan":"Berjalan (1 hari = 15 menit)","lbl.price":"Harga di toko","opt.murah":"Murah","opt.normal":"Normal","opt.mahal":"Mahal","lbl.assist":"Garis bantu bidik","opt.short":"Pendek","opt.long":"Panjang (disarankan)","opt.off":"Mati","lbl.cat":"Kategori soal","opt.all":"Semua kategori","opt.v":"Kosakata","opt.g":"Tata bahasa","opt.k":"Dunia kerja","opt.e":"Ekspresi &amp; percakapan","lbl.src":"Sumber soal","opt.builtin":"Soal bawaan ({0} soal)","opt.custom":"Soal buatan saya","btn.edit":"Tulis soal sendiri","btn.peek":"Lihat arena","lbl.wind":"Kekuatan angin","opt.mati":"Mati","opt.lemah":"Lemah","opt.kencang":"Kencang","lbl.qual":"Kualitas grafis","opt.qauto":"Otomatis (sesuai layar)","opt.tinggi":"Tinggi (layar 4K)","opt.hemat":"Hemat (perangkat lambat)","lbl.sound":"Suara efek","lbl.lang":"Bahasa / Language","btn.start":"MULAI DUEL","edit.h":"Soal buatan sendiri","edit.p":"Satu soal per baris, dipisah tanda <code>|</code> dengan urutan: pertanyaan, jawaban benar, lalu 1 sampai 3 jawaban salah. Baris berawalan <code>#</code> diabaikan. Minimal 4 soal.","btn.sample":"Isi contoh","btn.clear":"Hapus semua","btn.cancel":"Batal","btn.save":"Simpan","edit.count":"{0} soal valid","edit.min":" (minimal 4)","edit.sample":"# Contoh (hapus atau ganti dengan soal Anda)","edit.alert":"Soal buatan sendiri belum cukup (minimal 4 soal). Soal bawaan dipakai lebih dulu.","pause.h":"Permainan dijeda","btn.resume":"Lanjutkan","btn.restart":"Ulangi dari awal","back.menu":"Kembali ke menu","ar.pause":"Jeda permainan","ar.sound":"Suara nyala atau mati","ar.full":"Layar penuh","ar.panelL":"Panel tim kiri","ar.panelR":"Panel tim kanan","ar.pickL":"Pilih warna tim kiri","ar.pickR":"Pilih warna tim kanan","ar.qlist":"Daftar soal","col.#ff5a4f":"Merah","col.#ff8a3d":"Oranye","col.#ffb020":"Kuning tua","col.#ffe14d":"Kuning","col.#a3e635":"Hijau limau","col.#3ddc84":"Hijau","col.#14c8b0":"Tosca","col.#22d3ee":"Sian","col.#3aa0ff":"Biru","col.#5b7cff":"Biru nila","col.#8b6cff":"Ungu","col.#b862f0":"Ungu terang","col.#f05bd0":"Magenta","col.#ff6ea8":"Merah muda","col.#ff4d7a":"Mawar","col.#ff7a66":"Salmon","col.#ffa8a0":"Jambu pucat","col.#ffc999":"Persik","col.#ffe08a":"Kuning pastel","col.#d6f27a":"Limau pastel","col.#9ae6b4":"Mint","col.#8ee6e0":"Aqua","col.#9fd3ff":"Biru pastel","col.#c7b6ff":"Lavender","col.#e5e7eb":"Putih","col.#9ca3af":"Abu-abu","col.#d9a066":"Cokelat muda","col.#c8642f":"Terakota","col.#2e9e5b":"Hijau tua","col.#1f9fb5":"Teal","col.#4f6fe6":"Biru royal","col.#a855c7":"Ungu tua","col.used":" (dipakai tim lain)","ai.mudah":"Mudah","ai.sedang":"Sedang","ai.sulit":"Sulit","lv1":"Meriam Kecil","lv2":"Meriam Perunggu","lv3":"Meriam Besi","lv4":"Meriam Baja","lv5":"Meriam Berat","lv6":"Meriam Perak","lv7":"Meriam Api","lv8":"Meriam Petir","lv9":"Meriam Naga","lv10":"Meriam Legenda","wind.none":"Tanpa udara","wind.calm":"Angin tenang","tab.q":"Soal","tab.s":"Toko","tab.shopm":"Toko · M{0}","tag.target":"TARGET","tag.fast":"Cepat","tag.heavy":"Berat","ar.pickCannon":"Pilih meriam {0} sebagai target toko","ar.up":"Naikkan sudut meriam {0}","ar.down":"Turunkan sudut meriam {0}","ar.coin":"Koin","fire.btn":"TEMBAK","fire.hold":"tahan = kuat","fire.rel":"lepas = tembak","st.dead":"RUSAK","st.frozen":"BEKU","st.empty":"KOSONG","st.loading":"MENGISI","st.loadsub":"memuat peluru","say.load":"MENGISI...","say.ready":"SIAP!","say.combo":"COMBO x{0}","say.level":"LEVEL {0}! {1}","say.rebuilt":"DIBANGUN ULANG! Lv 1","say.hp":"+{0} nyawa","say.shield":"PERISAI!","say.radar":"RADAR AKTIF","say.turbo":"ISI ULANG KILAT","say.freeze":"BEKU!","say.dead":"HANCUR!","fb.ok":"Benar! +1 koin","fb.combo":"Combo x{0}! Bonus +1 koin","fb.wrong":"Jawaban benar: ","shop.nocoin":"Koin kurang!","shop.dead":"Meriam hancur","shop.full":"Magazin penuh","shop.n":"Peluru","shop.n.s":"Peluru biasa","shop.b":"Peluru Besar","shop.b.s":"Ledakan luas","shop.t":"Peluru Tiga","shop.t.s":"Tembak 3 arah","shop.i":"Peluru Es","shop.i.s":"Beku 4 dtk","shop.u.max":"Level maksimal","shop.u.why":"Sudah Lv 10","shop.u":"Upgrade","shop.u.s":"Lv {0} · Dmg {1}","shop.r.re":"Bangun Ulang","shop.r.re.s":"Mulai Lv 1 · pulih 50%","shop.r":"Perbaiki","shop.r.s":"+50% nyawa","shop.r.why":"Nyawa sudah penuh","shop.s":"Perisai","shop.s.s":"Serap 60% dmg","shop.s.why":"Perisai sudah penuh","shop.s.title":" (juga kebal beku)","shop.d":"Radar Bidik","shop.d.s":"Garis 45 dtk","shop.k":"Reload Kilat","shop.k.s":"Cepat 30 dtk","shop.a":"Bom Udara","shop.a.cd":"Siap {0} dtk","shop.a.why":"Sedang isi ulang","shop.a.s":"6 bom · 12 dtk","shop.a.no":"Tidak ada target","ai.ready":"Siap bertanding!","ai.ok":"{ok} Jawaban benar (+1 koin)","ai.combo":"{fire} Combo x{0} (+1 koin)","ai.bad":"{no} Jawaban salah","ai.shot":"{boom} M{0} menembak M{1}","ai.b.n":"Peluru","ai.b.b":"Peluru Besar","ai.b.t":"Peluru Tiga","ai.b.i":"Peluru Es","ai.b.u":"Upgrade ke Lv {0}","ai.b.r1":"Bangun ulang","ai.b.r0":"Perbaiki","ai.b.s":"Perisai","ai.b.d":"Radar","ai.b.k":"Reload kilat","ai.b.a":"Bom Udara","ai.st.ok":"Jawaban benar! +1 koin","ai.st.bad":"Jawaban salah…","ai.st.work":"Mengerjakan soal…","res.time":"Waktu habis. Pemenang ditentukan dari total nyawa meriam.","res.both":"Kedua tim kehilangan semua meriam.","res.all":"Semua meriam lawan sudah hancur.","res.vsai":" Lawan: AI {0}.","res.wins":"{0} menang!","res.draw":"Seri!","res.destroyed":" (hancur)","res.and":" dan ","row.lv":"Level meriam","row.earned":"Koin terkumpul","row.spent":"Koin dibelanjakan","row.cw":"Jawaban benar / salah","row.acc":"Ketepatan jawaban","row.shots":"Tembakan / kena sasaran","row.dmg":"Total damage","row.combo":"Combo terbaik","row.hp":"Sisa nyawa meriam","rv.h":"Perlu dipelajari: ","rv.none":"Jawab pertanyaan.","rv.great":"Tidak ada soal salah. Hebat!","btn.again":"Main lagi","say.air":"Memanggil serangan udara","shop.c":"Peluru Tandan","shop.c.s":"Pecah 10 serpihan","shop.v":"Investasi","shop.v.s":"Koin x2 · 10 soal","shop.v.on":"Aktif: sisa {0} soal","shop.v.why":"Investasi masih berlaku","shop.v.title":" (modal menggandakan semua koin selama 10 soal, lalu 90% modal kembali)","say.invest":"INVESTASI x2!","say.invend":"Investasi selesai +{0}","opt.aiai":"AI vs AI","lbl.ai0":"Tingkat AI kiri","lbl.ai1":"Tingkat AI kanan","ar.speed":"Kecepatan simulasi","res.aiai":" {0} lawan {1}.","ai.b.c":"Peluru Tandan","ai.b.v":"Investasi","ai.invend":"{ok} Investasi selesai +{0}","aud.loading":"Memuat audio…","aud.none":"Tidak ada berkas audio eksternal; memakai suara bawaan.","aud.some":"Audio eksternal: {0} dari {1} berkas dimuat (sisanya memakai suara bawaan)."},"en":{"doc.title":"Battle Cannon v6: Combos, Coins, Shop, AI and Wind","rot":"For the best experience, use a landscape screen (smart board or laptop).","title":"Battle Cannon","sub":"Answer questions to earn coins, shop, upgrade your cannons up to Lv 10, then destroy the enemy cannons.","how.h":"How to play","how1":"A correct answer on the <b>Quiz</b> tab earns <b>1 coin</b>. Three correct in a row = <b>combo +1 coin</b>.","how2":"Open the <b>Shop</b> tab: buy shells (including the Cluster Shell), upgrade cannons, repair, shield, aim radar, air strike, investments and more. Cannon 1 = <b>Heavy</b> (big damage, slow reload), cannon 2 = <b>Fast</b>. Tap a cannon box (marked TARGET) to choose which cannon you are buying for.","how3":"Set the angle with {up} {down}, or <b>press and drag the cannon</b>. <b>Hold FIRE</b> to charge power, release to shoot. The flag shows wind direction and speed.","how4":"Destroy both enemy cannons. If time runs out, the team with the most cannon HP wins.","lvl":"Cannons start at Lv 1 (max damage 5) and go up to Lv 10 (max damage 120). Shells are on fire from Lv 7. A destroyed cannon is rebuilt from Lv 1. AI mode: the computer uses the same shop and strategies as a player. AI vs AI mode: both teams are played by the computer; change the speed with the xN button above.","lbl.n0":"Left team name","lbl.n1":"Right team name","ph.n0":"Left Team","ph.n1":"Right Team","btn.color":"Color","lbl.mode":"Game mode","opt.pvp":"Two human teams","opt.ai-mudah":"Vs AI: Easy","opt.ai-sedang":"Vs AI: Medium","opt.ai-sulit":"Vs AI: Hard","lbl.dur":"Time limit","opt.d5":"5 minutes","opt.d10":"10 minutes","opt.d15":"15 minutes","opt.d0":"No limit","lbl.arena":"Arena","opt.padang":"Green Meadow","opt.gurun":"Sand Desert","opt.salju":"Snow Mountains","opt.pantai":"Tropical Beach","opt.lava":"Volcano","opt.bulan":"Moon (low gravity)","opt.reruntuhan":"Ruins (moai statues)","opt.hujan":"Rainforest","opt.acak":"Random each game","lbl.tod":"Time of day","opt.auto":"Automatic (by arena)","opt.pagi":"Morning","opt.siang":"Midday","opt.senja":"Sunset","opt.malam":"Night","opt.jalan":"Moving (1 day = 15 min)","lbl.price":"Shop prices","opt.murah":"Cheap","opt.normal":"Normal","opt.mahal":"Expensive","lbl.assist":"Aim guide line","opt.short":"Short","opt.long":"Long (recommended)","opt.off":"Off","lbl.cat":"Question category","opt.all":"All categories","opt.v":"Vocabulary","opt.g":"Grammar","opt.k":"Workplace","opt.e":"Expressions &amp; conversation","lbl.src":"Question source","opt.builtin":"Built-in questions ({0})","opt.custom":"My own questions","btn.edit":"Write my own questions","btn.peek":"View arena","lbl.wind":"Wind strength","opt.mati":"Off","opt.lemah":"Weak","opt.kencang":"Strong","lbl.qual":"Graphics quality","opt.qauto":"Automatic (screen based)","opt.tinggi":"High (4K screens)","opt.hemat":"Low (slow devices)","lbl.sound":"Sound effects","lbl.lang":"Bahasa / Language","btn.start":"START DUEL","edit.h":"My own questions","edit.p":"One question per line, separated by <code>|</code> in this order: question, correct answer, then 1 to 3 wrong answers. Lines starting with <code>#</code> are ignored. At least 4 questions.","btn.sample":"Fill sample","btn.clear":"Clear all","btn.cancel":"Cancel","btn.save":"Save","edit.count":"{0} valid questions","edit.min":" (minimum 4)","edit.sample":"# Example (delete or replace with your own questions)","edit.alert":"Your own questions are not enough yet (minimum 4). The built-in questions will be used first.","pause.h":"Game paused","btn.resume":"Resume","btn.restart":"Restart","back.menu":"Back to menu","ar.pause":"Pause game","ar.sound":"Sound on or off","ar.full":"Fullscreen","ar.panelL":"Left team panel","ar.panelR":"Right team panel","ar.pickL":"Choose left team color","ar.pickR":"Choose right team color","ar.qlist":"Question list","col.#ff5a4f":"Red","col.#ff8a3d":"Orange","col.#ffb020":"Amber","col.#ffe14d":"Yellow","col.#a3e635":"Lime","col.#3ddc84":"Green","col.#14c8b0":"Turquoise","col.#22d3ee":"Cyan","col.#3aa0ff":"Blue","col.#5b7cff":"Indigo","col.#8b6cff":"Purple","col.#b862f0":"Bright purple","col.#f05bd0":"Magenta","col.#ff6ea8":"Pink","col.#ff4d7a":"Rose","col.#ff7a66":"Salmon","col.#ffa8a0":"Light coral","col.#ffc999":"Peach","col.#ffe08a":"Pastel yellow","col.#d6f27a":"Pastel lime","col.#9ae6b4":"Mint","col.#8ee6e0":"Aqua","col.#9fd3ff":"Pastel blue","col.#c7b6ff":"Lavender","col.#e5e7eb":"White","col.#9ca3af":"Gray","col.#d9a066":"Tan","col.#c8642f":"Terracotta","col.#2e9e5b":"Dark green","col.#1f9fb5":"Teal","col.#4f6fe6":"Royal blue","col.#a855c7":"Deep purple","col.used":" (used by the other team)","ai.mudah":"Easy","ai.sedang":"Medium","ai.sulit":"Hard","lv1":"Small Cannon","lv2":"Bronze Cannon","lv3":"Iron Cannon","lv4":"Steel Cannon","lv5":"Heavy Cannon","lv6":"Silver Cannon","lv7":"Fire Cannon","lv8":"Thunder Cannon","lv9":"Dragon Cannon","lv10":"Legend Cannon","wind.none":"No air","wind.calm":"Calm wind","tab.q":"Quiz","tab.s":"Shop","tab.shopm":"Shop · C{0}","tag.target":"TARGET","tag.fast":"Fast","tag.heavy":"Heavy","ar.pickCannon":"Select cannon {0} as the shop target","ar.up":"Raise the angle of cannon {0}","ar.down":"Lower the angle of cannon {0}","ar.coin":"Coins","fire.btn":"FIRE","fire.hold":"hold = stronger","fire.rel":"release = fire","st.dead":"BROKEN","st.frozen":"FROZEN","st.empty":"EMPTY","st.loading":"LOADING","st.loadsub":"loading a shell","say.load":"LOADING...","say.ready":"READY!","say.combo":"COMBO x{0}","say.level":"LEVEL {0}! {1}","say.rebuilt":"REBUILT! Lv 1","say.hp":"+{0} HP","say.shield":"SHIELD!","say.radar":"RADAR ON","say.turbo":"QUICK RELOAD","say.freeze":"FROZEN!","say.dead":"DESTROYED!","fb.ok":"Correct! +1 coin","fb.combo":"Combo x{0}! Bonus +1 coin","fb.wrong":"Correct answer: ","shop.nocoin":"Not enough coins!","shop.dead":"Cannon destroyed","shop.full":"Magazine full","shop.n":"Shell","shop.n.s":"Normal shell","shop.b":"Big Shell","shop.b.s":"Wide blast","shop.t":"Triple Shell","shop.t.s":"Fires 3 ways","shop.i":"Ice Shell","shop.i.s":"Freezes 4 s","shop.u.max":"Max level","shop.u.why":"Already Lv 10","shop.u":"Upgrade","shop.u.s":"Lv {0} · Dmg {1}","shop.r.re":"Rebuild","shop.r.re.s":"Starts at Lv 1 · 50% HP","shop.r":"Repair","shop.r.s":"+50% HP","shop.r.why":"HP already full","shop.s":"Shield","shop.s.s":"Absorbs 60% dmg","shop.s.why":"Shield already full","shop.s.title":" (also freeze-proof)","shop.d":"Aim Radar","shop.d.s":"Guide line 45 s","shop.k":"Quick Reload","shop.k.s":"Fast for 30 s","shop.a":"Air Strike","shop.a.cd":"Ready in {0} s","shop.a.why":"Recharging","shop.a.s":"6 bombs · 12 s","shop.a.no":"No target","ai.ready":"Ready to battle!","ai.ok":"{ok} Correct answer (+1 coin)","ai.combo":"{fire} Combo x{0} (+1 coin)","ai.bad":"{no} Wrong answer","ai.shot":"{boom} C{0} fires at C{1}","ai.b.n":"Shell","ai.b.b":"Big Shell","ai.b.t":"Triple Shell","ai.b.i":"Ice Shell","ai.b.u":"Upgrade to Lv {0}","ai.b.r1":"Rebuild","ai.b.r0":"Repair","ai.b.s":"Shield","ai.b.d":"Radar","ai.b.k":"Quick reload","ai.b.a":"Air Strike","ai.st.ok":"Correct! +1 coin","ai.st.bad":"Wrong answer…","ai.st.work":"Working on the question…","res.time":"Time is up. The winner is decided by total cannon HP.","res.both":"Both teams lost all their cannons.","res.all":"All enemy cannons are destroyed.","res.vsai":" Opponent: AI {0}.","res.wins":"{0} wins!","res.draw":"Draw!","res.destroyed":" (destroyed)","res.and":" and ","row.lv":"Cannon level","row.earned":"Coins earned","row.spent":"Coins spent","row.cw":"Correct / wrong answers","row.acc":"Answer accuracy","row.shots":"Shots / hits","row.dmg":"Total damage","row.combo":"Best combo","row.hp":"Remaining cannon HP","rv.h":"To review: ","rv.none":"Answer some questions.","rv.great":"No wrong answers. Great job!","btn.again":"Play again","say.air":"Calling airstrike","shop.c":"Cluster Shell","shop.c.s":"Bursts into 10","shop.v":"Investment","shop.v.s":"Coins x2 · 10 Qs","shop.v.on":"Active: {0} left","shop.v.why":"Investment still active","shop.v.title":" (your capital doubles all coins for 10 questions, then 90% of it is returned)","say.invest":"INVESTMENT x2!","say.invend":"Investment ended +{0}","opt.aiai":"AI vs AI","lbl.ai0":"Left AI level","lbl.ai1":"Right AI level","ar.speed":"Simulation speed","res.aiai":" {0} vs {1}.","ai.b.c":"Cluster Shell","ai.b.v":"Investment","ai.invend":"{ok} Investment ended +{0}","aud.loading":"Loading audio…","aud.none":"No external audio files found; using the built-in sounds.","aud.some":"External audio: {0} of {1} files loaded (the rest use the built-in sounds)."}};
 function tt(k){
   var d=I18N[LANG]&&I18N[LANG][k];if(d===undefined)d=I18N.id[k];if(d===undefined)return k;
   for(var i=1;i<arguments.length;i++)d=d.split("{"+(i-1)+"}").join(arguments[i]);
@@ -603,6 +615,7 @@ function applyLang(){
   [].forEach.call(document.querySelectorAll("[data-i-ph]"),function(e){e.setAttribute("placeholder",tt(e.getAttribute("data-i-ph")));});
   [0,1].forEach(function(t){var inp=document.getElementById("inN"+t),v=inp.value.trim();if(!v||isDef(v,t))inp.value=defName(t);});
   var ob=document.getElementById("optBuiltin");if(ob)ob.textContent=tt("opt.builtin",BANK.length);
+  updateAudioStatus();
 }
 function I(n){return '<svg class="si" aria-hidden="true"><use href="#i-'+n+'"/></svg>';}
 function tok(h){return h.replace(/\{(\w+)\}/g,function(m,n){return I(n);});}
@@ -612,7 +625,9 @@ var ICON={
  t:'<span class="ic"><i class="ball t"></i></span>',
  i:'<span class="ic"><i class="ball i"></i></span>',
  u:'<span class="ic">'+I("upg")+'</span>',r:'<span class="ic">'+I("wrench")+'</span>',s:'<span class="ic">'+I("shield")+'</span>',
- d:'<span class="ic">'+I("radar")+'</span>',k:'<span class="ic">'+I("bolt")+'</span>',a:'<span class="ic">'+I("plane")+'</span>'
+ d:'<span class="ic">'+I("radar")+'</span>',k:'<span class="ic">'+I("bolt")+'</span>',a:'<span class="ic">'+I("plane")+'</span>',
+ c:'<span class="ic"><i class="ball c"></i></span>',
+ v:'<span class="ic">'+I("invest")+'</span>'
 };
 var PMULT={murah:.7,normal:1,mahal:1.4};
 
@@ -689,7 +704,7 @@ function inkFor(hex){var L=lum(hex);return (L+.05)/(.008+.05)>=1.05/(L+.05)?"#0d
    PENGATURAN
    ===================================================================== */
 var DEF={n0:DEFN[0],n1:DEFN[1],c0:DEFC[0],c1:DEFC[1],mode:"pvp",dur:0,price:"normal",wind:"normal",arena:"padang",tod:"jalan",lang:"id",
-         cat:"all",assist:"off",src:"builtin",sound:true,v:3};
+         cat:"all",ai0:"sedang",ai1:"sedang",assist:"off",src:"builtin",sound:true,v:3};
 var S=Object.assign({},DEF);
 try{
   var saved=JSON.parse(lsGet("duel-meriam-v2")||"{}");
@@ -1380,6 +1395,8 @@ var sfx={
   wrong:function(){tone(220,.3,"sawtooth",.12,-90);},
   coin:function(){tone(1319,.1,"square",.06);tone(1760,.2,"square",.06,0,.07);},
   buy:function(){tone(520,.08,"triangle",.14);tone(780,.12,"triangle",.14,0,.07);},
+  split:function(){noise(.12,.26,1500);tone(520,.1,"triangle",.1,220);tone(780,.08,"triangle",.07,160,.05);},
+  pop:function(){noise(.05,.1,2200);tone(340,.04,"square",.04,-160);},
   load:function(){noise(.14,.3,700);tone(110,.14,"square",.1,-30);tone(150,.1,"square",.08,-20,.18);},
   ready:function(){tone(440,.07,"triangle",.13);tone(660,.1,"triangle",.13,0,.06);},
   deny:function(){tone(170,.2,"square",.09,-50);},
@@ -1392,9 +1409,77 @@ var sfx={
 };
 
 /* =====================================================================
+   AUDIO BERKAS EKSTERNAL (opsional)
+   Letakkan berkas mp3 di folder yang sama dengan game, dengan nama persis:
+     shoot.mp3  boom.mp3  correct.mp3  wrong.mp3  coin.mp3  buy.mp3  split.mp3  pop.mp3  load.mp3
+     ready.mp3  deny.mp3  upgrade.mp3  repair.mp3  shield.mp3  freeze.mp3  siren.mp3  win.mp3
+   Aturan: bila berkas ditemukan saat game dimuat, berkas itu dipakai sebagai efek suara.
+   Bila tidak ditemukan (atau gagal diputar), suara sintesis bawaan di objek sfx tetap dipakai.
+   Semua suara sintesis di atas tidak dihapus; sfxSynth menyimpannya sebagai cadangan.
+   ===================================================================== */
+var AUDIO_DIR="",AUDIO_EXT=".mp3",AUDIO_TIMEOUT=4000,AUDIO_UP_RATE=1.04;   /* AUDIO_UP_RATE: kenaikan nada upgrade tiap level (1 = tanpa perubahan nada) */
+/* kunci = nama fungsi di sfx; f = nama berkas tanpa ekstensi; vol = pengali volume; max = jumlah suara serentak */
+var AUDIO_MAP={
+  shoot:{f:"shoot",vol:1,max:4},boom:{f:"boom",vol:1,max:6},correct:{f:"correct",vol:1,max:2},wrong:{f:"wrong",vol:1,max:2},
+  coin:{f:"coin",vol:1,max:6},buy:{f:"buy",vol:1,max:3},split:{f:"split",vol:1,max:3},pop:{f:"pop",vol:1,max:8},
+  load:{f:"load",vol:1,max:3},ready:{f:"ready",vol:1,max:3},deny:{f:"deny",vol:1,max:2},up:{f:"upgrade",vol:1,max:3},
+  repair:{f:"repair",vol:1,max:3},shield:{f:"shield",vol:1,max:3},freeze:{f:"freeze",vol:1,max:3},siren:{f:"siren",vol:1,max:2},win:{f:"win",vol:1,max:1}
+};
+var sfxSynth={},audioFiles={},audioState={total:0,found:0,names:[],done:false};
+Object.keys(sfx).forEach(function(k){
+  sfxSynth[k]=sfx[k];
+  sfx[k]=function(){
+    var e=audioFiles[k];
+    if(e){
+      if(!S.sound)return;
+      playAudioFile(e,k,k==="up"?Math.pow(AUDIO_UP_RATE,(arguments[0]||6)-6):1);
+      return;
+    }
+    return sfxSynth[k].apply(sfx,arguments);
+  };
+});
+function playAudioFile(e,k,rate){
+  var a=null,i;
+  for(i=0;i<e.pool.length;i++){if(e.pool[i].paused||e.pool[i].ended){a=e.pool[i];break;}}
+  if(!a){
+    if(e.pool.length<e.max){a=e.base.cloneNode(true);e.pool.push(a);}
+    else{a=e.pool[0];}
+  }
+  try{a.currentTime=0;}catch(x){}
+  a.volume=clamp(e.vol,0,1);
+  try{a.preservesPitch=false;a.mozPreservesPitch=false;a.webkitPreservesPitch=false;}catch(x){}
+  a.playbackRate=clamp(rate,.25,4);
+  var p;try{p=a.play();}catch(x){p=null;}
+  /* bila berkas gagal diputar (bukan karena izin autoplay), pakai suara sintesis bawaan */
+  if(p&&p.catch)p.catch(function(err){if(!(err&&err.name==="NotAllowedError")){try{sfxSynth[k]();}catch(x){}}});
+}
+/* muat semua berkas di awal; yang tidak ada tidak dimasukkan sehingga memakai suara bawaan */
+function loadAudioFiles(onDone){
+  var keys=Object.keys(AUDIO_MAP),left=keys.length;audioState.total=left;audioState.found=0;audioState.names=[];audioState.done=false;
+  keys.forEach(function(k){
+    var m=AUDIO_MAP[k],a=new Audio(),finished=false,tm;
+    function fin(ok){
+      if(finished)return;finished=true;clearTimeout(tm);a.oncanplay=a.onloadeddata=a.onerror=null;
+      if(ok){audioFiles[k]={base:a,pool:[a],vol:m.vol,max:m.max};audioState.found++;audioState.names.push(m.f+AUDIO_EXT);}
+      else{try{a.removeAttribute("src");a.load();}catch(x){}}
+      if(--left===0){audioState.done=true;if(onDone)onDone();}
+    }
+    tm=setTimeout(function(){fin(false);},AUDIO_TIMEOUT);
+    a.preload="auto";a.oncanplay=a.onloadeddata=function(){fin(true);};a.onerror=function(){fin(false);};
+    try{a.src=AUDIO_DIR+m.f+AUDIO_EXT;a.load();}catch(x){fin(false);}
+  });
+}
+function updateAudioStatus(){
+  var el=document.getElementById("audioStatus");if(!el)return;
+  if(!audioState.done){el.textContent=tt("aud.loading");el.title="";return;}
+  el.textContent=audioState.found?tt("aud.some",audioState.found,audioState.total):tt("aud.none");
+  el.title=audioState.names.join(", ");
+}
+
+/* =====================================================================
    KEADAAN GAME
    ===================================================================== */
-var teams=[],cannons=[],projs=[],parts=[],floats=[],scorches=[],flashes=[],bank=[];
+var simSpeed=1,teams=[],cannons=[],projs=[],parts=[],floats=[],scorches=[],flashes=[],bank=[];
 var state="menu",ending=0,endReason="",timeLeft=0,shake=0,tNow=0,hc={};
 var POS=[130,430,1470,1170];
 
@@ -1402,7 +1487,7 @@ function newGame(){
   bank=getBank();rollWind();wind=windTarget;windT=rnd(3,15);initStreaks();
   teams=[0,1].map(function(t){
     return {t:t,name:(function(v){return(!v||isDef(v,t))?defName(t):v;})(String(S["n"+t]||"").trim()),dir:t===0?1:-1,col:S["c"+t],ink:inkFor(S["c"+t]),sel:0,
-      coins:0,streak:0,miss:[],airCd:0,q:null,deck:[],dp:0,nextIn:0,fb:{txt:"",cls:""},
+      coins:0,streak:0,inv:null,miss:[],airCd:0,q:null,deck:[],dp:0,nextIn:0,fb:{txt:"",cls:""},
       st:{c:0,w:0,shots:0,hits:0,earned:0,spent:0,dmg:0,best:0}};
   });
   cannons=POS.map(function(x,i){
@@ -1411,19 +1496,22 @@ function newGame(){
       reload:0,dead:false,recoil:0,pulse:0,flash:0,shieldFlash:0,aimFlash:0,freeze:0,radar:0,turbo:0,pop:0,
       hold:0,holdT:0,smokeT:0,ai:null,charging:false,charge:0,lastPow:.75};
   });
-  var ml=String(S.mode||"pvp");
-  if(ml.indexOf("ai-")===0&&AIL[ml.slice(3)]){
-    var lvl=ml.slice(3),cfg=AIL[lvl];
-    teams[1].ai={lvl:lvl,cfg:cfg,ans:0,total:1,shopT:1.5,log:[],logKey:0,mood:"bot",moodT:0,phase:"attack",phaseT:rnd(18,28)};
-    aiNewAns(teams[1]);
-    var nm=String(S.n1||"").trim();
-    if(!nm||isDef(nm,1))teams[1].name="AI "+aiName(lvl);
-    aiLog(teams[1],tt("ai.ready"),"");
-  }
+  var ml=String(S.mode||"pvp"),lv0=null,lv1=null;
+  if(ml==="aiai"){lv0=AIL[S.ai0]?S.ai0:"sedang";lv1=AIL[S.ai1]?S.ai1:"sedang";}
+  else if(ml.indexOf("ai-")===0&&AIL[ml.slice(3)])lv1=ml.slice(3);
+  [lv0,lv1].forEach(function(lvl,t){
+    if(!lvl)return;
+    teams[t].ai={lvl:lvl,cfg:AIL[lvl],ans:0,total:1,shopT:1.5,log:[],logKey:0,mood:"bot",moodT:0,wh:[],wt:0};
+    aiNewAns(teams[t]);
+    var nm=String(S["n"+t]||"").trim();
+    if(!nm||isDef(nm,t))teams[t].name="AI "+aiName(lvl);
+    aiLog(teams[t],tt("ai.ready"),"");
+  });
+  simSpeed=1;var bs=document.getElementById("btnSpeed");if(bs){bs.hidden=!(teams[0].ai&&teams[1].ai);bs.textContent="x1";}
   projs=[];parts=[];floats=[];scorches=[];flashes=[];shake=0;ending=0;endReason="";tNow=0;
   timeLeft=(+S.dur||0)*60;
   applyTeamColors();buildPanels();
-  nextQuestion(0);if(!teams[1].ai)nextQuestion(1);
+  if(!teams[0].ai)nextQuestion(0);if(!teams[1].ai)nextQuestion(1);
 }
 function applyTeamColors(){
   [0,1].forEach(function(t){
@@ -1449,10 +1537,10 @@ function panelHTML(t){
   if(isAI){
     var tmA=teams[t],qaAI='<div class="qa" id="qa'+t+'">'+
       '<div class="tabs"><div class="aitag"><span>'+I("bot")+'</span><span>AI '+esc(aiName(tmA.ai.lvl))+'</span></div>'+
-      '<div class="wallet" id="wl'+t+'" aria-label="'+tt("ar.coin")+'"><i class="coin"></i><b id="co'+t+'">0</b></div></div>'+
-      '<div class="pane"><div class="aihead"><div class="avatar" id="aiAv">'+I("bot")+'</div>'+
-      '<div class="aicol"><div class="aist" id="aiSt">'+tt("ai.st.work")+'</div><div class="aibar"><i id="aiBarI"></i></div></div></div>'+
-      '<div class="ailog" id="aiLog"></div></div></div>';
+      '<div class="wallet" id="wl'+t+'" aria-label="'+tt("ar.coin")+'"><i class="coin"></i><b id="co'+t+'">0</b><em class="invb" id="iv'+t+'" hidden></em></div></div>'+
+      '<div class="pane"><div class="aihead"><div class="avatar" id="aiAv'+t+'">'+I("bot")+'</div>'+
+      '<div class="aicol"><div class="aist" id="aiSt'+t+'">'+tt("ai.st.work")+'</div><div class="aibar"><i id="aiBarI'+t+'"></i></div></div></div>'+
+      '<div class="ailog" id="aiLog'+t+'"></div></div></div>';
     return t===0?ctrl+qaAI:qaAI+ctrl;
   }
   var items=ITEM_IDS.map(function(id){
@@ -1462,7 +1550,7 @@ function panelHTML(t){
   var qa='<div class="qa" id="qa'+t+'">'+
     '<div class="tabs"><button class="tab" data-team="'+t+'" data-tab="q" id="tabQ'+t+'" aria-selected="true">'+I("ask")+' '+tt("tab.q")+'</button>'+
     '<button class="tab" data-team="'+t+'" data-tab="s" id="tabS'+t+'" aria-selected="false">'+I("cart")+' '+tt("tab.s")+'</button>'+
-    '<div class="wallet" id="wl'+t+'" aria-label="'+tt("ar.coin")+'"><i class="coin"></i><b id="co'+t+'">0</b></div></div>'+
+    '<div class="wallet" id="wl'+t+'" aria-label="'+tt("ar.coin")+'"><i class="coin"></i><b id="co'+t+'">0</b><em class="invb" id="iv'+t+'" hidden></em></div></div>'+
     '<div class="pane" id="pq'+t+'"><div class="q" id="q'+t+'"></div><div class="fb" id="fb'+t+'"></div><div class="ans" id="ans'+t+'"></div></div>'+
     '<div class="pane shop" id="shp'+t+'" hidden>'+items+'</div></div>';
   return t===0?ctrl+qa:qa+ctrl;
@@ -1520,13 +1608,13 @@ function popText(x,y,txt,col){
   }else setTimeout(function(){el.remove();},600);
 }
 function bumpWallet(t){var w=$("#wl"+t);if(!w)return;w.classList.remove("bump");void w.offsetWidth;w.classList.add("bump");}
-function coinFx(t,from){
+function coinFx(t,from,amt){
   var to=document.querySelector("#wl"+t+" .coin");
   if(!from||!to)return;
   var a=stageCenter(from),b=stageCenter(to),fx=$("#fx");
   var el=document.createElement("i");el.className="coin coinfx";el.style.left=(a.x-17)+"px";el.style.top=(a.y-17)+"px";fx.appendChild(el);
   spark(a.x,a.y,7);
-  function arrive(){el.remove();bumpWallet(t);spark(b.x,b.y,9);popText(b.x,b.y-24,"+1","#ffd166");sfx.coin();}
+  function arrive(){el.remove();bumpWallet(t);spark(b.x,b.y,9);popText(b.x,b.y-24,"+"+(amt||1),"#ffd166");sfx.coin();}
   if(reduceMotion||!el.animate){setTimeout(arrive,60);return;}
   var dx=b.x-a.x,dy=b.y-a.y;
   var an=el.animate([
@@ -1557,12 +1645,12 @@ function answer(t,i){
   var btns=[].slice.call(document.querySelectorAll("#ans"+t+" button"));
   q.answered=true;
   if(q.opts[i].ok){
-    tm.st.c++;tm.st.earned++;tm.coins++;
+    tm.st.c++;var got=gain(tm,1);
     btns[i].classList.add("ok");
     tm.fb={txt:I("ok")+" "+tt("fb.ok"),cls:"good"};
     tm.streak=(tm.streak||0)+1;if(tm.streak>tm.st.best)tm.st.best=tm.streak;
-    if(tm.streak%3===0){tm.coins++;tm.st.earned++;tm.fb={txt:I("fire")+" "+tt("fb.combo",tm.streak),cls:"good"};say(tgt(t),tt("say.combo",tm.streak),"#ffb020",30);}
-    tm.nextIn=1.2;sfx.correct();coinFx(t,btns[i]);
+    if(tm.streak%3===0){got+=gain(tm,1);tm.fb={txt:I("fire")+" "+tt("fb.combo",tm.streak),cls:"good"};say(tgt(t),tt("say.combo",tm.streak),"#ffb020",30);}
+    tm.nextIn=1.2;sfx.correct();coinFx(t,btns[i],got);
   }else{
     tm.st.w++;
     btns[i].classList.add("bad");
@@ -1573,11 +1661,18 @@ function answer(t,i){
     tm.nextIn=2.4;sfx.wrong();
   }
   btns.forEach(function(b){b.disabled=true;});
+  if(tm.inv){
+    tm.inv.left--;
+    if(tm.inv.left<=0){var back=Math.round(tm.inv.cap*.9);tm.coins+=back;tm.inv=null;say(tgt(t),tt("say.invend",back),"#8ef0a8",26);sfx.coin();}
+  }
 }
 function selectCannon(ci){var c=cannons[ci];if(c)teams[c.team].sel=c.k;}
 function adjust(ci,dir){var c=cannons[ci];if(!c||c.dead)return;c.angle=clamp(c.angle+dir,MINA,MAXA);c.aimFlash=2.2;}
 
 /* ---------- TOKO ---------- */
+function invPrice(){return {murah:20,normal:30,mahal:40}[S.price]||30;}
+/* menambah koin: investasi menggandakan semua koin yang dihasilkan, termasuk bonus */
+function gain(tm,n){var m=tm.inv?2:1;tm.coins+=n*m;tm.st.earned+=n*m;return n*m;}
 function itemInfo(t,id){
   var tm=teams[t],c=tgt(t),L=LV[c.lv-1],r={name:"",sub:"",price:0,ok:true,why:"",noPrice:false},dead=c.dead;
   function ammo(k,base){r.name=tt("shop."+k);r.sub=tt("shop."+k+".s");r.price=price(base);r.ok=!dead&&c.mag.length<L.cap;r.why=dead?tt("shop.dead"):tt("shop.full");}
@@ -1586,9 +1681,10 @@ function itemInfo(t,id){
     case "b":ammo("b",3);break;
     case "t":ammo("t",4);r.price+=(S.price==="mahal"?2:1);break;
     case "i":ammo("i",3);break;
+    case "c":ammo("c",7);break;
     case "u":
       if(c.lv>=10){r.name=tt("shop.u.max");r.sub=lvName(10);r.ok=false;r.why=tt("shop.u.why");r.noPrice=true;}
-      else{r.name=tt("shop.u",c.lv+1);r.sub=tt("shop.u.s",LV[c.lv].dmg,LV[c.lv].hp);r.price=price(UPC[c.lv-1]);r.ok=!dead;r.why=tt("shop.dead");}
+      else{r.name=tt("shop.u");r.sub=tt("shop.u.s",c.lv+1,LV[c.lv].dmg);r.price=price(UPC[c.lv-1]);r.ok=!dead;r.why=tt("shop.dead");}
       break;
     case "r":
       if(dead){r.name=tt("shop.r.re");r.sub=tt("shop.r.re.s");r.price=price(3);r.ok=true;}
@@ -1599,6 +1695,11 @@ function itemInfo(t,id){
       r.ok=!dead&&c.shield<Math.round(c.max*.6);r.why=dead?tt("shop.dead"):tt("shop.s.why");break;
     case "d":r.name=tt("shop.d");r.sub=tt("shop.d.s");r.price=price(2);r.ok=!dead;r.why=tt("shop.dead");break;
     case "k":r.name=tt("shop.k");r.sub=tt("shop.k.s");r.price=price(3);r.ok=!dead;r.why=tt("shop.dead");break;
+    case "v":
+      r.name=tt("shop.v");r.price=invPrice();
+      if(tm.inv){r.sub=tt("shop.v.on",tm.inv.left);r.ok=false;r.why=tt("shop.v.why");}
+      else{r.sub=tt("shop.v.s");r.ok=true;}
+      break;
     case "a":
       r.name=tt("shop.a");r.price=price(10);
       if(tm.airCd>0){r.sub=tt("shop.a.cd",Math.ceil(tm.airCd));r.ok=false;r.why=tt("shop.a.why");}
@@ -1618,7 +1719,7 @@ function buy(t,id,btn){
   if(tm.coins<info.price){deny(c,tt("shop.nocoin"),btn);return;}
   tm.coins-=info.price;tm.st.spent+=info.price;spendFx(t,info.price);
   switch(id){
-    case "n":case "b":case "t":case "i":
+    case "n":case "b":case "t":case "c":case "i":
       var wasEmpty=c.mag.length===0;
       c.mag.push(id);c.pulse=1;say(c,"+ "+info.name,MAGCOL[id],26);sfx.buy();
       if(wasEmpty){
@@ -1639,6 +1740,7 @@ function buy(t,id,btn){
       c.shieldMax=Math.round(c.max*.6);c.shield=c.shieldMax;c.shieldFlash=.7;say(c,tt("say.shield"),"#7fe6ff");sfx.shield();break;
     case "d":c.radar=45;say(c,tt("say.radar"),"#ffd166",26);sfx.buy();break;
     case "k":c.turbo=30;c.reload=Math.min(c.reload,.3);say(c,tt("say.turbo"),"#ffd166",26);sfx.buy();break;
+    case "v":tm.inv={left:10,cap:info.price};say(c,tt("say.invest"),"#8ef0a8",26);sfx.buy();sparkleCannon(c,"#8ef0a8");break;
     case "a":airstrike(t);break;
   }
 }
@@ -1650,13 +1752,15 @@ function levelFx(c){
 function sparkleCannon(c,col){
   for(var i=0;i<22;i++)parts.push({x:c.x+rnd(-40,40),y:c.gy-rnd(0,60),vx:rnd(-30,30),vy:-rnd(60,180),life:rnd(.6,1.1),max:1.1,r:rnd(3,6),col:col,g:-40,type:"f"});
 }
+var AIRSTRIKE_DELAY=12;   /* detik dari pembelian sampai bom pertama menghantam sasaran */
+function airFall(gyy){var y=-40,vy=650,tt2=0,h=1/120,n=0;while(y<gyy&&n++<4000){vy+=GRAV*h;y+=vy*h;tt2+=h;}return tt2;}
 function airstrike(t){
   var tm=teams[t],en=1-t;
   var mine=cannons.filter(function(c){return c.team===t&&!c.dead;}),best=Math.max.apply(null,mine.map(function(c){return c.lv;}));
   var L=LV[best-1],tg=cannons.filter(function(c){return c.team===en&&!c.dead;});
   for(var i=0;i<6;i++){
     var c=tg[i%tg.length],x=clamp(c.x+rnd(-150,150),30,W-30);
-    projs.push({x:x,y:-40,vx:0,vy:0,tx:x,delay:.5+i*.22,team:t,from:null,type:"a",air:true,dmg:L.dmg*.55,rad:L.rad*.95,r:9,age:0,dead:false,trail:[]});
+    projs.push({x:x,y:-40,vx:0,vy:0,tx:x,delay:Math.max(.2,AIRSTRIKE_DELAY-airFall(gy(x)))+i*.22,team:t,from:null,type:"a",air:true,dmg:L.dmg*.55,rad:L.rad*.95,r:9,age:0,dead:false,trail:[]});
   }
   tm.airCd=25;sfx.siren();
   say(tgt(t),tt("say.air"),"#ff9a7a",28);
@@ -1676,7 +1780,7 @@ function fire(ci,pow){
   (type==="t"?[-6,0,6]:[0]).forEach(function(da){
     var a=(c.angle+da)*Math.PI/180;
     projs.push({x:m.x,y:m.y,vx:m.d*Math.cos(a)*sp,vy:-Math.sin(a)*sp,age:0,from:c,team:c.team,type:type,lv:c.lv,
-      dmg:L.dmg*sh.d*(c.k?.9:1.15),rad:L.rad*sh.r,r:6+c.lv*.55+(type==="b"?4:0),dead:false,trail:[],delay:0});
+      dmg:L.dmg*sh.d*(c.k?.9:1.15),rad:L.rad*sh.r,r:6+c.lv*.55+(type==="b"?4:0)+(type==="c"?2:0),dead:false,trail:[],delay:0});
   });
   c.reload=L.rel*(c.k?.75:1.2)*(c.turbo>0?.35:1);c.rmax=c.reload;c.loading=c.mag.length>0;c.sayT=c.loading?.55:0;c.recoil=1;c.aimFlash=0;
   teams[c.team].st.shots++;
@@ -1702,7 +1806,34 @@ function hurt(c,dmg,p){
   if(c.hp<=0){destroyCannon(c);return;}
   if(p.type==="i"&&!hadShield){c.freeze=4;say(c,tt("say.freeze"),"#8fe9ff",30);sfx.freeze();}
 }
+function splitCluster(p){
+  var share={hit:false},i;
+  for(i=0;i<10;i++){
+    var u=(i-4.5)/4.5;
+    projs.push({x:p.x,y:p.y,vx:p.vx*(1+.4*u)+rnd(-22,22),vy:rnd(-130,50),age:0,from:p.from,team:p.team,type:"c",lv:1,
+      dmg:p.dmg*.1,rad:p.rad*.1,r:3.2,dead:false,trail:[],delay:0,frag:true,share:share});
+  }
+  flashes.push({x:p.x,y:p.y,r:70,life:.24,max:.24});flashes.push({x:p.x,y:p.y,r:90,life:.34,max:.34,ring:true});
+  for(i=0;i<16;i++)parts.push({x:p.x,y:p.y,vx:rnd(-220,220),vy:rnd(-200,120),life:rnd(.3,.6),max:.6,r:rnd(2,4.5),col:["#b6f27a","#ffe066","#fff3b0"][i%3],g:300,type:"f"});
+  for(i=0;i<4;i++)parts.push({x:p.x+rnd(-8,8),y:p.y+rnd(-8,8),vx:rnd(-30,30),vy:rnd(-50,-10),life:rnd(.7,1.2),max:1.2,r:rnd(8,13),col:"#cfd3dc",g:0,type:"s"});
+  sfx.split();p.dead=true;
+}
 function explode(x,y,onGround,p){
+  if(p.frag){
+    flashes.push({x:x,y:y,r:14,life:.14,max:.14});
+    var q,hitF=false;
+    for(q=0;q<5;q++)parts.push({x:x,y:y,vx:rnd(-90,90),vy:rnd(-150,-30),life:rnd(.25,.5),max:.5,r:rnd(1.5,3),col:["#ffe066","#ffb020","#fff3b0"][q%3],g:520,type:"f"});
+    parts.push({x:x,y:y,vx:rnd(-12,12),vy:rnd(-40,-15),life:.6,max:.6,r:rnd(5,8),col:"#9aa0ad",g:0,type:"s"});
+    if(onGround)scorches.push({x:x,y:y,r:rnd(5,8),ice:false});
+    sfx.pop();
+    cannons.forEach(function(c){
+      if(c.dead)return;
+      var d=Math.hypot(x-c.x,y-(c.gy-28*c.sc));
+      if(d<p.rad||p.hitC===c){if(c.team!==p.team)hitF=true;var fd=Math.floor(p.dmg)+(Math.random()<p.dmg-Math.floor(p.dmg)?1:0);if(fd>0)hurt(c,fd,p);}
+    });
+    if(hitF&&p.share&&!p.share.hit){p.share.hit=true;teams[p.team].st.hits++;}
+    checkEnd();return;
+  }
   if(p.aiTg&&p.from&&p.from.ai&&p.type!=="t")p.from.ai.spot[p.aiTg.i]={dx:x-p.aiTg.x,t:tNow,w:p.aiW||0};
   var hitEnemy=false,wet=onGround&&AR.water&&y>AR.water-2&&waterSpans.some(function(s){return x>=s[0]&&x<=s[1];});
   var sz=p.rad/66,cols=wet?["#bfefff","#7fd8ff","#ffffff","#5cc4f0"]:["#ffe066","#ffb020","#ff6a3d","#fff3b0"];
@@ -1747,7 +1878,7 @@ function checkEnd(){
   if(ending>0||state!=="playing")return;
   if(alive(0)===0||alive(1)===0)endGame("destroy");
 }
-function endGame(reason){if(ending>0)return;ending=1.9;endReason=reason;holds.clear();cannons.forEach(function(c){c.hold=0;});}
+function endGame(reason){if(ending>0)return;ending=1.9;endReason=reason;holds.clear();if(typeof drags!=="undefined")drags.clear();cannons.forEach(function(c){c.hold=0;c.dragging=false;});}
 
 function reviewHTML(){
   var h='';
@@ -1782,7 +1913,8 @@ function finish(){
   }
   var why=endReason==="time"?tt("res.time"):
           (win<0?tt("res.both"):tt("res.all"));
-  if(teams[1].ai)why+=tt("res.vsai",aiName(teams[1].ai.lvl));
+  if(teams[0].ai&&teams[1].ai)why+=tt("res.aiai",aiName(teams[0].ai.lvl),aiName(teams[1].ai.lvl));
+  else if(teams[1].ai)why+=tt("res.vsai",aiName(teams[1].ai.lvl));
   var head=win>=0?I("trophy")+tt("res.wins",esc(teams[win].name)):tt("res.draw");
   function acc(tm){var n=tm.st.c+tm.st.w;return n?Math.round(100*tm.st.c/n)+"%":"-";}
   function lvs(t){return cannons.filter(function(c){return c.team===t;}).map(function(c){return "Lv "+c.lv+(c.dead?tt("res.destroyed"):"");}).join(tt("res.and"));}
@@ -1814,15 +1946,21 @@ function finish(){
    think = jeda berpikir, shop = jeda antar keputusan belanja
    ===================================================================== */
 var AIL={
- mudah: {name:"Mudah", acc:.45,tmin:9,  tmax:15, err:9,  perr:.09, rot:22,think:[1.4,2.8],shop:2.2},
- sedang:{name:"Sedang",acc:.70,tmin:6,  tmax:11, err:3.2,perr:.03, rot:42,think:[.8,1.6], shop:1.4},
- sulit: {name:"Sulit", acc:.92,tmin:3.8,tmax:7,  err:1.1,perr:.008,rot:80,think:[.3,.8], shop:.8}
+ mudah: {name:"Mudah", acc:.45,tmin:9,  tmax:15, err:9,   perr:.09,  rot:22,think:[1.4,2.8],shop:2.2},
+ sedang:{name:"Sedang",acc:.70,tmin:6,  tmax:11, err:2.6, perr:.022, rot:42,think:[.8,1.6], shop:1.4},
+ sulit: {name:"Sulit", acc:.92,tmin:3.8,tmax:7,  err:.75, perr:.005, rot:90,think:[.25,.7],shop:.8}
 };
 function aiLog(tm,txt,cls){var a=tm.ai;a.log.unshift({t:txt,c:cls||""});if(a.log.length>6)a.log.pop();a.logKey++;}
 function aiNewAns(tm){var a=tm.ai;a.total=rnd(a.cfg.tmin,a.cfg.tmax);a.ans=a.total;}
 
 /* cari kombinasi sudut dan tenaga yang paling dekat mengenai sasaran (memperhitungkan angin) */
-function aiWindEst(lvl){var wa=windAcc();return lvl==="mudah"?0:lvl==="sedang"?wa*.55:wa;}
+function aiWindEst(lvl,a){
+  var wa=windAcc();if(lvl==="mudah")return 0;if(lvl==="sedang")return wa*.55;
+  /* tingkat Sulit memperkirakan tren angin selama peluru terbang */
+  var h=a&&a.wh;if(AR.space||!h||h.length<4)return wa;
+  var sl=(wind-h[0].w)/Math.max(.2,tNow-h[0].t);
+  return (wind+.31*sl)*WK;
+}
 function aiSim(c,a,pw,wa,tx,ty,d,len){
   var r=a*Math.PI/180,cs=Math.cos(r),sn=Math.sin(r),h=1/120,sp=vOf(pw),vx=d*cs*sp,vy=-sn*sp,x=c.x+d*cs*len,y=c.gy-30*c.sc-sn*len,md=1e18,tm=0;
   for(var s=0;s<420;s++){
@@ -1852,8 +1990,10 @@ function aiPending(c,e){
   var s=0;projs.forEach(function(p){if(!p.dead&&p.team===c.team&&p.aiTg===e)s+=p.dmg*.7;});return s;
 }
 /* nilai sebuah target: peluang menghancurkan, ancaman, kondisi, jenis peluru, dan ketepatan bidikan */
-function aiScore(c,e,sl,lvl){
+function aiScore(c,e,sl,lvl,mate){
   var smart=lvl==="sulit",type=c.mag[0]||"n",dmg=aiDmg(c,type)*.9,eff=e.hp+e.shield,rem=eff-(smart?aiPending(c,e):0);
+  /* rekan satu tim sudah membidik sasaran ini: jangan kelebihan tembakan */
+  if(smart&&mate&&mate.ai&&mate.ai.st>0&&mate.ai.tg===e&&mate.mag.length>0)rem-=aiDmg(mate,mate.mag[0])*.75;
   var ready=e.mag.length>0&&e.freeze<=0,s=-sl.d*.9;
   if(rem<=0)s-=45;
   else if(dmg>=rem)s+=60;
@@ -1862,10 +2002,15 @@ function aiScore(c,e,sl,lvl){
   if(type==="i"){
     if(e.freeze>0||e.shield>0)s-=50;else if(ready)s+=25+e.lv*2;else s-=15;
   }
-  if(type==="b"&&smart){
-    var mate=cannons.filter(function(o){return o.team!==c.team&&!o.dead&&o!==e&&Math.abs(o.x-e.x)<LV[c.lv-1].rad*1.6;}).length;s+=mate*18;
+  if((type==="b"||type==="c")&&smart){
+    var near=cannons.filter(function(o){return o.team!==c.team&&!o.dead&&o!==e&&Math.abs(o.x-e.x)<LV[c.lv-1].rad*(type==="c"?3:1.6);}).length;s+=near*(type==="c"?14:18);
   }
-  return s+(smart?rnd(-4,4):rnd(-18,18));
+  if(smart){
+    /* utamakan ancaman yang bisa menghancurkan meriam saya dengan cepat */
+    var weak=1e9;cannons.forEach(function(o){if(o.team===c.team&&!o.dead)weak=Math.min(weak,o.hp+o.shield);});
+    if(ready&&aiDmg(e,e.mag[0])>=weak*.4)s+=12;
+  }
+  return s+(smart?rnd(-3,3):rnd(-18,18));
 }
 function aiCombat(c,dt,cfg,lvl,tm){
   var a=c.ai;
@@ -1873,12 +2018,13 @@ function aiCombat(c,dt,cfg,lvl,tm){
   if(a.st===0){
     a.wait-=dt;if(a.wait>0||c.mag.length===0)return;
     var en=cannons.filter(function(x){return x.team!==c.team&&!x.dead;});if(!en.length)return;
-    var wa=aiWindEst(lvl),best=null,gain=lvl==="sulit"?.7:lvl==="sedang"?.35:0;
+    var wa=aiWindEst(lvl,tm.ai),best=null,mate=cannons.filter(function(x){return x.team===c.team&&x!==c&&!x.dead;})[0];
+    var gain=lvl==="sulit"?.7:lvl==="sedang"?.35:0;
     if(lvl==="mudah")en=[en[Math.floor(Math.random()*en.length)]];
     en.forEach(function(e){
       var sp=a.spot[e.i],adj=0;
       if(gain&&sp&&tNow-sp.t<25&&Math.abs(wind-sp.w)<2.5)adj=clamp(-sp.dx*gain,-120,120);
-      var sl=aiSolve(c,e,wa,adj,lvl==="sulit"),sc=lvl==="mudah"?0:aiScore(c,e,sl,lvl);
+      var sl=aiSolve(c,e,wa,adj,lvl==="sulit"),sc=lvl==="mudah"?0:aiScore(c,e,sl,lvl,mate);
       if(!best||sc>best.sc)best={e:e,sl:sl,sc:sc};
     });
     if(lvl==="sulit"&&best.sl.d>60&&c.mag.length<=1&&a.skip<3){a.skip++;a.wait=.7;return;}
@@ -1915,122 +2061,208 @@ function aiBuy(t,id,c){
   var wasDead=c.dead;
   buy(t,id,null);
   var nm={n:tt("ai.b.n"),b:tt("ai.b.b"),t:tt("ai.b.t"),i:tt("ai.b.i"),u:tt("ai.b.u",c.lv),r:wasDead?tt("ai.b.r1"):tt("ai.b.r0"),
-          s:tt("ai.b.s"),d:tt("ai.b.d"),k:tt("ai.b.k"),a:tt("ai.b.a")}[id];
+          s:tt("ai.b.s"),d:tt("ai.b.d"),k:tt("ai.b.k"),a:tt("ai.b.a"),c:tt("ai.b.c"),v:tt("ai.b.v")}[id];
   aiLog(tm,"{cart} "+nm+(id==="a"?"":" · M"+(c.k+1)),"buy");
   return true;
 }
+/* ======================= OTAK AI (strategi, ekonomi, pertahanan) ======================= */
+function aiFoes(t){return cannons.filter(function(x){return x.team!==t&&!x.dead;});}
+/* perkiraan kerusakan yang bisa ditimpakan lawan dalam satu rentetan */
+function aiBurst(t){
+  var s=0;
+  aiFoes(t).forEach(function(f){var rdy=f.mag.length>0?(f.freeze>0?.35:1):.2;s+=aiDmg(f,f.mag[0]||"n")*rdy;});
+  return s;
+}
+function aiAvgAns(a){return (a.cfg.tmin+a.cfg.tmax)/2;}
 function aiSit(t){
-  var foe=cannons.filter(function(c){return c.team!==t&&!c.dead;}),threat=0;
-  foe.forEach(function(f){var d=aiDmg(f,f.mag[0]);if(f.freeze>0||f.mag.length===0)d*=.35;threat+=d;});
-  var my=totalHP(t),en=totalHP(1-t);
-  return {threat:threat,foe:foe,my:my,en:en,lead:my>en*1.1,timeLow:+S.dur>0&&timeLeft<45,
-          enHP:foe.reduce(function(a,f){return a+f.hp+f.shield;},0)};
+  var mine=cannons.filter(function(x){return x.team===t;}),live=mine.filter(function(x){return !x.dead;}),
+      dead=mine.filter(function(x){return x.dead;}),foe=aiFoes(t),enHP=0,myHP=0,enTop=1,myTop=1,rdy=null,weakest=1e9;
+  foe.forEach(function(f){enHP+=f.hp+f.shield;enTop=Math.max(enTop,f.lv);
+    if(f.mag.length>0&&f.freeze<=0&&f.shield<=0&&(!rdy||aiDmg(f)>aiDmg(rdy)))rdy=f;});
+  live.forEach(function(c){myHP+=c.hp+c.shield;myTop=Math.max(myTop,c.lv);weakest=Math.min(weakest,c.hp+c.shield);});
+  var unl=!(+S.dur>0);
+  return {live:live,dead:dead,foe:foe,threat:aiBurst(t)*.9,enHP:enHP,myHP:myHP,enTop:enTop,myTop:myTop,rdyFoe:rdy,weakest:weakest,left:unl?1e9:timeLeft,unl:unl};
+}
+/* jenis peluru yang paling berguna untuk meriam ini */
+function aiAmmoType(t,c,S2,lvl){
+  var co=teams[t].coins,L=LV[c.lv-1],foes=S2.foe,smart=lvl==="sulit";
+  if(lvl==="mudah")return (co>=5&&Math.random()<.2)?"b":"n";
+  var close=foes.length>1&&Math.abs(foes[0].x-foes[1].x)<L.rad*1.9,shielded=foes.some(function(f){return f.shield>0;});
+  if(smart&&co>=6&&c.mag.length<=1&&S2.rdyFoe&&aiDmg(S2.rdyFoe)>=S2.weakest*.3&&c.mag.indexOf("i")<0&&!foes.some(function(f){return f.freeze>0;}))return "i";
+  if(co>=4&&(close||shielded||lvl==="sedang"))return "b";
+  if(smart&&co>=24&&close)return "c";
+  return "n";
+}
+/* nilai upgrade per koin: tambahan damage dan nyawa */
+function aiUpScore(c,S2){
+  if(c.dead||c.lv>=10)return -1;
+  var price=UPC[c.lv-1],gd=LV[c.lv].dmg-LV[c.lv-1].dmg,gh=LV[c.lv].hp-LV[c.lv-1].hp,risk=(c.hp+c.shield)<=S2.threat;
+  var sc=(gd+gh*(risk?.6:.25))/price;
+  return S2.enTop>S2.myTop+1?sc*1.15:sc;
+}
+/* daftar pembelian yang masuk akal beserta prioritasnya */
+function aiPlan(t,lvl,S2){
+  var tm=teams[t],a=tm.ai,co=tm.coins,smart=lvl==="sulit",opts=[],emergency=false;
+  function add(id,c,pr){var inf=aiInfo(t,id,c);if(inf.ok&&inf.price<=co)opts.push({id:id,c:c,pr:pr,price:inf.price});}
+  S2.dead.forEach(function(c){add("r",c,100);});
+  var invReady=false,ip=invPrice();
+  if(lvl!=="mudah"&&!tm.inv&&S2.live.length&&!S2.dead.length){
+    var lvOk=S2.live.every(function(c){return c.lv>=(smart?3:3);}),timeOk=S2.unl||S2.left>aiAvgAns(a)*12+20;
+    invReady=lvOk&&timeOk&&S2.threat<S2.weakest*.85&&S2.enTop<=S2.myTop+1;
+  }
+  var saving=smart&&invReady&&co<ip+4;
+  S2.live.forEach(function(c){
+    var eff=c.hp+c.shield,cap=Math.round(c.max*.6),risk=eff<=S2.threat;
+    if(risk)emergency=true;
+    if(c.mag.length===0)add(aiAmmoType(t,c,S2,lvl),c,95);
+    else if(c.mag.length===1&&smart)add(aiAmmoType(t,c,S2,lvl),c,78);
+    if(risk&&(smart||c.hp<c.max*.6)){if(c.shield<cap*.5)add("s",c,92);if(c.hp<c.max)add("r",c,91);}
+    if(smart&&!risk&&c.lv>=3&&c.shield===0&&S2.threat>=eff*.45)add("s",c,72);
+    if(c.hp<c.max*(smart?.6:.45))add("r",c,smart?66:62);
+    if(lvl==="sedang"&&c.hp<c.max*.6&&c.shield===0&&Math.random()<.4)add("s",c,60);
+    var us=aiUpScore(c,S2);
+    if(us>0&&!saving)add("u",c,56+clamp((us-.6)*9,-6,12)+(S2.enTop>S2.myTop+1?4:0));
+    if(smart&&S2.rdyFoe&&c.mag.length<=1&&c.mag.indexOf("i")<0&&aiDmg(S2.rdyFoe)>=S2.weakest*.3)add("i",c,76);
+    if(smart&&co>=14&&c.mag.length>=3)add("k",c,30);
+  });
+  if(invReady&&co>=ip+(smart?3:8))add("v",S2.live[0],70);
+  if(S2.live.length&&tm.airCd<=0&&S2.foe.length){
+    var bl=Math.max.apply(null,S2.live.map(function(c){return c.lv;})),exp=6*LV[bl-1].dmg*.55*.42,fin=S2.enHP<=exp*1.05;
+    if(smart&&fin)add("a",S2.live[0],85);
+    else if(lvl==="sedang"&&fin)add("a",S2.live[0],70);
+    else if(smart&&co>=22)add("a",S2.live[0],44);
+  }
+  return opts;
+}
+function aiShopEasy(tm,t){
+  var live=cannons.filter(function(c){return c.team===t&&!c.dead;});if(!live.length)return;
+  var empty=live.filter(function(c){return c.mag.length===0;})[0],hurtC=live.filter(function(c){return c.hp<c.max*.5;})[0],
+      low=live.filter(function(x){return x.mag.length<2;})[0],r=Math.random();
+  if(empty&&aiBuy(t,"n",empty))return;
+  if(hurtC&&r<.5&&aiBuy(t,"r",hurtC))return;
+  var c=live[Math.floor(Math.random()*live.length)],u=aiInfo(t,"u",c);
+  if(r<.4&&u.ok&&tm.coins>=u.price+2&&aiBuy(t,"u",c))return;
+  if(low&&r<.7)aiBuy(t,"n",low);
+}
+/* ---- perencana ekonomi: nilai tiap pembelian dihitung per koin ---- */
+var AICFG={spice:1.6,tempo:1,waitK:1.7,waitMax:16,vhpK:1,upK:1,shK:1,reK:1,topup:.3};
+var AIHIT={sulit:.9,sedang:.62,mudah:.28},AIMUL={sulit:{b:.92,t:.64,c:.42},sedang:{b:1.14,t:.84,c:.52},mudah:{b:1.25,t:1.47,c:1.02}},AIPRICE={n:1,b:3,t:5,c:7,i:3};
+function aiEcon(t,lvl,S2){
+  var a=teams[t].ai,cyc=3.4,inc=(a.cfg.acc/aiAvgAns(a))*1.25,H=S2.unl?120:clamp(S2.left,25,120),live=Math.max(1,S2.live.length),D=0;
+  S2.foe.forEach(function(f){D+=aiDmg(f,"n")*.8/cyc;});
+  return {hit:AIHIT[lvl]||.6,cyc:cyc,inc:inc,H:H,D:D,N:clamp(inc*H/live,2,H/cyc)};
+}
+/* nilai satu poin nyawa meriam c: seberapa lama ia bisa terus menembak */
+function aiVHP(c,E){
+  if(E.D<=0)return .03;
+  var r=aiDmg(c,"n")*E.hit/E.cyc,T=(c.hp+c.shield)/E.D;
+  return r/E.D*(T<E.H?1:.35);
+}
+function aiUrgency(c,E){if(E.D<=0)return 1;var T=(c.hp+c.shield)/E.D;return 1+clamp((12-T)/12,0,1)*1.6;}
+/* jenis peluru terbaik: bandingkan nilai per koin */
+function aiBestAmmo(t,c,S2,lvl,E,byValue){
+  var L=LV[c.lv-1],close=S2.foe.length>1&&Math.abs(S2.foe[0].x-S2.foe[1].x)<L.rad*1.9,shielded=S2.foe.some(function(f){return f.shield>0;});
+  var base=aiDmg(c,"n")*E.hit,m=AIMUL[lvl]||AIMUL.sedang,best=null;
+  ["n","b","t","c","i"].forEach(function(ty){
+    if(lvl==="mudah"&&ty!=="n"&&ty!=="b")return;
+    if(ty==="i"&&(lvl!=="sulit"||!S2.rdyFoe||c.mag.indexOf("i")>=0))return;
+    var V=ty==="n"?base:ty==="i"?aiDmg(S2.rdyFoe)*.8*(4/E.cyc)+base*.5:base*(m[ty]||1);
+    if(ty==="b")V*=1+.9*(close?1:0)+(shielded?.25:0);
+    if(ty==="c"&&close)V*=1.5;
+    var inf=aiInfo(t,ty,c);if(!inf.ok)return;
+    var score=byValue?V:V/inf.price;
+    if(!best||score>best.score)best={id:ty,V:V,price:inf.price,score:score};
+  });
+  return best;
+}
+function aiPlan2(t,lvl,S2){
+  var tm=teams[t],a=tm.ai,co=tm.coins,E=aiEcon(t,lvl,S2),smart=lvl==="sulit",opts=[],emergency=false,anyShell=S2.live.some(function(c){return c.mag.length>0;});
+  function cand(id,c,R){var inf=aiInfo(t,id,c);if(!inf.ok)return;opts.push({id:id,c:c,R:R,price:inf.price});}
+  S2.dead.forEach(function(c){cand("r",c,60);});
+  S2.live.forEach(function(c){
+    var eff=c.hp+c.shield,cap=Math.round(c.max*.6),vhp=aiVHP(c,E),urg=aiUrgency(c,E);
+    if(eff<=S2.threat)emergency=true;
+    /* amunisi: tanpa peluru meriam tidak bisa menembak */
+    if(c.mag.length===0){var am=aiBestAmmo(t,c,S2,lvl,E,false);if(am){var base=am.score*(anyShell?1:AICFG.tempo);cand(am.id,c,base);}}
+    else if(c.mag.length===1&&co>=5){var am1=aiBestAmmo(t,c,S2,lvl,E,false);if(am1)cand(am1.id,c,am1.score*AICFG.topup);}
+    /* pertahanan */
+    var heal=Math.min(c.max-c.hp,Math.round(c.max*.5));
+    if(heal>0)cand("r",c,AICFG.reK*heal*vhp*urg/(1+Math.ceil(c.lv/2)));
+    if(lvl!=="mudah"&&(smart||c.hp<c.max*.7)){var sh=Math.max(0,cap-c.shield);if(sh>0)cand("s",c,AICFG.shK*sh*vhp*urg*.9/(2+Math.ceil(c.lv/2)));}
+    /* upgrade */
+    if(c.lv<10){var gd=LV[c.lv].dmg-LV[c.lv-1].dmg,gh=LV[c.lv].hp-LV[c.lv-1].hp,pr=UPC[c.lv-1];
+      cand("u",c,AICFG.upK*(gd*E.hit*E.N+gh*vhp)/pr*(S2.enTop>S2.myTop+1?1.1:1));}
+    /* es: bekukan ancaman yang siap menembak */
+    if(smart&&S2.rdyFoe&&c.mag.length<=1&&c.mag.indexOf("i")<0){var vi=aiDmg(S2.rdyFoe)*.8*(4/E.cyc)+aiDmg(c,"n")*E.hit*.5;cand("i",c,vi/3*1.1*AICFG.spice);}
+    if(smart&&co>=14&&c.mag.length>=3)cand("k",c,2);
+  });
+  if(S2.live.length&&tm.airCd<=0&&S2.foe.length&&lvl!=="mudah"){
+    var bl=Math.max.apply(null,S2.live.map(function(c){return c.lv;})),ev=6*LV[bl-1].dmg*.55*.42,own=0;
+    S2.live.forEach(function(c){own+=aiDmg(c,"n")*E.hit/E.cyc;});
+    var projHP=S2.enHP-own*AIRSTRIKE_DELAY*.5,fin=projHP>0&&projHP<=ev*1.05;
+    cand("a",S2.live[0],(fin?ev*4:ev)/10*AICFG.spice);
+  }
+  /* investasi hanya bila tidak ada pembelian yang lebih bernilai dan waktu cukup panjang */
+  if(lvl!=="mudah"&&!tm.inv&&S2.live.length&&!S2.dead.length&&!emergency){
+    var ip=invPrice(),Hl=S2.unl?300:S2.left,timeOk=S2.unl||S2.left>aiAvgAns(a)*12+20;
+    var best=0;opts.forEach(function(o){if(o.R>best)best=o.R;});
+    var Einv=10*a.cfg.acc*1.25,ratio=(.9+Einv/ip)*(1-60/Math.max(70,Hl));
+    if(timeOk&&co>=ip+2&&ratio>=1&&(best<6||ratio*best>=best))cand("v",S2.live[0],Math.max(best*ratio*1.03*AICFG.spice,1));
+  }
+  return {opts:opts,E:E};
 }
 function aiShop(tm,t,lvl){
-  var a=tm.ai,mine=cannons.filter(function(c){return c.team===t;}),live=mine.filter(function(c){return !c.dead;});
-  if(!live.length)return;
-  var dead=mine.filter(function(c){return c.dead;})[0];
-  var empty=live.filter(function(c){return c.mag.length===0;})[0];
-  var strong=live.slice().sort(function(x,y){return y.lv-x.lv||y.hp-x.hp;})[0];
-  var enemyTop=Math.max.apply(null,cannons.filter(function(c){return c.team!==t&&!c.dead;}).map(function(c){return c.lv;}).concat([1]));
-  var hurtC=live.filter(function(c){return c.hp<c.max*.5;})[0];
-  var low=live.filter(function(x){return x.mag.length<2;})[0],r=Math.random();
-  function invest(attackMin,attackMax){
-    var u=aiInfo(t,"u",strong);
-    if(!u.ok){a.phase="attack";a.phaseT=rnd(attackMin,attackMax);return;}
-    if(aiBuy(t,"u",strong)){a.phase="attack";a.phaseT=rnd(attackMin,attackMax);}
+  if(lvl==="mudah"){aiShopEasy(tm,t);return;}
+  var S2=aiSit(t);if(!S2.live.length&&!S2.dead.length)return;
+  var pl=aiPlan2(t,lvl,S2),opts=pl.opts,co=tm.coins;
+  var aff=opts.filter(function(o){return o.price<=co;}).sort(function(x,y){return y.R-x.R||x.price-y.price;});
+  var all=opts.slice().sort(function(x,y){return y.R-x.R;});
+  var bestA=aff[0],bestAll=all[0];
+  if(lvl==="sedang"&&aff.length>1&&Math.random()<.25)bestA=aff[1];
+  /* sengaja menunggu bila ada pembelian yang jauh lebih bernilai dan hampir terjangkau */
+  if(bestAll&&bestAll!==bestA&&bestAll.price>co&&(!bestA||bestAll.R>bestA.R*AICFG.waitK)){
+    var wait=(bestAll.price-co)/Math.max(.05,pl.E.inc);
+    if(wait<(lvl==="sulit"?AICFG.waitMax:10))return;
   }
-  if(lvl==="mudah"){
-    if(empty&&aiBuy(t,"n",empty))return;
-    if(hurtC&&r<.5&&aiBuy(t,"r",hurtC))return;
-    var c=live[Math.floor(Math.random()*live.length)],u=aiInfo(t,"u",c);
-    if(r<.4&&u.ok&&tm.coins>=u.price+2&&aiBuy(t,"u",c))return;
-    if(low&&r<.7)aiBuy(t,"n",low);
-    return;
+  if(bestA&&bestA.R>=.8){aiBuy(t,bestA.id,bestA.c);return;}
+  /* koin menumpuk: beli peluru dengan damage terbesar per tembakan */
+  if(co>=8){
+    var top=null;S2.live.forEach(function(c){if(c.mag.length<c.lv+2){var am=aiBestAmmo(t,c,S2,lvl,pl.E,true);if(am&&(!top||am.V>top.V))top={id:am.id,c:c,V:am.V};}});
+    if(top)aiBuy(t,top.id,top.c);
   }
-  var S2=aiSit(t),smart=lvl==="sulit";
-  /* bangun ulang meriam yang hancur (murah) agar tidak kalah jumlah */
-  if(dead&&aiBuy(t,"r",dead))return;
-  /* darurat: meriam yang bisa hancur oleh satu rentetan lawan */
-  var risk=live.filter(function(x){return x.hp+x.shield<=S2.threat*1.1;}).sort(function(x,y){return y.lv-x.lv;})[0];
-  if(risk&&(smart||r<.6)){
-    if(risk.hp<risk.max*.7&&aiBuy(t,"r",risk))return;
-    if(risk.shield===0&&aiBuy(t,"s",risk))return;
-    if(risk.hp<risk.max&&aiBuy(t,"r",risk))return;
-  }
-  /* lawan tinggal satu dan lemah: semua koin untuk serangan */
-  var allIn=S2.foe.length===1&&S2.enHP<=aiDmg(strong,"b")*2.2;
-  /* akhir waktu: unggul -> bertahan, tertinggal -> serang */
-  if(S2.timeLow&&S2.lead){
-    var h2=live.filter(function(x){return x.hp<x.max;}).sort(function(x,y){return x.hp/x.max-y.hp/y.max;})[0];
-    if(h2&&aiBuy(t,"r",h2))return;
-    var s2=live.filter(function(x){return x.shield===0;})[0];
-    if(s2&&aiBuy(t,"s",s2))return;
-  }
-  if(lvl==="sedang"){
-    if(hurtC&&aiBuy(t,"r",hurtC))return;
-    var weak=live.filter(function(x){return x.hp<x.max*.65&&x.shield===0;})[0];
-    if(weak&&r<.5&&aiBuy(t,"s",weak))return;
-    if(a.phase==="invest"&&!S2.timeLow){invest(35,50);return;}
-    if(empty&&aiBuy(t,"n",empty))return;
-    if(r<.3&&aiBuy(t,"b",strong))return;
-    if(low)aiBuy(t,"n",low);
-    return;
-  }
-  /* sulit */
-  var thr=live.filter(function(x){return x.shield===0&&(x.hp<x.max*.75||enemyTop>x.lv);})[0];
-  if(!allIn&&thr&&tm.coins>=4&&aiBuy(t,"s",thr))return;
-  if(hurtC&&aiBuy(t,"r",hurtC))return;
-  if(a.phase==="invest"&&!S2.timeLow&&!allIn&&S2.threat<aiDmg(strong,"n")*3){invest(20,30);return;}
-  if(strong.mag.length<1&&aiBuy(t,"n",strong))return;
-  if(empty&&aiBuy(t,"n",empty))return;
-  if(tm.coins>=13||(allIn&&tm.coins>=10)){if(aiBuy(t,"a",strong))return;}
-  /* peluru Es membekukan ancaman terkuat yang siap menembak */
-  var rdy=S2.foe.filter(function(f){return f.mag.length>0&&f.freeze<=0&&f.shield===0;}).sort(function(x,y){return y.lv-x.lv;})[0];
-  if(tm.coins>=4&&rdy&&rdy.lv>=strong.lv&&strong.mag.indexOf("i")<0&&aiBuy(t,"i",strong))return;
-  /* peluru Besar jika dua lawan berdekatan atau lawan berperisai */
-  var cluster=S2.foe.length>1&&Math.abs(S2.foe[0].x-S2.foe[1].x)<LV[strong.lv-1].rad*1.8;
-  if(tm.coins>=4&&(cluster||S2.foe.some(function(f){return f.shield>0;}))&&aiBuy(t,"b",strong))return;
-  if(tm.coins>=6&&aiBuy(t,"b",strong))return;
-  if(tm.coins>=8&&strong.mag.length>=3&&aiBuy(t,"k",strong))return;
-  if(low)aiBuy(t,"n",low);
 }
 function aiUpdate(dt){
-  var t=1,tm=teams[t];
-  if(!tm||!tm.ai||ending>0||state!=="playing")return;
-  var a=tm.ai,cfg=a.cfg;
-  a.ans-=dt;
-  if(a.ans<=0){
-    if(Math.random()<cfg.acc){
-      tm.coins++;tm.st.c++;tm.st.earned++;
-      aiLog(tm,tt("ai.ok"),"ok");a.mood="cool";
-      tm.streak=(tm.streak||0)+1;if(tm.streak>tm.st.best)tm.st.best=tm.streak;
-      if(tm.streak%3===0){tm.coins++;tm.st.earned++;aiLog(tm,tt("ai.combo",tm.streak),"ok");}
-      coinFx(t,document.getElementById("aiAv"));
-    }else{tm.st.w++;tm.streak=0;aiLog(tm,tt("ai.bad"),"bad");a.mood="dizzy";}
-    a.moodT=1.3;aiNewAns(tm);
-  }
-  a.moodT-=dt;if(a.moodT<=0)a.mood="bot";
-  if(a.lvl!=="mudah"){
-    a.phaseT-=dt;
-    if(a.phaseT<=0){
-      if(a.phase==="attack"){a.phase="invest";a.phaseT=a.lvl==="sulit"?28:24;}
-      else{a.phase="attack";a.phaseT=a.lvl==="sulit"?rnd(18,26):rnd(30,42);}
+  if(ending>0||state!=="playing")return;
+  [0,1].forEach(function(t){
+    var tm=teams[t];if(!tm||!tm.ai)return;
+    var a=tm.ai,cfg=a.cfg;
+    a.wt-=dt;if(a.wt<=0){a.wt=.1;a.wh.push({t:tNow,w:wind});if(a.wh.length>6)a.wh.shift();}
+    a.ans-=dt;
+    if(a.ans<=0){
+      if(Math.random()<cfg.acc){
+        tm.st.c++;var g=gain(tm,1);
+        aiLog(tm,tt("ai.ok"),"ok");a.mood="cool";
+        tm.streak=(tm.streak||0)+1;if(tm.streak>tm.st.best)tm.st.best=tm.streak;
+        if(tm.streak%3===0){g+=gain(tm,1);aiLog(tm,tt("ai.combo",tm.streak),"ok");}
+        coinFx(t,document.getElementById("aiAv"+t),g);
+      }else{tm.st.w++;tm.streak=0;aiLog(tm,tt("ai.bad"),"bad");a.mood="dizzy";}
+      if(tm.inv){tm.inv.left--;if(tm.inv.left<=0){var back=Math.round(tm.inv.cap*.9);tm.coins+=back;tm.inv=null;aiLog(tm,tt("ai.invend",back),"ok");}}
+      a.moodT=1.3;aiNewAns(tm);
     }
-  }
-  a.shopT-=dt;if(a.shopT<=0){a.shopT=rnd(.7,1.3)*cfg.shop;aiShop(tm,t,a.lvl);}
-  cannons.forEach(function(c){if(c.team===t&&!c.dead)aiCombat(c,dt,cfg,a.lvl,tm);});
+    a.moodT-=dt;if(a.moodT<=0)a.mood="bot";
+    a.shopT-=dt;if(a.shopT<=0){a.shopT=rnd(.7,1.3)*cfg.shop;aiShop(tm,t,a.lvl);}
+    cannons.forEach(function(c){if(c.team===t&&!c.dead)aiCombat(c,dt,cfg,a.lvl,tm);});
+  });
 }
-function syncAI(tm){
-  var a=tm.ai,bar=document.getElementById("aiBarI");
+function syncAI(tm,t){
+  var a=tm.ai,bar=document.getElementById("aiBarI"+t);
   if(bar)bar.style.width=Math.max(0,Math.min(100,100*(1-a.ans/a.total))).toFixed(0)+"%";
-  htm("aiAv",I(a.mood==="cool"?"botcool":a.mood==="dizzy"?"botdizzy":"bot"));
-  txt("aiSt",a.moodT>0?(a.mood==="cool"?tt("ai.st.ok"):tt("ai.st.bad")):tt("ai.st.work"));
-  if(hc.aiMood!==a.mood){hc.aiMood=a.mood;var av=document.getElementById("aiAv");if(av){av.classList.remove("hop");void av.offsetWidth;av.classList.add("hop");}}
-  if(hc.aiLog!==a.logKey){hc.aiLog=a.logKey;var le=document.getElementById("aiLog");
+  htm("aiAv"+t,I(a.mood==="cool"?"botcool":a.mood==="dizzy"?"botdizzy":"bot"));
+  txt("aiSt"+t,a.moodT>0?(a.mood==="cool"?tt("ai.st.ok"):tt("ai.st.bad")):tt("ai.st.work"));
+  if(hc["aiMood"+t]!==a.mood){hc["aiMood"+t]=a.mood;var av=document.getElementById("aiAv"+t);if(av){av.classList.remove("hop");void av.offsetWidth;av.classList.add("hop");}}
+  if(hc["aiLog"+t]!==a.logKey){hc["aiLog"+t]=a.logKey;var le=document.getElementById("aiLog"+t);
     if(le)le.innerHTML=a.log.map(function(e){return '<div class="'+e.c+'">'+tok(esc(e.t))+'</div>';}).join("");}
 }
-
 var holds=new Map();
 function update(dt){
   tNow+=dt;updateWind(dt);
@@ -2068,11 +2300,12 @@ function update(dt){
     while(rem>0&&!p.dead){
       var h=Math.min(rem,1/120);rem-=h;
       p.vy+=GRAV*h;if(!p.air)p.vx+=WA*h;p.x+=p.vx*h;p.y+=p.vy*h;p.age+=h;
+      if(p.type==="c"&&!p.frag&&p.vy>=0){splitCluster(p);break;}
       if(p.x<-60||p.x>W+60||p.y>H+80){p.dead=true;break;}
       for(var i=0;i<cannons.length;i++){
         var c=cannons[i];
         if(c.dead||(c===p.from&&p.age<.4))continue;
-        if(Math.hypot(p.x-c.x,p.y-(c.gy-28*c.sc))<46*c.sc){explode(p.x,p.y,false,p);p.dead=true;break;}
+        if(Math.hypot(p.x-c.x,p.y-(c.gy-28*c.sc))<46*c.sc){p.hitC=c;explode(p.x,p.y,false,p);p.dead=true;break;}
       }
       if(p.dead)break;
       var g=gy(p.x);
@@ -2211,7 +2444,7 @@ function drawBall(g,x,y,r,type){
   g.save();
   g.beginPath();g.arc(x,y,r+1.6,0,7);g.fillStyle="rgba(255,255,255,.55)";g.fill();
   g.beginPath();g.arc(x,y,r,0,7);g.fillStyle=gr;g.fill();
-  if(type==="b"||type==="t"||type==="i"){
+  if(type==="b"||type==="t"||type==="i"||type==="c"){
     g.save();g.beginPath();g.arc(x,y,r,0,7);g.clip();g.strokeStyle=MAGCOL[type];g.lineWidth=r*.34;
     g.beginPath();g.ellipse(x,y+r*.18,r*1.05,r*.32,-.28,0,Math.PI);g.stroke();g.restore();
   }
@@ -2219,6 +2452,23 @@ function drawBall(g,x,y,r,type){
   g.beginPath();g.arc(x-r*.5,y-r*.55,r*.09,0,7);g.fillStyle="rgba(255,255,255,.95)";g.fill();
   g.beginPath();g.arc(x,y,r,0,7);g.lineWidth=1.4;g.strokeStyle="rgba(0,0,0,.8)";g.stroke();
   g.restore();
+}
+function drawDragUI(c){
+  var d=teams[c.team].dir,sc=c.sc,px=c.x,py=c.gy-30*c.sc;
+  if(c.dragging&&!c.dead){
+    var ra=96*sc,dg=Math.PI/180,sa=d>0?-MAXA*dg:Math.PI+MINA*dg,ea=d>0?-MINA*dg:Math.PI+MAXA*dg,cur=c.angle*dg,ux=d*Math.cos(cur),uy=-Math.sin(cur),k;
+    ctx.save();ctx.lineCap="round";
+    ctx.beginPath();ctx.moveTo(px,py);ctx.arc(px,py,ra,sa,ea,false);ctx.closePath();ctx.fillStyle="rgba(255,255,255,.2)";ctx.fill();
+    ctx.lineWidth=7;ctx.strokeStyle="rgba(13,19,48,.5)";ctx.beginPath();ctx.arc(px,py,ra,sa,ea,false);ctx.stroke();ctx.lineWidth=3;ctx.strokeStyle="rgba(255,255,255,.9)";ctx.beginPath();ctx.arc(px,py,ra,sa,ea,false);ctx.stroke();
+    for(k=MINA;k<=MAXA;k+=10){var kx=d*Math.cos(k*dg),ky=-Math.sin(k*dg);ctx.lineWidth=k%30===0?3:1.8;ctx.strokeStyle="rgba(255,255,255,.7)";ctx.beginPath();ctx.moveTo(px+kx*(ra-9),py+ky*(ra-9));ctx.lineTo(px+kx*ra,py+ky*ra);ctx.stroke();}
+    ctx.lineWidth=4;ctx.strokeStyle="#ffd166";ctx.beginPath();ctx.moveTo(px+ux*30*sc,py+uy*30*sc);ctx.lineTo(px+ux*ra,py+uy*ra);ctx.stroke();
+    ctx.fillStyle="#ffd166";ctx.beginPath();ctx.arc(px+ux*ra,py+uy*ra,7,0,7);ctx.fill();
+    ctx.font="900 26px system-ui,sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";
+    var lx=px+ux*(ra+34),ly=py+uy*(ra+34),lab=Math.round(c.angle)+"°",lw=ctx.measureText(lab).width+22;
+    ctx.fillStyle="rgba(13,19,48,.92)";rrect(ctx,lx-lw/2,ly-19,lw,38,19);ctx.fill();ctx.lineWidth=2.5;ctx.strokeStyle="#ffd166";ctx.stroke();
+    ctx.fillStyle="#fff";ctx.fillText(lab,lx,ly+1);
+    ctx.restore();
+  }
 }
 function drawBar(c){
   var tm=teams[c.team],sc=c.sc,x=c.x,y=c.gy-128*sc-26,w=132,h=20,L=LV[c.lv-1],ff=getComputedStyle(document.body).fontFamily;
@@ -2292,14 +2542,19 @@ function drawProj(p){
     ctx.strokeStyle="rgba(255,90,70,.95)";ctx.lineWidth=4;ctx.beginPath();ctx.ellipse(p.tx,gyy,26*pu,9*pu,0,0,7);ctx.stroke();
     ctx.beginPath();ctx.moveTo(p.tx-16,gyy);ctx.lineTo(p.tx+16,gyy);ctx.stroke();return;
   }
+  if(p.frag){
+    p.trail.forEach(function(q,i){ctx.fillStyle="rgba(255,190,110,"+(i/p.trail.length*.5)+")";ctx.beginPath();ctx.arc(q.x,q.y,.8+i/p.trail.length*2,0,7);ctx.fill();});
+    ctx.save();ctx.shadowColor="rgb(255,170,80)";ctx.shadowBlur=7;ctx.fillStyle="#2a2d38";ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill();ctx.restore();
+    ctx.fillStyle="rgba(255,255,255,.7)";ctx.beginPath();ctx.arc(p.x-p.r*.3,p.y-p.r*.3,p.r*.35,0,7);ctx.fill();return;
+  }
   var lv=p.lv||1,sk=p.type!=="i"&&p.type!=="a",fire=lv>=7&&sk,fc=fire?FIREC[Math.min(lv,10)]:null;
-  var tc=p.type==="i"?"200,240,255":p.type==="b"?"255,170,80":p.type==="a"?"255,110,90":"255,255,255";
+  var tc=p.type==="i"?"200,240,255":p.type==="b"?"255,170,80":p.type==="a"?"255,110,90":p.type==="c"?"170,235,110":"255,255,255";
   if(fire)tc=h2r(fc[0]);else if(lv>=3&&sk&&p.type!=="b")tc=h2r(LVSTY[lv-1][0]);
   p.trail.forEach(function(q,i){
     ctx.fillStyle="rgba("+tc+","+(i/p.trail.length*.55)+")";
     ctx.beginPath();ctx.arc(q.x,q.y,2+i/p.trail.length*p.r*.6,0,7);ctx.fill();
   });
-  var body=p.type==="i"?"#7fdcff":p.type==="b"?"#7a1d0a":p.type==="a"?"#8a1c1c":p.type==="t"?"#7a2a8a":"#20232f";
+  var body=p.type==="i"?"#7fdcff":p.type==="b"?"#7a1d0a":p.type==="a"?"#8a1c1c":p.type==="t"?"#7a2a8a":p.type==="c"?"#1d3a22":"#20232f";
   if(fire){
     var sp=Math.hypot(p.vx,p.vy)||1,ux=p.vx/sp,uy=p.vy/sp,len=p.r*(3.4+.6*Math.sin(tNow*30+p.x)),nx=-uy,ny=ux,hx=p.x-ux*len,hy=p.y-uy*len;
     ctx.save();ctx.globalCompositeOperation="lighter";
@@ -2363,7 +2618,7 @@ function render(){
     ctx.fillStyle=g;ctx.beginPath();ctx.arc(f.x,f.y,r,0,7);ctx.fill();
   });
   drawAmbient();
-  cannons.forEach(drawBar);cannons.forEach(drawGauge);
+  cannons.forEach(drawBar);cannons.forEach(drawGauge);cannons.forEach(drawDragUI);
   ctx.textAlign="center";ctx.textBaseline="middle";
   floats.forEach(function(f){
     var a=clamp(f.life/f.max*1.6,0,1);
@@ -2391,7 +2646,7 @@ function syncShop(t){
     if(hc[k]!==key){
       hc[k]=key;var el=document.getElementById(k);if(!el)return;
       el.className="item"+(info.ok?"":" off")+(poor&&info.ok?" poor":"");
-      el.querySelector("b").textContent=info.name;el.querySelector("small").textContent=info.sub;el.title=info.name+": "+info.sub+(id==="s"?tt("shop.s.title"):"");
+      el.querySelector("b").textContent=info.name;el.querySelector("small").textContent=info.sub;el.title=info.name+": "+info.sub+(id==="s"?tt("shop.s.title"):id==="v"?tt("shop.v.title"):"");
       el.querySelector(".pr").innerHTML=info.noPrice?"":'<i class="coin sm"></i>'+info.price;
     }
   });
@@ -2429,10 +2684,11 @@ function syncHUD(){
   });
   teams.forEach(function(tm,t){
     txt("co"+t,String(tm.coins));
+    var ivb=document.getElementById("iv"+t);if(ivb){var ivt=tm.inv?"x2 · "+tm.inv.left:"";if(hc["iv"+t]!==ivt){hc["iv"+t]=ivt;ivb.textContent=ivt;ivb.hidden=!tm.inv;}}
     htm("ps"+t,'<i class="coin sm"></i>'+tm.coins+'&nbsp;&nbsp;'+I("heart")+' '+totalHP(t));
     htm("pn"+t,(tm.ai?I("bot")+" ":"")+esc(tm.name));
     htm("tabS"+t,I("cart")+" "+tt("tab.shopm",tm.sel+1));
-    if(tm.ai)syncAI(tm);else syncShop(t);
+    if(tm.ai)syncAI(tm,t);else syncShop(t);
     var msg=tm.fb.txt;
     if(hc["fbm"+t]!==msg){hc["fbm"+t]=msg;var fe=document.getElementById("fb"+t);if(fe){fe.innerHTML=msg;fe.className="fb "+tm.fb.cls;}}
   });
@@ -2448,8 +2704,10 @@ var last=0;
 var rdt=.016;
 function frame(ts){
   var dt=Math.min(.033,(ts-last)/1000||.016);last=ts;rdt=dt;
-  if(state==="playing"){update(dt);
-    if(curT.cyc){dayT+=dt;dayAcc+=dt;liveT=cycleTOD(dayT/DAYLEN);if(dayAcc>3){dayAcc=0;curT=liveT;MUL=curT.mul;buildBG();}}}
+  if(state==="playing"){
+    var sn=(teams[0]&&teams[0].ai&&teams[1]&&teams[1].ai)?simSpeed:1;
+    for(var si=0;si<sn&&state==="playing";si++)update(dt);
+    if(curT.cyc){dayT+=dt*sn;dayAcc+=dt*sn;liveT=cycleTOD(dayT/DAYLEN);if(dayAcc>3){dayAcc=0;curT=liveT;MUL=curT.mul;buildBG();}}}
   if(state!=="paused")updateAmbient(dt);
   if(state!=="playing"&&state!=="paused")updateWind(dt);
   if(state!=="playing"&&state!=="paused")tNow+=dt;
@@ -2501,6 +2759,41 @@ function endCharge(e,shoot){
 }
 stage.addEventListener("pointerup",function(e){endCharge(e,true);});
 stage.addEventListener("pointercancel",function(e){endCharge(e,false);});
+/* tekan dan seret meriam untuk mengatur sudut bidik langsung */
+var drags=new Map();
+function stagePt(e){var r=stage.getBoundingClientRect(),k=r.width/W;return {x:(e.clientX-r.left)/k,y:(e.clientY-r.top)/k};}
+function cannonAt(p){
+  var best=null,bd=1e9;
+  cannons.forEach(function(c){
+    if(c.dead||teams[c.team].ai)return;
+    var d=teams[c.team].dir,a=c.angle*Math.PI/180,len=86*c.sc,px=c.x,py=c.gy-30*c.sc,
+        vx=d*Math.cos(a)*len,vy=-Math.sin(a)*len,wx=p.x-px,wy=p.y-py,
+        t=clamp((wx*vx+wy*vy)/(vx*vx+vy*vy),0,1),dist=Math.hypot(wx-vx*t,wy-vy*t),body=Math.hypot(wx,wy-12*c.sc)*.8,
+        dd=Math.min(dist,body),r=Math.max(32,28*c.sc);
+    if(dd<=r&&dd<bd){bd=dd;best=c;}
+  });
+  return best;
+}
+function dragAngle(c,p){
+  var d=teams[c.team].dir,a=Math.atan2(-(p.y-(c.gy-30*c.sc)),d*(p.x-c.x))*180/Math.PI;
+  c.angle=clamp(Math.round(a*10)/10,MINA,MAXA);c.aimFlash=2.2;
+}
+stage.addEventListener("pointerdown",function(e){
+  if(state!=="playing"||ending>0||(e.target!==stage&&e.target.id!=="fx"))return;
+  var c=cannonAt(stagePt(e));if(!c)return;
+  e.preventDefault();try{stage.setPointerCapture(e.pointerId);}catch(err){}
+  drags.set(e.pointerId,c.i);c.dragging=true;selectCannon(c.i);dragAngle(c,stagePt(e));stage.style.cursor="grabbing";
+});
+stage.addEventListener("pointermove",function(e){
+  if(drags.has(e.pointerId)){var c=cannons[drags.get(e.pointerId)];if(c&&!c.dead)dragAngle(c,stagePt(e));return;}
+  if(e.pointerType==="mouse"&&state==="playing"&&(e.target===stage||e.target.id==="fx"))stage.style.cursor=cannonAt(stagePt(e))?"grab":"";
+});
+function stopDrag(e){
+  if(!drags.has(e.pointerId))return;
+  var c=cannons[drags.get(e.pointerId)];drags.delete(e.pointerId);if(c)c.dragging=false;
+  stage.style.cursor="";
+}
+stage.addEventListener("pointerup",stopDrag);stage.addEventListener("pointercancel",stopDrag);
 stage.addEventListener("contextmenu",function(e){e.preventDefault();});
 
 /* =====================================================================
@@ -2546,8 +2839,9 @@ stage.addEventListener("click",function(e){
 });
 document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSw();});
 
+function syncModeMenu(){var m=document.getElementById("inMode").value,h=m!=="aiai";document.getElementById("lblAI0").hidden=h;document.getElementById("lblAI1").hidden=h;}
 function readMenu(){
-  S.n0=$("#inN0").value;S.n1=$("#inN1").value;S.mode=$("#inMode").value;S.wind=$("#inWind").value;
+  S.n0=$("#inN0").value;S.n1=$("#inN1").value;S.mode=$("#inMode").value;S.ai0=$("#inAI0").value;S.ai1=$("#inAI1").value;S.wind=$("#inWind").value;
   S.dur=+$("#inDur").value;S.price=$("#inPrice").value;S.arena=$("#inArena").value;S.tod=$("#inTod").value;
   S.cat=$("#inCat").value;S.assist=$("#inAssist").value;S.src=$("#inSrc").value;S.sound=$("#inSound").checked;S.lang=LANG;
   saveS();
@@ -2557,7 +2851,7 @@ function syncTodEnabled(){
   $("#inTod").disabled=!!fixed;
 }
 function fillMenu(){
-  $("#inN0").value=S.n0;$("#inN1").value=S.n1;$("#inMode").value=S.mode||"pvp";$("#inWind").value=S.wind||"normal";$("#inDur").value=String(S.dur);$("#inPrice").value=S.price;
+  $("#inN0").value=S.n0;$("#inN1").value=S.n1;$("#inMode").value=S.mode||"pvp";$("#inAI0").value=S.ai0||"sedang";$("#inAI1").value=S.ai1||"sedang";syncModeMenu();$("#inWind").value=S.wind||"normal";$("#inDur").value=String(S.dur);$("#inPrice").value=S.price;
   $("#inArena").value=S.arena;$("#inTod").value=S.tod;$("#inCat").value=S.cat;$("#inAssist").value=S.assist;
   $("#inSrc").value=S.src;$("#inSound").checked=!!S.sound;
   $("#inLang").value=LANG;applyLang();
@@ -2592,6 +2886,8 @@ function themeChanged(){
 }
 
 $("#btnStart").onclick=startGame;
+$("#inMode").addEventListener("change",syncModeMenu);
+$("#btnSpeed").onclick=function(){simSpeed=simSpeed>=4?1:simSpeed*2;$("#btnSpeed").textContent="x"+simSpeed;};
 $("#btnPause").onclick=function(){if(state==="playing")setPause(true);else if(state==="paused")setPause(false);};
 $("#btnResume").onclick=function(){setPause(false);};
 $("#btnRestart").onclick=function(){hideOv("ovPause");state="menu";startGame();};
@@ -2639,6 +2935,10 @@ $("#inLang").addEventListener("change",function(){
 fillMenu();buildSwatches();
 fit();setTheme(false);newGame();
 requestAnimationFrame(frame);
+/* memuat audio eksternal di awal; tombol mulai menunggu sampai selesai (maksimal AUDIO_TIMEOUT) */
+(function(){var bs=document.getElementById("btnStart");if(bs)bs.disabled=true;updateAudioStatus();
+  loadAudioFiles(function(){if(bs)bs.disabled=false;updateAudioStatus();
+    if(window.console&&console.info)console.info("[Audio] "+audioState.found+"/"+audioState.total+" berkas eksternal dimuat"+(audioState.names.length?": "+audioState.names.join(", "):""));});})();
 })();
 </script>
 </body>
